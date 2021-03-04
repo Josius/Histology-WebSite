@@ -1,0 +1,174 @@
+$mainblue: #1094ab;
+$secondblue: #64c4d2;
+$USPyellow: #fcb421;
+$headerHeight: 100px;
+$menuHeight: 50px;
+$footerHeight: 20px;
+
+// Start to watch Sass
+
+* {
+  margin: 0px;
+  padding: 0px;
+  grid-gap: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  text-decoration: underline;
+  color: gray
+}
+body {
+  background-color: #d3e1ed;
+  font-family: montserrat, arial, sans-serif;
+  min-height: 20rem;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: 
+  " header"
+  "menu-line";
+}
+
+.item-a {
+  display: grid;
+  grid-area: header;
+  color: white;
+  background-color: $secondblue;
+  padding: .5rem;
+  justify-content: center;
+  justify-items: center;
+  img {
+    height: 50px;
+    width: auto;
+  }
+}
+
+.item-b {
+  grid-area: menu-line;
+  color: white;
+  background-color: $mainblue;
+  border-top-color: #fcb421;
+  border-top-width: 4px;
+  border-top-style: solid;
+  display: grid;
+  grid-template-areas: 
+  ". menua menub menuc menud .";
+  justify-content: center;
+  position: sticky; top: 0px;
+
+  %menuh {
+    a {
+      padding: 1rem;
+      display: block;
+      justify-items: stretch;
+      text-decoration: none;
+
+      &.active {
+        background-color: $USPyellow;
+        font-weight: bold;
+        padding-left: 0.99rem;
+        padding-right: 0.99rem;
+      }
+      &:hover {
+        background-color: #e3e3e3;
+        color: black;
+      }
+    }
+  }
+  
+  .item-b1 {
+    @extend %menuh;
+    grid-area: menua;
+  }
+  .item-b2 {
+    @extend %menuh;
+    grid-area: menub;
+  }
+  .item-b3 {
+    @extend %menuh;
+    grid-area: menuc;
+  }
+  .item-b4 {
+    @extend %menuh;
+    grid-area: menud;
+  }
+  
+}
+
+.item-c {
+  background-color: #ededed;
+  text-align: center;
+  width: 75%;
+  justify-self: center;
+  padding: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  letter-spacing: 0.1rem;
+  line-height: 200%;
+  p {
+    text-align: justify;
+    padding: 1rem;
+  }
+
+  .menuim {
+    width: 15rem;
+    height: auto;
+    align-self: center;
+    margin: 2rem;
+  }
+
+  h3 {
+    margin: 1rem;
+    align-self: center;
+  }
+  h4 {
+    text-align: justify;
+    margin-left: 1rem;
+    margin-top: 1rem;
+  }
+
+  li {
+    margin-left: 2rem;
+    padding-left: 1rem;
+    text-align: justify;
+    line-height: 300%;
+  }
+/* Create two equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 50%;
+    padding: 1rem;
+    padding-bottom: 0px;
+    text-align: right;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.item-d{
+  width: 100%;
+  color: white;
+  background-color: $mainblue;
+  height: $footerHeight;
+  text-align: center;
+  position: sticky; bottom: 0px;
+}
+
+input{
+    padding: 0.6rem;
+    margin-top: 1rem;
+    border: 1px solid #dfe1e5;
+    border-radius: 12px;
+}

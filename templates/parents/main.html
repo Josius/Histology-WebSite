@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<head>
+    <title>{{page_name}}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css')}}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="item-a">
+            <img src="{{ url_for('static', filename='images/LogoUSP.png')}}" alt="Logo USP">
+        </div>
+        <div class="item-b">
+            <div class="item-b1"><a {% if page_name == "Home" %} class="active"{% endif %} href='./'>Home</a></div>
+            <div class="item-b2"><a {% if page_name == "Navegar" %} class="active"{% endif %} href='./browse'>Navegar</a></div>
+            <div class="item-b3"><a {% if page_name == "Contribua" %} class="active"{% endif %}href='./contribute'>Contribua</a></div>
+            <div class="item-b4"><a {% if page_name == "Ajuda" %} class="active"{% endif %}href='./help'>Ajuda</a></div>
+        </div>
+        <div class="item-c">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+    <div class="item-d">USP {{ current_year }}  |  Versão {{ version }}</div>
+</body>

@@ -1,0 +1,16 @@
+{% extends './parents/main.html' %}
+
+{% block content %}
+
+<form action="{{ url_for('help') }}" method="POST">
+    {{ help_form.csrf_token }}
+    {{ help_form.text.label }}<br>
+    {{ help_form.text }}<br>
+    {{ help_form.full_name.label }}
+    {{ help_form.full_name }}
+    {{ help_form.email.label }}
+    {{ help_form.email }}<br>
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock %}
