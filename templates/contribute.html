@@ -4,7 +4,7 @@
 <div class="column">
     <h3>Login</h3>
     <p><ol>
-        <form action="{{ url_for('dashboard') }}" method="POST">
+        <form action="{{ url_for('login') }}" method="POST">
             {{ login_form.csrf_token }}
             {{ login_form.email.label }}
             {{ login_form.email }}<br>
@@ -13,11 +13,12 @@
             <input type="submit" value="Acessar">
         </form>
     </ol></p>
+    <div id="forgotten">Esqueci minha senha</div>
 </div>
 <div class="column">
     <h3>Cadastre-se</h3>
     <p><ol>
-        <form action="{{ url_for('dashboard') }}" method="POST">
+        <form action="{{ url_for('signup') }}" method="POST">
             {{ sign_up_form.csrf_token }}
             {{ sign_up_form.name.label }}
             {{ sign_up_form.name }}<br>
@@ -33,4 +34,5 @@
         </form>
     </ol></p>
 </div>
+<p>ATENÇÃO: a plataforma está em estágios iniciais de desenvolvimento, recomenda-se utilizar senhas diferentes das de costume</p>
 {% endblock %}

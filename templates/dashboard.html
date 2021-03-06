@@ -1,0 +1,55 @@
+{% extends './parents/main.html' %}
+
+{% block content %}
+<h2> Olá, {{ user.__dict__['first_name'] }}! </h2>
+<div class="column">
+    <h3>Dados de sua conta:</h3>
+    <div class="dashboard_menu">
+        <div class="column">
+            <form action="{{ url_for('dashboard') }}" method="POST">
+                <input type="submit" name="edit_user_data" value="Editar Informações">
+            </form>
+        </div>
+        <div class="column">
+            <form action="{{ url_for('dashboard') }}" method="POST">
+               <input type="submit" name="logoff" value="Logoff">
+            </form><br>
+        </div>
+    </div>
+    {% if not edit_mode %}
+
+        {% set user_data = display_constructor(values=user.__dict__) %}
+        <form action="{{ url_for('dashboard') }}">
+            {{ user_data.csrf_token }}
+            {{ user_data.first_name.label }}
+            {{ user_data.first_name }}<br>
+            {{ user_data.surname.label }}
+            {{ user_data.surname }}<br>
+            {{ user_data.birth_date.label }}
+            {{ user_data.birth_date }}<br>
+            {{ user_data.bio.label }}
+            {{ user_data.bio }}<br>
+        </form>
+    {% else %}
+
+        {% set user_data = display_constructor(values=user.__dict__, readonly=False) %}
+        <form action="{{ url_for('dashboard') }}" method="POST">
+            {{ user_data.csrf_token }}
+            {{ user_data.first_name.label }}
+            {{ user_data.first_name }}<br>
+            {{ user_data.surname.label }}
+            {{ user_data.surname }}<br>
+            {{ user_data.birth_date.label }}
+            {{ user_data.birth_date }}<br>
+            {{ user_data.bio.label }}
+            {{ user_data.bio }}<br>
+            <input type="submit" value="Atualizar" name="update">
+        </form>
+    {% endif %}
+</div>
+
+<div class="column">
+    <h3>Lâminas cadastradas:</h3>
+    <h4>vem aí!</h4>
+</div>
+{% endblock %}
