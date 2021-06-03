@@ -50,6 +50,32 @@
 
 <div class="column">
     <h3>Lâminas cadastradas:</h3>
-    <h4>vem aí!</h4>
+    {% if slides |length == 0 %}
+        Nenhuma lâmina cadastrada!
+    {% else %}
+        {% for slide in slides %}
+            {% set uploaded = slides[slide]['object'].uploaded_at.__str__() %}
+            <ol>Nome: {{ (slides[slide]['meta']['slide_title']) }} | enviada em: {{
+                uploaded[8:10] + '/' + uploaded[5:7] + '/' + uploaded[0:4]
+                }} </ol>
+        {% endfor %}
+    {% endif %}
+    {% if render_add_form %}
+        <form action="{{ url_for('dashboard') }}" method="POST" enctype="multipart/form-data">
+            {{ add_slide_form.csrf_token }}
+            {{ add_slide_form.name.label }}
+            {{ add_slide_form.name }}<br>
+            {{ add_slide_form.species.label }}
+            {{ add_slide_form.species }}<br>
+            {{ add_slide_form.scan_date.label }}
+            {{ add_slide_form.scan_date }}<br>
+            {{ add_slide_form.image_file }}
+            <input type="submit" value="Enviar" name="add_slide">
+        </form>
+    {% else %}
+        <form action="{{ url_for('dashboard') }}" method="POST">
+            <input type="submit" value="Adicionar" name="add_slide">
+        </form>
+    {% endif %}
 </div>
 {% endblock %}

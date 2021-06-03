@@ -3,7 +3,8 @@
 {% block content %}
 <div class="column">
     <h3>Login</h3>
-    <p><ol>
+    <br>
+    <ol>
         <form action="{{ url_for('login') }}" method="POST">
             {{ login_form.csrf_token }}
             {{ login_form.email.label }}
@@ -12,12 +13,13 @@
             {{ login_form.password }}<br>
             <input type="submit" value="Acessar">
         </form>
-    </ol></p>
+    </ol>
     <div id="forgotten">Esqueci minha senha</div>
 </div>
 <div class="column">
     <h3>Cadastre-se</h3>
-    <p><ol>
+    <p>
+    <ol>
         <form action="{{ url_for('signup') }}" method="POST">
             {{ sign_up_form.csrf_token }}
             {{ sign_up_form.name.label }}
@@ -32,7 +34,7 @@
             {{ sign_up_form.password2 }}<br>
             <input type="submit" value="Cadastrar">
         </form>
-    </ol></p>
+    </ol>
 </div>
 <p>ATENÇÃO: a plataforma está em estágios iniciais de desenvolvimento, recomenda-se utilizar senhas diferentes das de costume</p>
 {% endblock %}

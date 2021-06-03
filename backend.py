@@ -1,11 +1,15 @@
 from flask import Flask, render_template, session, redirect, url_for, request
 from configparser import SafeConfigParser
 from db import db_session
+from werkzeug.utils import secure_filename
 import models
 import datetime
 import forms
+import os
+import json
 
 backend = Flask(__name__)
+
 
 current_year = str(datetime.date.today())[0:4]
 
@@ -14,6 +18,7 @@ parser.read('conf.cfg')
 current_version = parser.get('version', 'current_version')
 backend.config['SECRET_KEY'] = parser.get('flask parameters', 'secret_key')
 backend.config['DEBUG MODE'] = parser.get('flask parameters', 'debug_mode')
+backend.config['UPLOAD_PATH'] = './slides'
 
 
 @backend.route('/')
@@ -95,26 +100,66 @@ def dashboard(edit_mode):
     page_name = 'Dashboard'
     if request.form.get('logoff') == 'Logoff':
         session['user_email'] = None
-    if session['user_email'] is None:
-        return redirect(url_for('contribute'))
-    else:
-        user = db_session.query(models.User).get(session['user_email'])
-        if request.form.get('edit_user_data') == 'Editar Informações':
-            edit_mode = True
-        if request.form.get('update') == 'Atualizar':
-            user.first_name = request.form.get('first_name')
-            user.surname = request.form.get('surname')
-            user.birth_date = request.form.get('birth_date')
-            user.bio = request.form.get('bio')
-            db_session.commit()
+    try:
+        if session['user_email'] is None:
+            return redirect(url_for('contribute'))
+        else:
             user = db_session.query(models.User).get(session['user_email'])
-        return render_template('dashboard.html', page_name=page_name, current_year=current_year,
-                               version=current_version, user=user, display_constructor=forms.UserData,
-                               edit_mode=edit_mode)
+            add_slide_form = forms.AddSlideForm()
+            if request.form.get('edit_user_data') == 'Editar Informações':
+                edit_mode = True
+            if request.form.get('update') == 'Atualizar':
+                user.first_name = request.form.get('first_name')
+                user.surname = request.form.get('surname')
+                user.birth_date = request.form.get('birth_date')
+                user.bio = request.form.get('bio')
+                db_session.commit()
+                user = db_session.query(models.User).get(session['user_email'])
+            if request.form.get('add_slide') == 'Adicionar':
+                render_add_form = True
+            else:
+                render_add_form = False
+            if request.form.get('add_slide') == 'Enviar':
+                if add_slide_form.validate_on_submit():
+                    add_slide_form = forms.AddSlideForm()
+                    render_add_form = False
+                    new_slide = models.Slide(user_id=user.email, species=add_slide_form.species.data,
+                                             scan_date=add_slide_form.scan_date.data)
+                    db_session.add(new_slide)
+                    db_session.commit()
+                    if not os.path.exists(f'./slides/{new_slide.id}'):
+                        os.mkdir(f'./slides/{new_slide.id}')
+                    file = add_slide_form.image_file.data
+                    print(file.__dict__)
+                    file.save(os.path.join(f'./slides/{new_slide.id}', secure_filename('a')))
+                    json_file = {'lang': 'pt-br', 'slide_title': add_slide_form.name.data}
+                    with open(f'./slides/{new_slide.id}/meta.json', 'w') as outfile:
+                        json.dump(json_file, outfile)
+                else:
+                    return add_slide_form.errors
+
+            slides = db_session.query(models.Slide).\
+                filter(models.Slide.user_id == session['user_email']).order_by(models.Slide.uploaded_at).all()
+            slides_dict = {}
+            for slide in slides:
+                with open(f'./slides/{slide.id}/meta.json') as meta:
+                    slides_dict[slide.id] = {'object': slide, 'meta': json.load(meta)}
+
+            return render_template('dashboard.html', page_name=page_name, current_year=current_year,
+                                   version=current_version, user=user, display_constructor=forms.UserData,
+                                   edit_mode=edit_mode, add_slide_form=add_slide_form, slides=slides_dict,
+                                   request=request, render_add_form=render_add_form, json=json)
+    except KeyError:
+        return redirect(url_for('contribute'))
+
+
+@backend.route('/viewport')
+def viewport():
+    return render_template('dashboard.html')
 
 
 @backend.route('/help')
-def help():
+def help_me():
     help_form = forms.HelpForm()
     page_name = 'Ajuda'
     return render_template('help.html', page_name=page_name, current_year=current_year,

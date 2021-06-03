@@ -2,3 +2,6 @@
 /static/images/
 /conf.cfg
 /todo
+/slides
+/__pycache__
+/.idea
