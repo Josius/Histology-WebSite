@@ -1,6 +1,6 @@
 import db
 from sqlalchemy import Column, String, DateTime, SmallInteger, Date, func, Integer, ForeignKey, Boolean, ARRAY
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 

@@ -1,0 +1,10 @@
+<OVERLAYDATA>
+	<SETUP
+		CHOICELIST="0" >
+	</SETUP>
+	<OVERLAY
+		MEDIA="Images/Overlays/Paris/parisArrondissements"
+		NAME="Districts" >
+	</OVERLAY>
+</OVERLAYDATA>
+

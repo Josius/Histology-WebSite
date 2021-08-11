@@ -1,0 +1,32 @@
+<ZAS>
+	<SETUP 
+		PANELPOSITION="2"
+		INITIALVISIBILITY="1" 
+		MINSCALE="0.20" 
+		MAXSCALE="2" 
+		POIVISIBILITY="0" 
+		LABELVISIBILITY="1" 
+		NOTEVISIBILITY="0"
+		COMMENTVISIBILITY="0" >
+	</SETUP>
+	<POI 
+		ID="0" 
+		NAME="Whole Image" 
+		X="center" 
+		Y="center" 
+		ZOOM="-1" >
+		<LABELS>
+			<LABEL 
+				ID="3" 
+				NAME="Fourth label" 
+				MEDIATYPE="shape"
+				MEDIA="arrowUpRight" 
+				X="1100" 
+				Y="1600" 
+				ZOOM="100"
+				ROLLOVERCAPTION="1" >
+					<CAPTION><font color="#FFFFFF">Multiline, </font><font color="#6699FF"><i><br/>HTML enabled</i></font><font color="#FFFFFF"><br/>Caption</font></CAPTION>
+			</LABEL>
+		</LABELS>
+	</POI>
+</ZAS>

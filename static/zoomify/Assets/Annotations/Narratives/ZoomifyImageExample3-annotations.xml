@@ -1,0 +1,33 @@
+<ZAS>
+	<SETUP 
+		PANELPOSITION="2"
+		INITIALVISIBILITY="1" 
+		MINSCALE="0.20" 
+		MAXSCALE="2" 
+		POIVISIBILITY="0" 
+		LABELVISIBILITY="1" 
+		NOTEVISIBILITY="0"
+		COMMENTVISIBILITY="0" >
+	</SETUP>
+	<POI 
+		ID="0" 
+		NAME="Whole Image" 
+		X="center" 
+		Y="center" 
+		ZOOM="-1" >
+		<LABELS>
+			<LABEL 
+				ID="2" 
+				NAME="Third label" 
+				MEDIATYPE="shape"
+				MEDIA="arrowLeft" 
+				X="1100" 
+				Y="1400" 
+				ZOOM="100"
+				ROLLOVER="1" 
+				CAPTION="This label is revealed when the mouse rolls over it"
+				ROLLOVERCAPTION="1" >
+			</LABEL>
+		</LABELS>
+	</POI>
+</ZAS>

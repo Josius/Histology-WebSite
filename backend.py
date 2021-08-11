@@ -1,5 +1,5 @@
 from flask import Flask, render_template, session, redirect, url_for, request
-from configparser import SafeConfigParser
+from configparser import ConfigParser
 from db import db_session
 from werkzeug.utils import secure_filename
 import models
@@ -13,7 +13,7 @@ backend = Flask(__name__)
 
 current_year = str(datetime.date.today())[0:4]
 
-parser = SafeConfigParser()
+parser = ConfigParser()
 parser.read('conf.cfg')
 current_version = parser.get('version', 'current_version')
 backend.config['SECRET_KEY'] = parser.get('flask parameters', 'secret_key')
@@ -155,7 +155,8 @@ def dashboard(edit_mode):
 
 @backend.route('/viewport')
 def viewport():
-    return render_template('dashboard.html')
+    return render_template('view.html', current_year=current_year, current_version=current_version,
+                           slide_meta=json.load(open('./slides/10/meta.json')))
 
 
 @backend.route('/help')
@@ -168,3 +169,11 @@ def help_me():
 
 if __name__ == '__main__':
     backend.run()
+
+
+def create_app():
+    import db
+    app = Flask(__name__)
+    db = db.db
+    db.init_app(app)
+    return app

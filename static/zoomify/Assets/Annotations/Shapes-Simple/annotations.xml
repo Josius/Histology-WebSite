@@ -1,0 +1,59 @@
+<ZAS>
+	<SETUP 
+		PANELPOSITION="2"
+		INITIALVISIBILITY="1" 
+		MINSCALE="0.20" 
+		MAXSCALE="2" 
+		POIVISIBILITY="0" 
+		LABELVISIBILITY="1" 
+		NOTEVISIBILITY="0"
+		COMMENTVISIBILITY="1" >
+	</SETUP>
+	<POI 
+		ID="0" 
+		NAME="Whole Image" 
+		X="center" 
+		Y="center" 
+		ZOOM="-1" >
+		<LABELS>
+			<LABEL 
+				ID="4" 	
+				NAME="First shape label" 
+				MEDIATYPE="shape"
+				MEDIA="arrow" 
+				X="1100" 
+				Y="1320" 
+				ZOOM="50"
+				WIDTH = "300"
+				HEIGHT = "150"
+				ROTATION="315"
+				CLICKURL="http://www.zoomify.com" 
+				URLTARGET="_blank"
+				CAPTION="Arrow Pointing Up Right" 
+				COMMENT="Arrow shapes can have any size or rotation!"
+				TOOLTIP="This is an arrow label" 
+				LINECOLOR="FF0000" 
+				FILLCOLOR="000000"
+				CAPTIONPOSITION="5" >
+			</LABEL>
+			<LABEL 
+				ID="5" 	
+				NAME="Second shape label" 
+				MEDIATYPE="shape"
+				MEDIA="ellipse"
+				X="2000" 
+				Y="1400"
+				ZOOM="50"
+				WIDTH = "300"
+				HEIGHT = "100"
+				CLICKURL="http://www.zoomify.com" 
+				URLTARGET="_blank" 
+				CAPTION="Ellipse shape label (2nd label)" 
+				COMMENT="This is another example comment."
+				TOOLTIP="This is another shape label" 
+				LINECOLOR="0000FF" 
+				CAPTIONPOSITION="8" >
+			</LABEL>
+		</LABELS>
+	</POI>
+</ZAS>
