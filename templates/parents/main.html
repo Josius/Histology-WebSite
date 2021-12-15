@@ -5,6 +5,11 @@
     <meta http-equiv="Content-Language" content="pt-br" charset="utf-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='Microscope_icon.png')}}" />
+
+<!-- plugin zoomify e criando um container padrão -->
+    <script src="{{url_for('static', filename='ZoomifyImageViewerEnterprise-min.js')}}"></script>
+    <style type="text/css"> #myContainer { width:900px; height:450px; margin:auto; border:1px; border-style:solid; border-color:#696969;} </style>
+
 </head>
 
 <body>

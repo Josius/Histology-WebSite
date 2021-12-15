@@ -1,0 +1,32 @@
+<ZAS>
+	<SETUP 
+		PANELPOSITION="2"
+		INITIALVISIBILITY="1" 
+		MINSCALE="0.20" 
+		MAXSCALE="2" 
+		POIVISIBILITY="0" 
+		LABELVISIBILITY="1" 
+		NOTEVISIBILITY="0"
+		COMMENTVISIBILITY="0" >
+	</SETUP>
+	<POI 
+		ID="0" 
+		NAME="Whole Image" 
+		X="center" 
+		Y="center" 
+		ZOOM="-1" >
+		<LABELS>
+			<LABEL 
+				ID="1" 
+				NAME="Second label" 
+				MEDIATYPE="shape"
+				MEDIA="triangle" 
+				X="1100" 
+				Y="900" 
+				ZOOM="50"
+				CAPTION="This example is at 50% image zoom"
+				ROLLOVERCAPTION="1" >
+			</LABEL>
+		</LABELS>
+	</POI>
+</ZAS>
