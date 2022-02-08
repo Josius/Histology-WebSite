@@ -1,7 +1,41 @@
-{% extends './parents/main.html' %}
+{% extends './parents/mainZmf.html' %}
 
 {% block content %}
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ornare arcu odio ut sem nulla pharetra diam sit amet. Volutpat maecenas volutpat blandit aliquam. Nibh venenatis cras sed felis eget velit aliquet sagittis id. Ac turpis egestas sed tempus urna et pharetra pharetra massa. Tellus mauris a diam maecenas sed enim ut sem. Vitae purus faucibus ornare suspendisse sed nisi lacus sed. Turpis nunc eget lorem dolor sed. Vel fringilla est ullamcorper eget nulla facilisi. Id aliquet risus feugiat in ante. Amet est placerat in egestas. Eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus.</p>
-    <p>Amet est placerat in egestas erat imperdiet sed euismod nisi. Lorem sed risus ultricies tristique nulla. Vitae auctor eu augue ut lectus arcu bibendum. Nunc non blandit massa enim nec. Eget nunc lobortis mattis aliquam faucibus purus. Pharetra et ultrices neque ornare aenean euismod elementum. Diam vel quam elementum pulvinar etiam non quam lacus. Ut consequat semper viverra nam. Cursus in hac habitasse platea dictumst quisque sagittis purus sit. Arcu cursus euismod quis viverra.</p>
-    <p>Lacus sed turpis tincidunt id aliquet. Neque aliquam vestibulum morbi blandit cursus risus at ultrices. Dui faucibus in ornare quam. Nisi porta lorem mollis aliquam ut porttitor leo a. Purus semper eget duis at. Vel turpis nunc eget lorem dolor sed viverra. Sed risus ultricies tristique nulla aliquet enim. Diam vel quam elementum pulvinar etiam non quam. Dignissim diam quis enim lobortis scelerisque fermentum. Pharetra magna ac placerat vestibulum lectus mauris ultrices. Volutpat blandit aliquam etiam erat velit. Felis imperdiet proin fermentum leo vel orci. Dignissim sodales ut eu sem integer vitae justo eget. Faucibus ornare suspendisse sed nisi lacus sed viverra tellus in. Et pharetra pharetra massa massa ultricies mi.</p>
+
+    <script type="text/javascript"> 
+        Z.showImage("myContainer", 
+            src="{{url_for('static', filename='Images/testeJosimarDois.zif')}}", 
+            src="zAnnotationPath={{url_for('static', filename='Assets/Annotations/Narratives/testeJosimarDois-annotations.xml')}}&" + 
+            "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" 
+            + 
+            "zRulerVisible=2&" 
+            + 
+            "zRulerWidth=200&" + 
+            "zNavigatorWidth=200&" + 
+            "zCaptionBoxes=1&" + 
+            "zMaskVisible=1&" + 
+            "zMagnifierVisible=2"
+            ); 
+    </script>
+
+    <article class="teste-cor">
+        <script>
+            var esfingeEgipicia = "{{url_for('static', filename='Images/testeJosimarDois.zif')}}"
+        </script>
+
+        <p style="text-align: center;"><font size="5"><strong>Esfinge</strong></font><br></p>
+
+        <p>
+            <br>Geralmente, as esfinges seguem dois padrões principais, o egípcio e o grego:<br>
+            <br><a href="javascript:Z.Viewport.goToLabelByIDAndImage(esfingeEgipicia, '0', null, false, true)" onmouseover="Z.Viewport.setLabelHighlightByDisplayID('0', false, true)" onmouseout="Z.Viewport.clearLabelHighlightsAll(true)">Esfinge egípcia</a>: a mitologia egípcia retrata a esfinge como uma criatura mística e ancestral, geralmente representada com um leão estendido, com uma cabeça humana, geralmente a cabeça de um faraó. Assim como as pirâmides, também simbolizavam uma demonstração extrema de poder, com associações solares sagradas. Eram consideradas guardiãs, representada nas formas com cabeça de pessoa ou falcão. A maior e mais famosa é a esfinge do planalto de Gizé, a Sesheps, na Marge oeste do <a href="javascript:Z.Viewport.goToLabelByIDAndImage(esfingeEgipicia, '1', null, false, true)" onmouseover="Z.Viewport.setLabelHighlightByDisplayID('1', false, true)" onmouseout="Z.Viewport.clearLabelHighlightsAll(true)">Nilo</a>, possuindo um pequeno templo entre suas patas. Acredita-se que essa esfinge carrega o rosto do faraó Djedefré, sendo datada de algum momento na quarta dinastia, um período que compreende entre 2723 a.C. a 2563 a.C.<br>
+            <br>Esfinge grega: a <a href="javascript:Z.Viewport.goToLabelByIDAndImage(esfingeEgipicia, '2', null, false, true)" onmouseover="Z.Viewport.setLabelHighlightByDisplayID('2', false, true)" onmouseout="Z.Viewport.clearLabelHighlightsAll(true)">mitologia </a>grega conta que uma esfinge guarda a entrada da cidade grega de Tebas, permitindo apenas a passagem de viajantes que consigam responder seu enigma. O quebra-cabeça exato perguntado pela esfinge não foi especificado por vários contadores de histórias, e não era padronizado como o dado abaixo até mais tarde na história grega. Conta-se que os deuses Hera e Ares enviaram a esfinge da Etiópia para Tebas, na Grécia, onde ela ficou responsável por questionar os viajantes com seu célebre enigma: “Que criatura anda com quatro pernas pela manhã, duas pernas à tarde e três pernas ao anoitecer”, e aqueles que eram incapazes de responder ao enigma, eram devorados pela criatura. Após ser derrotada em sua charada por Édipo, a esfinge, em seguida, atirou-se de um precipício e morreu. Aqui, Édipo pode ser visto como uma figura limiar, auxiliando na transição entre antigas práticas religiosas, representada pela morte da esfinge, e a ascensão dos novos deuses do Olimpo.
+        </p>
+        <footer>
+            <p>
+                dados da página
+            </p>
+        </footer>
+    </article>
+
+    <section id="myContainer"></section>
 {% endblock %}

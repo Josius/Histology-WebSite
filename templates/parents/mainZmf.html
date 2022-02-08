@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css')}}">
+		<script src="{{url_for('static', filename='ZoomifyImageViewerEnterprise-min.js')}}"></script>
+		<style type="text/css"> #myContainer { width:100%; height:100%; margin:0; border:0px; } </style>
+        
+	</head>
+	<body>
+        <header>
+            <h1 id="titulo">botão para voltar / Nome da Página</h1>
+        </header>
+		<section class="item-e">
+            {% block content %} {% endblock %}
+        </section>
+	</body>
+</html>

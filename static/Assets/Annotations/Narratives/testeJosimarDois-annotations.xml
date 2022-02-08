@@ -1,0 +1,55 @@
+<ANNOTATIONDATA>
+    <SETUP
+        NOTEVISIBILITY="0"
+        COMMENTVISIBILITY="0">
+    </SETUP>
+        <POI ID="0" EDITABLE="1" USER="Anonymous User" DATE="20220107-150228">
+            <LABELS>
+                <LABEL 
+                    ID="0" 
+                    NAME="CarinhaBunita" 
+                    MEDIATYPE="fieldofview" 
+                    MEDIA="" 
+                    X="1543.4913307942518" 
+                    Y="1832.8422187808083" 
+                    COMMENT="Comment for label " 
+                    TOOLTIP="Field Of View (1543x, 1833y, 100%)" 
+                    USER="Guest" 
+                    DATE="20220107-150247" 
+                    CAPTIONPOSITION="5" 
+                    EDITABLE="true" 
+                    WIDTH="1056" 
+                    HEIGHT="615" 
+                    POIID="0"/>
+                <LABEL 
+                    ID="1" 
+                    NAME="Porta para o desconhecido" 
+                    MEDIATYPE="shape" 
+                    MEDIA="circle" 
+                    X="2950.446159460887" 
+                    Y="2512.846403121459" 
+                    USER="Guest" 
+                    DATE="20220107-150408" 
+                    EDITABLE="true" 
+                    WIDTH="166" 
+                    HEIGHT="214" 
+                    POIID="0"/>
+                <LABEL 
+                    ID="2" 
+                    NAME="medida" 
+                    MEDIATYPE="measure" 
+                    MEDIA="polygon" 
+                    X="1538.2230797304435" 
+                    Y="821.4232015607296" 
+                    CAPTION="Total length: 314  pixels" 
+                    COMMENT="Comment for label " 
+                    USER="Guest" 
+                    DATE="20220107-150459" 
+                    EDITABLE="true" 
+                    LINESTYLE="" 
+                    POIID="0">
+                <POLYGON><POINT X="1482.446159460887" Y="771.8464031214592"/><POINT X="1594" Y="871"/><POINT X="1558" Y="791"/></POLYGON>
+                </LABEL>
+            </LABELS>
+        </POI>
+</ANNOTATIONDATA>

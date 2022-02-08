@@ -1,3 +1,4 @@
+from turtle import back
 from flask import Flask, render_template, session, redirect, url_for, request
 from configparser import ConfigParser
 from db import db_session
@@ -170,6 +171,9 @@ def help_me():
 if __name__ == '__main__':
     backend.run()
 
+# if __name__ == '__main__':
+#     from waitress import serve
+#     serve(backend, host="127.0.0.1", port=8080)
 
 def create_app():
     import db
