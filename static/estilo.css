@@ -9,11 +9,12 @@
     
 }
 
-.item-e {
-    
-    display: inline-block;
+.item-e{
+    border: 2px solid orange;
+    display: flex;
 }
-article{
+
+.narrativa{
     
     border: 3px solid gray;
     background-color: #ededed;
@@ -28,4 +29,8 @@ article footer{
 section #myContainer{
     
     border: 3px solid black;
+}
+
+.narrativa{
+    width: 850px;
 }

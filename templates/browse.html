@@ -1,10 +1,11 @@
 {% extends './parents/mainZmf.html' %}
 
 {% block content %}
-
+    
     <script type="text/javascript"> 
         Z.showImage("myContainer", 
-            src="{{url_for('static', filename='Images/testeJosimarDois.zif')}}", 
+            // src="{{url_for('static', filename='Images/testeJosimarDois.zif')}}", 
+            src="{{url_for('static', filename='Images/L01PeleGrossaCoximDeGatoL2HE40X.pff')}}", 
             src="zAnnotationPath={{url_for('static', filename='Assets/Annotations/Narratives/testeJosimarDois-annotations.xml')}}&" + 
             "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" 
             + 
@@ -18,7 +19,7 @@
             ); 
     </script>
 
-    <article class="teste-cor">
+    <article class="narrativa">
         <script>
             var esfingeEgipicia = "{{url_for('static', filename='Images/testeJosimarDois.zif')}}"
         </script>
