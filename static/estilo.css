@@ -1,14 +1,29 @@
 body{
-    height: 100%;
-    background-color: #d3e1ed;
     font-family: montserrat, arial, sans-serif;
-    min-height: 100vh;    
     margin: auto;
+    background-color: #d3e1ed;
+    /* height: 100%;
+    background-color: #d3e1ed;
+    
+    min-height: 100vh;    
+    
+    line-height: 200%; */
+
+    /* background-color: #ededed;
+    text-align: center;
+    width: 75%;
+    justify-self: center;
+    padding: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    letter-spacing: 0.1rem;
+    line-height: 200%;
+     */
 }
 
-/* p{
-    margin: 0;
-} */
+p{
+    margin: auto;
+}
 
 #titulo{
     color: white;
@@ -23,34 +38,49 @@ body{
     padding: 3px;
 }
 
+.justifyContent{
+    justify-content:space-between;
+    /* justify-content: space-around; */
+}
+
 .txtImg{
-    border: 2px solid orange;
     display: flex;
 }
 
 .narrativa{
     
-    border: 3px solid gray;
+    /* border: 3px solid gray;
     background-color: #ededed;
     width:100%;
-    height:100%;
+    height:100%; */
+
+    background-color: #ededed;
+    width: 40%;
+    justify-self: center;
+    padding: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    letter-spacing: 0.1rem;
+    line-height: 150%;
+    height: 80%;
+    overflow-y: scroll;
 }
 
-article footer{
+footer{
     
     color: white;
     background-color: #1094ab;
-    text-align: center;
-}
-
-section #myContainer{
-    
-    border: 3px solid black;
+    text-align: right;
 }
 
 #myContainer{
     
     width:100%;
-    height:100%; 
+    height:90%; 
     border:0px;
 }
+/*
+para mudar posicoes do txt e da img
+.flex-direction{
+    flex-direction: row-reverse;
+}*/

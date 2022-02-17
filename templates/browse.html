@@ -1,3 +1,7 @@
+<!-- OBSERVAÇÕES
+     para esconder o painel de Labels precisa add nos respectivos arquivo.xml da img.zif isto -> PANELPOSITION="0" 
+-->
+
 {% extends './parents/mainZmf.html' %}
 
 {% block content %}
@@ -7,15 +11,19 @@
             src="{{url_for('static', filename='testeJosimarDois.zif')}}", 
             //src="{{url_for('static', filename='Images/L01PeleGrossaCoximDeGatoL2HE40X.pff')}}", 
             src="zAnnotationPath={{url_for('static', filename='Assets/Annotations/Narratives/testeJosimarDois-annotations.xml')}}&" + 
-            "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" 
-            + 
-            "zRulerVisible=2&" 
-            + 
-            "zRulerWidth=200&" + 
-            "zNavigatorWidth=200&" + 
-            "zCaptionBoxes=1&" + 
-            "zMaskVisible=1&" + 
-            "zMagnifierVisible=2"
+            "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" + 
+            
+            //"zLogoVisible=0" + //esta funcionalidade esconde o logo, mas da conflito com outras funcoes, como zToolbarVisible
+            //"zMaskVisible=1&" + //funciona somente com a label, no texto funciona so o perimetro nao deixando cinza outras areas
+            
+            //"zRulerVisible=2&" //refere-se a cx de medida abaixo do painel miniFoto, ver 26-Ruler.htm - usar com zUnits e zUnitsPerImage
+            //"zRulerWidth=200&" + //acredito que seja a largura da cx de medida acima
+            //"zNavigatorWidth=200&" + //largura do painel miniFoto
+            //"zCaptionBoxes=0&" + //ainda nao entendi o q faz, acho que precisa de outra funcao para trabalharem juntos
+            //"zMagnifierVisible=2" + //painel direito inferior de zoom automatico com ponta da seta do mouse
+            // "zLogoCustomPath=Assets/LogoCustom/uspLogo3a24x24.png" //nao funcionou
+            
+            "zToolbarVisible=1"
             ); 
     </script>
     <script>
@@ -46,3 +54,4 @@
 
     <section id="myContainer"></section>
 {% endblock %}
+
