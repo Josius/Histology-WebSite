@@ -5,16 +5,21 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css')}}">
 		<script src="{{url_for('static', filename='ZoomifyImageViewerEnterprise-min.js')}}"></script>
-		<style type="text/css"> #myContainer { width:100%; height:100%; margin:0; border:0px; } </style>
-        
+		<!-- <style type="text/css"> #myContainer { width:100%; height:100%; margin:0; border:0px; } </style> -->
 	</head>
+
 	<body>
-        <header>
-            <h1 id="titulo">botão para voltar / Nome da Página</h1>
+    
+		<header class="cabecalho">
+            <div>botão para voltar</div>
+			<div>nome da página</div>
+			<div>alguma outra funcionalidade</div>
         </header>
-		<section class="item-e">
-			
+	
+		<section class="txtImg">	
             {% block content %} {% endblock %}
         </section>
+
 	</body>
+
 </html>

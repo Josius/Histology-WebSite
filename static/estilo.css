@@ -1,15 +1,29 @@
-*{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 14px;
-    
+body{
+    height: 100%;
+    background-color: #d3e1ed;
+    font-family: montserrat, arial, sans-serif;
+    min-height: 100vh;    
+    margin: auto;
 }
+
+/* p{
+    margin: 0;
+} */
+
 #titulo{
     color: white;
     background-color: #64c4d2;
     
 }
 
-.item-e{
+.cabecalho{
+    display: flex;
+    color: white;
+    background-color: #64c4d2;
+    padding: 3px;
+}
+
+.txtImg{
     border: 2px solid orange;
     display: flex;
 }
@@ -18,12 +32,15 @@
     
     border: 3px solid gray;
     background-color: #ededed;
+    width:100%;
+    height:100%;
 }
 
 article footer{
     
     color: white;
-    background-color: #64c4d2;
+    background-color: #1094ab;
+    text-align: center;
 }
 
 section #myContainer{
@@ -31,6 +48,9 @@ section #myContainer{
     border: 3px solid black;
 }
 
-.narrativa{
-    width: 850px;
+#myContainer{
+    
+    width:100%;
+    height:100%; 
+    border:0px;
 }

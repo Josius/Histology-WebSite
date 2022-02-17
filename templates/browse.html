@@ -5,7 +5,7 @@
     <script type="text/javascript"> 
         Z.showImage("myContainer", 
             // src="{{url_for('static', filename='Images/testeJosimarDois.zif')}}", 
-            src="{{url_for('static', filename='Images/L01PeleGrossaCoximDeGatoL2HE40X.pff')}}", 
+            src="{{url_for('static', filename='Images/ZoomifyImageExample.zif')}}", 
             src="zAnnotationPath={{url_for('static', filename='Assets/Annotations/Narratives/testeJosimarDois-annotations.xml')}}&" + 
             "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" 
             + 
@@ -18,24 +18,27 @@
             "zMagnifierVisible=2"
             ); 
     </script>
+    <script>
+        var esfingeEgipicia = "{{url_for('static', filename='Images/testeJosimarDois.zif')}}"
+    </script>
 
     <article class="narrativa">
-        <script>
-            var esfingeEgipicia = "{{url_for('static', filename='Images/testeJosimarDois.zif')}}"
-        </script>
+        
 
         <p style="text-align: center;"><font size="5"><strong>Esfinge</strong></font><br></p>
 
         <p>
             <br>Geralmente, as esfinges seguem dois padrões principais, o egípcio e o grego:<br>
+            
             <br><a href="javascript:Z.Viewport.goToLabelByIDAndImage(esfingeEgipicia, '0', null, false, true)" onmouseover="Z.Viewport.setLabelHighlightByDisplayID('0', false, true)" onmouseout="Z.Viewport.clearLabelHighlightsAll(true)">Esfinge egípcia</a>: a mitologia egípcia retrata a esfinge como uma criatura mística e ancestral, geralmente representada com um leão estendido, com uma cabeça humana, geralmente a cabeça de um faraó. Assim como as pirâmides, também simbolizavam uma demonstração extrema de poder, com associações solares sagradas. Eram consideradas guardiãs, representada nas formas com cabeça de pessoa ou falcão. A maior e mais famosa é a esfinge do planalto de Gizé, a Sesheps, na Marge oeste do <a href="javascript:Z.Viewport.goToLabelByIDAndImage(esfingeEgipicia, '1', null, false, true)" onmouseover="Z.Viewport.setLabelHighlightByDisplayID('1', false, true)" onmouseout="Z.Viewport.clearLabelHighlightsAll(true)">Nilo</a>, possuindo um pequeno templo entre suas patas. Acredita-se que essa esfinge carrega o rosto do faraó Djedefré, sendo datada de algum momento na quarta dinastia, um período que compreende entre 2723 a.C. a 2563 a.C.<br>
+            
             <br>Esfinge grega: a <a href="javascript:Z.Viewport.goToLabelByIDAndImage(esfingeEgipicia, '2', null, false, true)" onmouseover="Z.Viewport.setLabelHighlightByDisplayID('2', false, true)" onmouseout="Z.Viewport.clearLabelHighlightsAll(true)">mitologia </a>grega conta que uma esfinge guarda a entrada da cidade grega de Tebas, permitindo apenas a passagem de viajantes que consigam responder seu enigma. O quebra-cabeça exato perguntado pela esfinge não foi especificado por vários contadores de histórias, e não era padronizado como o dado abaixo até mais tarde na história grega. Conta-se que os deuses Hera e Ares enviaram a esfinge da Etiópia para Tebas, na Grécia, onde ela ficou responsável por questionar os viajantes com seu célebre enigma: “Que criatura anda com quatro pernas pela manhã, duas pernas à tarde e três pernas ao anoitecer”, e aqueles que eram incapazes de responder ao enigma, eram devorados pela criatura. Após ser derrotada em sua charada por Édipo, a esfinge, em seguida, atirou-se de um precipício e morreu. Aqui, Édipo pode ser visto como uma figura limiar, auxiliando na transição entre antigas práticas religiosas, representada pela morte da esfinge, e a ascensão dos novos deuses do Olimpo.
         </p>
+
         <footer>
-            <p>
-                dados da página
-            </p>
+            <div class="item-d">Guia Histológico {{ current_year }}  |  Versão {{ version }}</div>
         </footer>
+        
     </article>
 
     <section id="myContainer"></section>
