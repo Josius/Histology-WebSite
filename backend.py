@@ -1,3 +1,5 @@
+from __future__ import annotations
+import html
 from turtle import back
 from flask import Flask, render_template, session, redirect, url_for, request
 from configparser import ConfigParser
@@ -28,11 +30,18 @@ def index():
                            version=current_version)
 
 
-@backend.route('/browse')
-def browse():
-    return render_template('browse.html', page_name='Navegar', current_year=current_year,
-                           version=current_version)
+# @backend.route('/browse')
+# def browse():
+#     return render_template('browse.html', page_name='Navegar', current_year=current_year,
+#                            version=current_version)
 
+with open('./static/L01PeleGrossaCoximdeGatoL2HE40X.htm') as htmlFile:
+    htmlString = htmlFile.read()
+
+    @backend.route('/browse')
+    def browse():
+        return render_template('browse.html', page_name='Navegar', current_year=current_year,
+                            version=current_version, imageFile='testeJosimarDois.zif', htmlFile=htmlString, annotationsFile='Assets/Annotations/Narratives/testeJosimarDois-annotations.xml')
 
 @backend.route('/contribute', methods=['GET', 'POST'])
 def contribute():
