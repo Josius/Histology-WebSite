@@ -43,10 +43,20 @@ p{
     /* justify-content: space-around; */
 }
 
-.txtImg{
+.flex-container{
     display: flex;
 }
 
+.flex-pos{
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* .imagem não funciona */
+.imagem{
+    width:"60%";
+    height:"60%";
+}
 .narrativa{
     
     /* border: 3px solid gray;
