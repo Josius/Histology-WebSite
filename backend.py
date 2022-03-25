@@ -178,7 +178,7 @@ def help_me():
 
 
 if __name__ == '__main__':
-    backend.run()
+    backend.run(debug=True)
 
 # if __name__ == '__main__':
 #     from waitress import serve
