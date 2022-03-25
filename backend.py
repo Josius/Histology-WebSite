@@ -1,4 +1,5 @@
 from __future__ import annotations
+from crypt import methods
 import html
 from turtle import back
 from flask import Flask, render_template, session, redirect, url_for, request
@@ -34,14 +35,6 @@ def index():
 def browse():
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version)
-
-# with open('./static/L01PeleGrossaCoximdeGatoL2HE40X.htm') as htmlFile:
-#     htmlString = htmlFile.read()
-
-#     @backend.route('/browse')
-#     def browse():
-#         return render_template('browse.html', page_name='Navegar', current_year=current_year,
-#                             version=current_version, imageFile='testeJosimarDois.zif', htmlFile=htmlString, annotationsFile='Assets/Annotations/Narratives/testeJosimarDois-annotations.xml')
 
 @backend.route('/contribute', methods=['GET', 'POST'])
 def contribute():
@@ -162,11 +155,26 @@ def dashboard(edit_mode):
     except KeyError:
         return redirect(url_for('contribute'))
 
+# with open('./static/L01PeleGrossaCoximdeGatoL2HE40X.htm') as htmlFile:
+#     htmlString = htmlFile.read()
 
+#     @backend.route('/browse')
+#     def browse():
+#         return render_template('browse.html', page_name='Navegar', current_year=current_year,
+#                             version=current_version, imageFile='testeJosimarDois.zif', htmlFile=htmlString, annotationsFile='Assets/Annotations/Narratives/testeJosimarDois-annotations.xml')
+
+# @backend.route('/viewport', methods=['POST'])
 @backend.route('/viewport')
 def viewport():
+    image = request.form.get('zImagePath')
+    return render_template('view.html', current_year=current_year, current_version=current_version, imageFile='imgsPff/L60PelefinaHE40XB.pff')
+    # return render_template('view.html', current_year=current_year, current_version=current_version, imageFile=image)
+
+""" @backend.route('/viewport')
+def viewport():
     return render_template('view.html', current_year=current_year, current_version=current_version,
-                           slide_meta=json.load(open('./slides/10/meta.json')))
+                           slide_meta=json.load(open('./slides/10/meta.json'))) """
+
 
 
 @backend.route('/help')
