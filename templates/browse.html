@@ -8,13 +8,30 @@
         </header>
         <section>
             <h2>mais texto e img</h2>
-            <div class="flex-container flex-pos">               
+            <div class="flex-container flex-pos">   
+            <!--                  
+                <div class="item">
+                    <div class="miniatura">
+                        
+                        <form id="narrativeDataForm" method="post" action="./viewport">
+                            <input name="zImagePath" type="image" value="{{url_for('static', filename='imgsPff/L60PelefinaHE40XB.pff')}}">    
+                            <a href="./viewport">
+                                <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" class="imagem" width="60%" height="60%">                   
+                            </a>
+                        </form>
+
+                    </div>
+                    <p>clicar e ir para a img pff<p>
+                    <h3>link</h3>
+                </div>
+            -->
                 <div class="item">
                     <div class="miniatura">
                         <a href="./viewport">
-                            <img src="{{url_for('static', filename='imgsMini/esfinge120X185.jpg')}}" alt="esfinge120X185" class="imagem" width="60%" height="60%">
-<!--                             
-                            <form id="narrativeDataForm" method="post" action="./viewport">
+                            <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" class="imagem" width="60%" height="60%">  
+
+                                                        
+                            <!-- <form id="narrativeDataForm" method="post" action="./viewport">
                                 <input name="zImagePath" type="hidden" value="{{url_for('static', filename='imgsPff/L60PelefinaHE40XB.pff')}}">
                              -->
                             <!-- 
@@ -22,14 +39,22 @@
                                 <input id="zUserName" name="zUserName" type="hidden" value="Guest">
                                 <input id="zDateTime" name="zDateTime" type="hidden" value="20220223-022400">
                             -->
-                            </form>
+                            <!-- </form> -->
 
                         </a>
-                        
                     </div>
                     <h2>texto</h2>
                     <h3>link</h3>
                 </div>
+                <div class="item">
+                    <div class="miniatura">
+                        <a href="">
+                            <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE40XB.jpg')}}" alt="" width="60%" height="60%">
+                        </a>
+                    </div>
+                    <h2>texto</h2>
+                    <h3>link</h3>
+                </div>           
                 <div class="item">
                     <div class="miniatura">
                         <a href="">
@@ -381,24 +406,7 @@
                     <h2>texto</h2>
                     <h3>link</h3>
                 </div>
-                <div class="item">
-                    <div class="miniatura">
-                        <a href="">
-                            <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" width="60%" height="60%">  
-                        </a>
-                    </div>
-                    <h2>texto</h2>
-                    <h3>link</h3>
-                </div>
-                <div class="item">
-                    <div class="miniatura">
-                        <a href="">
-                            <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE40XB.jpg')}}" alt="" width="60%" height="60%">
-                        </a>
-                    </div>
-                    <h2>texto</h2>
-                    <h3>link</h3>
-                </div>
+                
                 
             </div>
         </section>
