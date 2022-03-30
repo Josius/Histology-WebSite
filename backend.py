@@ -30,6 +30,13 @@ def index():
     return render_template('home.html', page_name='Home', current_year=current_year,
                            version=current_version)
 
+# BROWSE ORIGINAL
+""" 
+@backend.route('/browse')
+def browse():
+    return render_template('browse.html', page_name='Navegar', current_year=current_year,
+                           version=current_version)
+ """             
 
 @backend.route('/browse')
 def browse():
@@ -163,12 +170,22 @@ def dashboard(edit_mode):
 #         return render_template('browse.html', page_name='Navegar', current_year=current_year,
 #                             version=current_version, imageFile='testeJosimarDois.zif', htmlFile=htmlString, annotationsFile='Assets/Annotations/Narratives/testeJosimarDois-annotations.xml')
 
-# @backend.route('/viewport', methods=['POST'])
+# 01 - CÓDIGO ABAIXO NÃO FUNCIONA
+""" 
+@backend.route('/viewport', methods=['POST'])
+def viewport():
+    image = request.form.get('zImagePath')
+    return render_template('view.html', current_year=current_year, current_version=current_version, imageFile=image)
+ """
+
+# 00 - CÓDIGO ABAIXO FUNCIONA
+""" 
 @backend.route('/viewport')
 def viewport():
     image = request.form.get('zImagePath')
     return render_template('view.html', current_year=current_year, current_version=current_version, imageFile='imgsPff/L60PelefinaHE40XB.pff')
-    # return render_template('view.html', current_year=current_year, current_version=current_version, imageFile=image)
+"""
+
 
 """ @backend.route('/viewport')
 def viewport():
