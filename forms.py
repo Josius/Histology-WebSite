@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileRequired, FileAllowed
-from wtforms import StringField, PasswordField, DateField, FieldList, IntegerField, FileField
-from wtforms.validators import Length, ValidationError
+from wtforms import StringField, PasswordField, DateField, FieldList, IntegerField, FileField, HiddenField
+from wtforms.validators import Length, ValidationError, DataRequired
 from datetime import date
 
 
@@ -83,3 +83,7 @@ class AddSlideMarker(FlaskForm):
     title = StringField(label='Título', validators=[Length(max=120)], render_kw={'maxlength': 120})
     coordinates = FieldList(IntegerField, max_entries=2, label='Coordenadas')
     text = StringField(label='Texto', validators=[Length(max=2000)], render_kw={'maxlength': 2000})
+
+
+class ImageForm(FlaskForm):
+    imgUrl = HiddenField("imgUrl", validators=[DataRequired()])#talvez usar validators=[DataRequired()] -> precisa importar DataRequired

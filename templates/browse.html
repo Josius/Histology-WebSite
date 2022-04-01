@@ -9,26 +9,25 @@
         <section>
             <h2>mais texto e img</h2>
             <div class="flex-container flex-pos">   
-
-                <!-- 01 CODIGO ABAIXO NAO FUNCIONOU -->
-                <!-- 
+                
                 <div class="item">
                     <div class="miniatura">
-                        
-                        <form id="narrativeDataForm" method="post" action="./viewport">
-                            
-                            <input name="zImagePath" type="image" value="{{url_for('static', filename='imgsPff/L60PelefinaHE40XB.pff')}}">    
-                            <a href="./viewport">
-                                <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" class="imagem" width="60%" height="60%">                   
-                            </a>
-                        </form>
+                        <form action="" method="POST">
+                            {{ imgForm.csrf_token }}
+                            <button type="submit" value="Submit">
+                                <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" class="imagem" width="60%" height="60%"> 
+                                <!-- <input id="zImagePath" type="text" name="zImagePath" value="/static/imgsPff/L60PelefinaHE40XB.pff" hidden>  -->
+                                {{ imgForm.imgUrl(value="static/imgsPff/L60PelefinaHE40XB.pff") }}
+                                
+                                <!-- TESTAR ENVIAR ARQUIVO XML -->
 
+                            </button>
+                        </form>
                     </div>
-                    <p>clicar e ir para a img pff<p>
+                    <h2>texto</h2>
                     <h3>link</h3>
                 </div>
-                 -->
-
+                
                 <!-- 00 - CÓDIGO ABAIXO FUNCIONA -->
                 <div class="item">
                     <div class="miniatura">

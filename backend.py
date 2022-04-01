@@ -1,6 +1,7 @@
 from __future__ import annotations
 from crypt import methods
 import html
+from tkinter import Image
 from turtle import back
 from flask import Flask, render_template, session, redirect, url_for, request
 from configparser import ConfigParser
@@ -38,10 +39,27 @@ def browse():
                            version=current_version)
  """             
 
-@backend.route('/browse')
+@backend.route('/browse', methods=['GET', 'POST'])
 def browse():
+    imgForm = forms.ImageForm()
+    if imgForm.validate_on_submit():
+        return viewport(imgForm.imgUrl)
+        # print(imgForm.imgUrl.data)
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
-                           version=current_version)
+                           version=current_version, imgForm = imgForm)
+
+@backend.route('/viewport')
+def viewport(imgForm):
+    image = imgForm
+    return render_template('view.html', current_year=current_year, current_version=current_version, imageFile=image)
+
+# VIEWPORT ORIGINAL
+""" 
+@backend.route('/viewport')
+def viewport():
+    # image = request.form.get('zImagePath')
+    return render_template('view.html', current_year=current_year, current_version=current_version, imageFile='imgsPff/L60PelefinaHE40XB.pff')
+ """
 
 @backend.route('/contribute', methods=['GET', 'POST'])
 def contribute():
