@@ -1,0 +1,37 @@
+Os códigos abaixo não funcionam. Precisei deixar eles registrados aqui pq, mesmo comentados, ainda causam erro no html
+    
+    Código para browse.html
+        <!-- 01 - NÃO ESTÁ PASSANDO O ENDEREÇO DA IMAGEM -->
+        
+                <div class="item">
+                    <div class="miniatura">
+                        <form action="" method="POST">
+                            {{ imgForm.csrf_token }}
+                            <button type="submit" value="Submit">
+                                <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" class="imagem" width="60%" height="60%"> 
+        
+                                <!-- <input id="zImagePath" type="text" name="zImagePath" value="/static/imgsPff/L60PelefinaHE40XB.pff" hidden>  -->
+        
+                                {{ imgForm.imgUrl(value='imgsPff/L60PelefinaHE40XB.pff') }}
+                            </button>
+                        </form>
+                    </div>
+                    <h2>texto</h2>
+                    <h3>link</h3>
+                </div>
+        
+
+<!-- 02 FURUNFOU -->
+                        
+<div class="item">
+    <div class="miniatura">
+        <form action="" method="POST">
+        
+            <button type="submit" value="VALUE1" name="action1">
+                <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" class="imagem" width="60%" height="60%"> 
+            </button>
+        </form>
+    </div>
+    <h2>teste 02</h2>
+    <h3>link</h3>
+</div>

@@ -1,6 +1,7 @@
 from __future__ import annotations
 from crypt import methods
 import html
+import re
 from tkinter import Image
 from turtle import back
 from flask import Flask, render_template, session, redirect, url_for, request
@@ -38,20 +39,51 @@ def browse():
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version)
  """             
+# 02 vvv
 
+@backend.route('/browse', methods=['GET', 'POST'])
+def browse():
+    
+    if request.method == 'POST':
+        if request.form.get('action1') == 'VALUE1':
+            imgUrl = 'imgsPff/L60PelefinaHE40XB.pff'
+            # print(type(imgUrl))
+            # print(imgUrl)
+            return viewport(imgUrl)
+        elif request.form.get('action2') == 'VALUE2':
+            imgUrl = 'imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff'
+            return viewport(imgUrl)
+    return render_template('browse.html', page_name='Navegar', current_year=current_year,
+                           version=current_version)
+                           
+
+@backend.route('/viewport')
+def viewport(imgUrl):
+    image = imgUrl
+    return render_template('view.html', current_year=current_year, current_version=current_version, imageFile=image)
+
+# 02 ^^^
+
+# 01 vvv
+""" 
 @backend.route('/browse', methods=['GET', 'POST'])
 def browse():
     imgForm = forms.ImageForm()
     if imgForm.validate_on_submit():
-        return viewport(imgForm.imgUrl)
-        # print(imgForm.imgUrl.data)
+        print(type(imgForm.imgUrl.data))
+        print(imgForm.imgUrl.data)
+        return viewport(imgForm)
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, imgForm = imgForm)
+                           
 
 @backend.route('/viewport')
 def viewport(imgForm):
-    image = imgForm
-    return render_template('view.html', current_year=current_year, current_version=current_version, imageFile=image)
+    image = imgForm.imgUrl
+    return render_template('view.html', current_year=current_year, current_version=current_version, imageFile=image)    
+"""
+# 01 ^^^
+
 
 # VIEWPORT ORIGINAL
 """ 

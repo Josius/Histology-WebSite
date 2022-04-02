@@ -10,24 +10,34 @@
             <h2>mais texto e img</h2>
             <div class="flex-container flex-pos">   
                 
+                <!-- 03 -->
                 <div class="item">
                     <div class="miniatura">
                         <form action="" method="POST">
-                            {{ imgForm.csrf_token }}
-                            <button type="submit" value="Submit">
-                                <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" class="imagem" width="60%" height="60%"> 
-                                <!-- <input id="zImagePath" type="text" name="zImagePath" value="/static/imgsPff/L60PelefinaHE40XB.pff" hidden>  -->
-                                {{ imgForm.imgUrl(value="static/imgsPff/L60PelefinaHE40XB.pff") }}
-                                
-                                <!-- TESTAR ENVIAR ARQUIVO XML -->
-
+                        
+                            <button type="submit" value="VALUE2" name="action2">
+                                <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}" alt="" width="60%" height="60%"> 
                             </button>
                         </form>
                     </div>
-                    <h2>texto</h2>
+                    <h2>teste 03</h2>
+                    <h3>link</h3>
+                </div>  
+                
+                 <!-- 02  -->
+                <div class="item">
+                    <div class="miniatura">
+                        <form action="" method="POST">
+                        
+                            <button type="submit" value="VALUE1" name="action1">
+                                <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" class="imagem" width="60%" height="60%"> 
+                            </button>
+                        </form>
+                    </div>
+                    <h2>teste 02</h2>
                     <h3>link</h3>
                 </div>
-                
+               
                 <!-- 00 - CÓDIGO ABAIXO FUNCIONA -->
                 <div class="item">
                     <div class="miniatura">
@@ -47,7 +57,7 @@
 
                         </a>
                     </div>
-                    <h2>texto</h2>
+                    <h2>teste 00</h2>
                     <h3>link</h3>
                 </div>
                 <div class="item">
@@ -58,7 +68,8 @@
                     </div>
                     <h2>texto</h2>
                     <h3>link</h3>
-                </div>           
+                </div>   
+
                 <div class="item">
                     <div class="miniatura">
                         <a href="">
@@ -67,7 +78,8 @@
                     </div>
                     <h2>texto</h2>
                     <h3>link</h3>
-                </div>                
+                </div>       
+
                 <div class="item">
                     <div class="miniatura">
                         <a href="">

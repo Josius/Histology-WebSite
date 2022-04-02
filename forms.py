@@ -84,6 +84,7 @@ class AddSlideMarker(FlaskForm):
     coordinates = FieldList(IntegerField, max_entries=2, label='Coordenadas')
     text = StringField(label='Texto', validators=[Length(max=2000)], render_kw={'maxlength': 2000})
 
-
+# 01
 class ImageForm(FlaskForm):
+    # trocar para StringField não deu certo, ainda não encontra o endereço da img
     imgUrl = HiddenField("imgUrl", validators=[DataRequired()])#talvez usar validators=[DataRequired()] -> precisa importar DataRequired
