@@ -46,21 +46,39 @@ def browse():
     
     if request.method == 'POST':
         if request.form.get('action1') == 'VALUE1':
-            imgUrl = 'imgsPff/L60PelefinaHE40XB.pff'
-            # print(type(imgUrl))
-            # print(imgUrl)
-            return viewport(imgUrl)
-        elif request.form.get('action2') == 'VALUE2':
             imgUrl = 'imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff'
-            return viewport(imgUrl)
+            xmlUrl = 'xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml'
+            htmlUrl = open('static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
+            arqHtml = htmlUrl.read()
+            htmlUrl.close()
+            
+            return viewport(imgUrl, xmlUrl, arqHtml)
+        elif request.form.get('action2') == 'VALUE2':
+            imgUrl = 'imgsPff/L60PelefinaHE40XB.pff'
+            xmlUrl = 'xml/L60PelefinaHE40XB-annotations.xml'
+            htmlUrl = open('static/html/L60PeleFina.htm', 'r')
+            arqHtml = htmlUrl.read()
+            htmlUrl.close()
+
+            return viewport(imgUrl, xmlUrl, arqHtml)
+
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version)
                            
 
 @backend.route('/viewport')
-def viewport(imgUrl):
+def viewport(imgUrl, xmlUrl, arqHtml):
     image = imgUrl
-    return render_template('view.html', current_year=current_year, current_version=current_version, imageFile=image)
+    xml = xmlUrl
+    html = arqHtml
+    return render_template(
+                            'view.html', 
+                            current_year=current_year 
+                            ,current_version=current_version 
+                            ,imageFile=image 
+                            ,xmlFile=xml 
+                            , htmlFile=html
+                            )
 
 # 02 ^^^
 
