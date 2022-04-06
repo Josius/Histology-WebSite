@@ -1,5 +1,5 @@
 from __future__ import annotations
-# from crypt import methods # comentar esta linha para funcionar no windows
+from crypt import methods # comentar esta linha para funcionar no windows
 import html
 import re
 from tkinter import Image
