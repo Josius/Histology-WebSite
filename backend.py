@@ -1,5 +1,5 @@
 from __future__ import annotations
-from crypt import methods
+# from crypt import methods # comentar esta linha para funcionar no windows
 import html
 import re
 from tkinter import Image
@@ -49,35 +49,39 @@ def browse():
             imgUrl = 'imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff'
             xmlUrl = 'xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml'
             htmlUrl = open('static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
+            imgNome = 'PELE GROSSA'
             arqHtml = htmlUrl.read()
             htmlUrl.close()
             
-            return viewport(imgUrl, xmlUrl, arqHtml)
+            return viewport(imgUrl, xmlUrl, arqHtml, imgNome)
         elif request.form.get('action2') == 'VALUE2':
             imgUrl = 'imgsPff/L60PelefinaHE40XB.pff'
             xmlUrl = 'xml/L60PelefinaHE40XB-annotations.xml'
             htmlUrl = open('static/html/L60PeleFina.htm', 'r')
+            imgNome = 'L60- Pele fina'
             arqHtml = htmlUrl.read()
             htmlUrl.close()
 
-            return viewport(imgUrl, xmlUrl, arqHtml)
+            return viewport(imgUrl, xmlUrl, arqHtml, imgNome)
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version)
                            
 
 @backend.route('/viewport')
-def viewport(imgUrl, xmlUrl, arqHtml):
+def viewport(imgUrl, xmlUrl, arqHtml, imgNome):
     image = imgUrl
     xml = xmlUrl
     html = arqHtml
+    nmImg = imgNome
     return render_template(
                             'view.html', 
                             current_year=current_year 
                             ,current_version=current_version 
                             ,imageFile=image 
                             ,xmlFile=xml 
-                            , htmlFile=html
+                            ,htmlFile=html
+                            ,nomeImagem = nmImg
                             )
 
 # 02 ^^^

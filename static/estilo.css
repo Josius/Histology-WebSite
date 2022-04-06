@@ -1,7 +1,8 @@
-body{
+.overflow-y{
     font-family: montserrat, arial, sans-serif;
     margin: auto;
     background-color: #d3e1ed;
+    overflow-y: hidden;
     /* height: 100%;
     background-color: #d3e1ed;
     
@@ -19,29 +20,24 @@ body{
     letter-spacing: 0.1rem;
     line-height: 200%;
      */
-}
-
-p{
-    margin: auto;
-}
-
-#titulo{
-    color: white;
-    background-color: #64c4d2;
+    }
     
+    p{
+        margin: auto;
+    }
+
+    #titulo{
+    color: white;
+    background-color: #64c4d2;    
 }
 
 .cabecalho{
-    display: flex;
     color: white;
     background-color: #64c4d2;
     padding: 3px;
+    justify-content:space-between;
 }
 
-.justifyContent{
-    justify-content:space-between;
-    /* justify-content: space-around; */
-}
 
 .flex-container{
     display: flex;
@@ -51,7 +47,6 @@ p{
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
 /* .imagem não funciona */
 .imagem{
     width:"60%";
@@ -63,34 +58,61 @@ p{
     background-color: #ededed;
     width:100%;
     height:100%; */
-
+    
     background-color: #ededed;
-    width: 40%;
+    /* background-color: black; */
+    height: 591px;
+    width: 45%;
     justify-self: center;
     padding: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
     letter-spacing: 0.1rem;
     line-height: 150%;
-    height: 80%;
     overflow-y: scroll;
+    font-size: 15px;
+    
+    margin: 0;
+    border: 0;
+    padding: 0;
 }
 
-footer{
-    
+.textoNarrativa{
+    margin-left: 10px;
+}
+
+.tituloTexto{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #1094ab;
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.item-footer{
+    position: sticky;
+    bottom: 0;
+    width: 100%;
     color: white;
     background-color: #1094ab;
-    text-align: right;
+    /* margin: 0; */
+    /* height: 24px; */
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 #myContainer{
     
     width:100%;
-    height:90%; 
+    height: 591px;
     border:0px;
 }
-/*
-para mudar posicoes do txt e da img
-.flex-direction{
+
+/* para mudar posicoes do txt e da img */
+/* .flex-direction{
     flex-direction: row-reverse;
-}*/
+} */
