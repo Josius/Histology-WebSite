@@ -1,43 +1,6 @@
-.overflow-y{
-    font-family: montserrat, arial, sans-serif;
+p{
     margin: auto;
-    background-color: #d3e1ed;
-    overflow-y: hidden;
-    /* height: 100%;
-    background-color: #d3e1ed;
-    
-    min-height: 100vh;    
-    
-    line-height: 200%; */
-
-    /* background-color: #ededed;
-    text-align: center;
-    width: 75%;
-    justify-self: center;
-    padding: 1rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    letter-spacing: 0.1rem;
-    line-height: 200%;
-     */
-    }
-    
-    p{
-        margin: auto;
-    }
-
-    #titulo{
-    color: white;
-    background-color: #64c4d2;    
 }
-
-.cabecalho{
-    color: white;
-    background-color: #64c4d2;
-    padding: 3px;
-    justify-content:space-between;
-}
-
 
 .flex-container{
     display: flex;
@@ -47,22 +10,56 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+/* para mudar posicoes do txt e da img */
+/* .flex-direction{
+    flex-direction: row-reverse;
+}
+*/
+
 /* .imagem não funciona */
-.imagem{
+/* .imagem{
     width:"60%";
     height:"60%";
 }
-.narrativa{
+*/
+
+/* 
+#titulo{
+    color: white;
+    background-color: #64c4d2;    
+}
+*/
+
+.overflow-y{
+    font-family: montserrat, arial, sans-serif;
+    /* font-family: Source Sans Pro, sans-serif; */
+    margin: auto;
+    background-color: #d3e1ed;
+    overflow-y: hidden;
+}
+
+.cabecalho{
     
-    /* border: 3px solid gray;
-    background-color: #ededed;
-    width:100%;
-    height:100%; */
+    font-family: Source Sans Pro SemiBold; /*TESTE DE FONTE PARA CABEÇALHOS, RODAPÉS E TÍTULOS*/
+    color: white;
+    background-color: #64c4d2;
+    padding: 3px;
+    border-bottom-color: #fcb421;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    justify-content:space-between;
+}
+
+.narrativa{
     
     background-color: #ededed;
     /* background-color: black; */
-    height: 591px;
-    width: 45%;
+    height: 100%;
+    max-height: 600px;
+    width: 100%;
+    max-width: 450px;
+
     justify-self: center;
     padding: 1rem;
     padding-left: 1rem;
@@ -77,11 +74,9 @@
     padding: 0;
 }
 
-.textoNarrativa{
-    margin-left: 10px;
-}
-
 .tituloTexto{
+    font-family: Source Sans Pro SemiBold;
+    color: white;
     position: sticky;
     top: 0;
     width: 100%;
@@ -92,7 +87,12 @@
     font-weight: bold;
 }
 
+.textoNarrativa{
+    margin-left: 10px;
+}
+
 .item-footer{
+    font-family: Source Sans Pro SemiBold;
     position: sticky;
     bottom: 0;
     width: 100%;
@@ -108,11 +108,8 @@
 #myContainer{
     
     width:100%;
-    height: 591px;
+    height: 100%;
+    max-height: 600px;
     border:0px;
 }
 
-/* para mudar posicoes do txt e da img */
-/* .flex-direction{
-    flex-direction: row-reverse;
-} */
