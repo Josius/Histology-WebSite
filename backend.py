@@ -1,9 +1,10 @@
 from __future__ import annotations
-from crypt import methods # comentar esta linha para funcionar no windows
+from crypt import methods  # comentar esta linha para funcionar no windows
 import html
 import re
 from tkinter import Image
 from turtle import back
+from urllib import response
 from flask import Flask, render_template, session, redirect, url_for, request
 from configparser import ConfigParser
 from db import db_session
@@ -32,27 +33,30 @@ def index():
     return render_template('home.html', page_name='Home', current_year=current_year,
                            version=current_version)
 
+
 # BROWSE ORIGINAL
 """ 
 @backend.route('/browse')
 def browse():
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version)
- """             
+ """
 # 02 vvv
+
 
 @backend.route('/browse', methods=['GET', 'POST'])
 def browse():
-    
+
     if request.method == 'POST':
         if request.form.get('action1') == 'VALUE1':
             imgUrl = 'imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff'
             xmlUrl = 'xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml'
-            htmlUrl = open('static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
-            imgNome = 'PELE GROSSA'
+            htmlUrl = open(
+                'static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
+            imgNome = 'Pele Grossa'
             arqHtml = htmlUrl.read()
             htmlUrl.close()
-            
+
             return viewport(imgUrl, xmlUrl, arqHtml, imgNome)
         elif request.form.get('action2') == 'VALUE2':
             imgUrl = 'imgsPff/L60PelefinaHE40XB.pff'
@@ -66,7 +70,7 @@ def browse():
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version)
-                           
+
 
 @backend.route('/viewport')
 def viewport(imgUrl, xmlUrl, arqHtml, imgNome):
@@ -75,17 +79,50 @@ def viewport(imgUrl, xmlUrl, arqHtml, imgNome):
     html = arqHtml
     nmImg = imgNome
     return render_template(
-                            'view.html', 
-                            current_year=current_year 
-                            ,current_version=current_version 
-                            ,imageFile=image 
-                            ,xmlFile=xml 
-                            ,htmlFile=html
-                            ,nomeImagem = nmImg
-                            )
-
+        'view.html',
+        current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
+    )
 # 02 ^^^
+# 00
 
+
+@backend.route('/viewportTeste00', methods=['GET', 'POST'])
+def viewportTeste00():
+    
+    body = request.get_json()
+    
+    image = body["imgUrl"]
+    xml = body["xmlUrl"]
+    nmImg = body["imgNome"]
+
+    if("imgUrl" not in body):
+        return geraResponse(400, "O parâmetro nome é obrigatório")
+    
+    if("xmlUrl" not in body):
+        return geraResponse(400, "O parâmetro nome é obrigatório")
+
+    if("imgNome" not in body):
+        return geraResponse(400, "O parâmetro nome é obrigatório")
+    
+    # dados = inserirDados(body["imgUrl"], body["xmlUrl"], body["imgNome"])
+    
+    # return geraResponse(200, "Deu certo", "dados", dados)
+    return render_template('view.html',current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, nomeImagem=nmImg)
+
+def geraResponse(status, mensagem, nomeDoConteudo=False, conteudo=False):
+    response = {}
+    response["status"] = status
+    response["mensagem"] = mensagem
+
+    if(nomeDoConteudo and conteudo):
+        response[nomeDoConteudo] = conteudo
+    return response
+
+def inserirDados(imgUrl ,xmlUrl, imgNome):
+    return{"imgUrl": imgUrl,"xmlUrl": xmlUrl,"imgNome": imgNome}
+
+
+# 00
 # 01 vvv
 """ 
 @backend.route('/browse', methods=['GET', 'POST'])
@@ -114,6 +151,7 @@ def viewport():
     # image = request.form.get('zImagePath')
     return render_template('view.html', current_year=current_year, current_version=current_version, imageFile='imgsPff/L60PelefinaHE40XB.pff')
  """
+
 
 @backend.route('/contribute', methods=['GET', 'POST'])
 def contribute():
@@ -213,19 +251,23 @@ def dashboard(edit_mode):
                         os.mkdir(f'./slides/{new_slide.id}')
                     file = add_slide_form.image_file.data
                     print(file.__dict__)
-                    file.save(os.path.join(f'./slides/{new_slide.id}', secure_filename('a')))
-                    json_file = {'lang': 'pt-br', 'slide_title': add_slide_form.name.data}
+                    file.save(os.path.join(
+                        f'./slides/{new_slide.id}', secure_filename('a')))
+                    json_file = {'lang': 'pt-br',
+                                 'slide_title': add_slide_form.name.data}
                     with open(f'./slides/{new_slide.id}/meta.json', 'w') as outfile:
                         json.dump(json_file, outfile)
                 else:
                     return add_slide_form.errors
 
             slides = db_session.query(models.Slide).\
-                filter(models.Slide.user_id == session['user_email']).order_by(models.Slide.uploaded_at).all()
+                filter(models.Slide.user_id == session['user_email']).order_by(
+                    models.Slide.uploaded_at).all()
             slides_dict = {}
             for slide in slides:
                 with open(f'./slides/{slide.id}/meta.json') as meta:
-                    slides_dict[slide.id] = {'object': slide, 'meta': json.load(meta)}
+                    slides_dict[slide.id] = {
+                        'object': slide, 'meta': json.load(meta)}
 
             return render_template('dashboard.html', page_name=page_name, current_year=current_year,
                                    version=current_version, user=user, display_constructor=forms.UserData,
@@ -241,6 +283,7 @@ def dashboard(edit_mode):
 #     def browse():
 #         return render_template('browse.html', page_name='Navegar', current_year=current_year,
 #                             version=current_version, imageFile='testeJosimarDois.zif', htmlFile=htmlString, annotationsFile='Assets/Annotations/Narratives/testeJosimarDois-annotations.xml')
+
 
 # 01 - CÓDIGO ABAIXO NÃO FUNCIONA
 """ 
@@ -265,7 +308,6 @@ def viewport():
                            slide_meta=json.load(open('./slides/10/meta.json'))) """
 
 
-
 @backend.route('/help')
 def help_me():
     help_form = forms.HelpForm()
@@ -280,6 +322,7 @@ if __name__ == '__main__':
 # if __name__ == '__main__':
 #     from waitress import serve
 #     serve(backend, host="127.0.0.1", port=8080)
+
 
 def create_app():
     import db

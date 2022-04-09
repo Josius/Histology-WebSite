@@ -65,3 +65,16 @@ NARRATIVES ORIGINAL
         </footer>
         
     </article>
+
+    <!-- 02  CODIGO ORIGINAL-->
+    <div class="item">
+        <div class="miniatura">
+            <form action="" method="POST">
+                <button type="submit" value="VALUE2" name="action2">
+                    <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE40XB.jpg')}}" alt="" class="imagem" width="60%" height="60%"> 
+                </button>
+            </form>
+        </div>
+        <p>L60PeleFinaHE40XB</p>
+        <h3>link</h3>
+    </div>
