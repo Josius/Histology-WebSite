@@ -14,6 +14,7 @@ import datetime
 import forms
 import os
 import json
+from flask import jsonify
 
 backend = Flask(__name__)
 
@@ -47,15 +48,27 @@ def browse():
 @backend.route('/browse', methods=['GET', 'POST'])
 def browse():
 
+    dados_json = '{"imgUrl" : "imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff", "xmlUrl" : "xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml", "imgNome": "Pele Grossa"}'
+
     if request.method == 'POST':
         if request.form.get('action1') == 'VALUE1':
-            imgUrl = 'imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff'
-            xmlUrl = 'xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml'
+            dados = json.loads(dados_json)
+
+            imgUrl = dados["imgUrl"]
+            xmlUrl = dados["xmlUrl"]
+            imgNome = dados["imgNome"]
             htmlUrl = open(
                 'static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
-            imgNome = 'Pele Grossa'
             arqHtml = htmlUrl.read()
             htmlUrl.close()
+
+            # imgUrl = 'imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff'
+            # xmlUrl = 'xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml'
+            # htmlUrl = open(
+            #     'static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
+            # imgNome = 'Pele Grossa'
+            # arqHtml = htmlUrl.read()
+            # htmlUrl.close()
 
             return viewport(imgUrl, xmlUrl, arqHtml, imgNome)
         elif request.form.get('action2') == 'VALUE2':
@@ -83,31 +96,35 @@ def viewport(imgUrl, xmlUrl, arqHtml, imgNome):
         current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
     )
 # 02 ^^^
+
+
 # 00
-
-
 @backend.route('/viewportTeste00', methods=['GET', 'POST'])
-def viewportTeste00():
+def viewportTeste():
     
-    body = request.get_json()
-    
-    image = body["imgUrl"]
-    xml = body["xmlUrl"]
-    nmImg = body["imgNome"]
+    # if request.method == 'POST':
 
-    if("imgUrl" not in body):
-        return geraResponse(400, "O parâmetro nome é obrigatório")
-    
-    if("xmlUrl" not in body):
-        return geraResponse(400, "O parâmetro nome é obrigatório")
+    dados_json = request.get_json()
+    # dados = jsonify(request.form).json
 
-    if("imgNome" not in body):
-        return geraResponse(400, "O parâmetro nome é obrigatório")
+    # dados_json = '{"imgUrl" : "imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff", "xmlUrl" : "xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml", "imgNome": "Pele Grossa", "htmlUrl":"static/html/L01PeleGrossaCoximdeGatoL2HE40.htm"}'
+    print(dados_json)
+    dados = json.loads(dados_json)
+    # print(dados.dumps())
     
-    # dados = inserirDados(body["imgUrl"], body["xmlUrl"], body["imgNome"])
-    
-    # return geraResponse(200, "Deu certo", "dados", dados)
-    return render_template('view.html',current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, nomeImagem=nmImg)
+
+    image = dados["imgUrl"]
+    xml = dados["xmlUrl"]
+    nmImg = dados["imgNome"]
+    arqHtml = open(dados["htmlUrl"], 'r')
+    html = arqHtml.read()
+    arqHtml.close()
+
+    return render_template(
+        'view.html',
+        current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
+    )
+
 
 def geraResponse(status, mensagem, nomeDoConteudo=False, conteudo=False):
     response = {}
@@ -118,8 +135,9 @@ def geraResponse(status, mensagem, nomeDoConteudo=False, conteudo=False):
         response[nomeDoConteudo] = conteudo
     return response
 
-def inserirDados(imgUrl ,xmlUrl, imgNome):
-    return{"imgUrl": imgUrl,"xmlUrl": xmlUrl,"imgNome": imgNome}
+
+def inserirDados(imgUrl, xmlUrl, imgNome):
+    return{"imgUrl": imgUrl, "xmlUrl": xmlUrl, "imgNome": imgNome}
 
 
 # 00

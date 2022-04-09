@@ -11,6 +11,76 @@
         <h2>mais texto e img</h2>
         <div class="flex-container flex-pos">
 
+            <!-- 04 -->
+            <div class="item">
+                <div class="miniatura">
+                    <form >
+                        <!-- onclick="enviarDados()" -->
+                        <a href="./viewportTeste00" onclick="enviarDados()">
+                            <!-- <a href="" > -->
+                            <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}"
+                                alt="" width="60%" height="60%">
+
+                            <input id="imgPath" name="zImagePath" type="hidden"
+                                value="imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff">
+                            <input id="xmlPath" name="zAnnotationPath" type="hidden"
+                                value="xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml">
+                            <input id="imgName" name="zImageName" type="hidden" value="Pele Grossa">
+                            <input id="htmPath" name="zhtmPath" type="hidden"
+                                value="static/html/L01PeleGrossaCoximdeGatoL2HE40.htm">
+
+                        </a>
+                    </form>
+                </div>
+                <h2>teste 04</h2>
+                <h3>link</h3>
+            </div>
+
+            <!-- <script>
+                $(document).ready(function () {
+                    $('#submit').click(function () {
+                        var formdata = serialize();
+                        $.ajax({
+                            type: 'POST',
+                            contentType: 'application/json',
+                            data: JSON.stringify(formdata),
+                            dataType: 'json',
+                            url: 'http://127.0.0.1:5000/viewportTeste00',
+                            success: function (e) {
+                                console.log(e);
+                                window.location = "http://127.0.0.1:5000/viewportTeste00";
+                            },
+                            error: function (error) {
+                                console.log(error);
+                            }
+                        });
+                    });
+                });
+            </script> -->
+
+            <!-- 
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+            <script>
+                function myfunction() {
+                    const imgUrl = document.getElementById("imgPath").value;
+                    const xmlUrl = document.getElementById("xmlPath").value;
+                    const imgNome = document.getElementById("imgName").value;
+                    const htmlUrl = document.getElementById("htmPath").value;
+
+                    const dict_values = { imgUrl, xmlUrl, imgNome, htmlUrl } //Pass the javascript variables to a dictionary.
+                    const s = JSON.stringify(dict_values); // Stringify converts a JavaScript object or value to a JSON string
+                    console.log(s); // Prints the variables to console window, which are in the JSON format
+                    window.alert(s)
+                    $.ajax({
+                        url: "/viewportTeste00",
+                        type: "POST",
+                        contentType: "application/json",
+                        data: JSON.stringify(s)
+                    });
+
+                }
+            </script> -->
+
             <!-- 03 -->
             <div class="item">
                 <div class="miniatura">
@@ -39,20 +109,23 @@
                 <h3>link</h3>
             </div>
 
+
+
             <!-- 00 - CÓDIGO ABAIXO FUNCIONA PORQUE ANTES O viewport ESTAVA CONFIGURADO PARA ABRIR ESTA IMG -->
             <div class="item">
                 <div class="miniatura">
-                    <form >
+                    <form>
                         <a href="./viewportTeste00" onclick="dadosDeVisualizacao()">
-                            
-                                <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt="" class="imagem"
-                                    width="60%" height="60%">
-                                <input id="imgPath" name="zImagePath" type="hidden" value="imgsPff/L60PelefinaHE40XB.pff">
-                                <input id="xmlPath" name="zAnnotationPath" type="hidden" value="xml/L60PelefinaHE40XB-annotations.xml">
-                                <input id="imgName" name="zImageName" type="hidden" value="L60- Pele fina">
-                            
+
+                            <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt=""
+                                class="imagem" width="60%" height="60%">
+                            <input id="imgPath" name="zImagePath" type="hidden" value="imgsPff/L60PelefinaHE40XB.pff">
+                            <input id="xmlPath" name="zAnnotationPath" type="hidden"
+                                value="xml/L60PelefinaHE40XB-annotations.xml">
+                            <input id="imgName" name="zImageName" type="hidden" value="L60- Pele fina">
+
                         </a>
-                    </form>    
+                    </form>
                 </div>
                 <h2>teste 00</h2>
                 <h3>link</h3>
@@ -204,6 +277,7 @@
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L11VasoDeGrandeCalibreVerhoff.jpg')}}" alt=""
                             width="60%" height="60%">
+
                     </a>
                 </div>
                 <h2>texto</h2>
