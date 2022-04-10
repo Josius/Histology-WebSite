@@ -86,5 +86,7 @@ class AddSlideMarker(FlaskForm):
 
 # 01
 class ImageForm(FlaskForm):
-    # trocar para StringField não deu certo, ainda não encontra o endereço da img
-    imgUrl = HiddenField("imgUrl", validators=[DataRequired()])#talvez usar validators=[DataRequired()] -> precisa importar DataRequired
+    img_path = HiddenField("imgPath")
+    xml_path = HiddenField("xmlPath")
+    img_name = HiddenField("imgName")
+    htm_path = HiddenField("htmPath")

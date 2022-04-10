@@ -3,6 +3,7 @@ from crypt import methods  # comentar esta linha para funcionar no windows
 import html
 import re
 from tkinter import Image
+from traceback import print_tb
 from turtle import back
 from urllib import response
 from flask import Flask, render_template, session, redirect, url_for, request
@@ -14,7 +15,9 @@ import datetime
 import forms
 import os
 import json
-from flask import jsonify
+import requests
+
+
 
 backend = Flask(__name__)
 
@@ -42,47 +45,103 @@ def browse():
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version)
  """
+
+ 
 # 02 vvv
-
-
 @backend.route('/browse', methods=['GET', 'POST'])
 def browse():
+# 05 - com request nao deu certo
+    # imgPath = request.form['text']
+    # xmlPath = request.form['xmlPath']
+    # imgName = request.form['imgName']
+    # htmPath = request.form['htmPath']
+    # print(imgPath)
+    # print(xmlPath)
+    # print(imgName)
+    # print(htmPath)
+    
+    form_img = forms.ImageForm()
+    # if request.method == 'POST':
+    #     imgUrl = form_img.img_path.data
+    #     xmlUrl = form_img.xml_path.data
+    #     imgNome = form_img.img_name.data
+    #     htmlUrl = open(form_img.htm_path.data, 'r')
+    #     arqHtml = htmlUrl.read()
+    #     htmlUrl.close()
+        
+        
+    #     print(form_img.img_path.data)
+    #     print(form_img.xml_path.data)
+    #     print(form_img.img_name.data)
+    #     print(form_img.htm_path.data)
+        
 
-    dados_json = '{"imgUrl" : "imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff", "xmlUrl" : "xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml", "imgNome": "Pele Grossa"}'
+    #     return viewport(imgUrl, xmlUrl, arqHtml, imgNome) 
+# 05
 
-    if request.method == 'POST':
-        if request.form.get('action1') == 'VALUE1':
-            dados = json.loads(dados_json)
+# 04, eu acho
+    # dados_json = '{"imgUrl" : "imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff", "xmlUrl" : "xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml", "imgNome": "Pele Grossa"}'
 
-            imgUrl = dados["imgUrl"]
-            xmlUrl = dados["xmlUrl"]
-            imgNome = dados["imgNome"]
-            htmlUrl = open(
-                'static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
-            arqHtml = htmlUrl.read()
-            htmlUrl.close()
+    # if request.method == 'POST':
+    #     if request.form.get('action1') == 'VALUE1':
+    #         dados = json.loads(dados_json)
 
-            # imgUrl = 'imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff'
-            # xmlUrl = 'xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml'
-            # htmlUrl = open(
-            #     'static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
-            # imgNome = 'Pele Grossa'
-            # arqHtml = htmlUrl.read()
-            # htmlUrl.close()
+    #         imgUrl = dados["imgUrl"]
+    #         xmlUrl = dados["xmlUrl"]
+    #         imgNome = dados["imgNome"]
+    #         htmlUrl = open(
+    #             'static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
+    #         arqHtml = htmlUrl.read()
+    #         htmlUrl.close()
 
-            return viewport(imgUrl, xmlUrl, arqHtml, imgNome)
-        elif request.form.get('action2') == 'VALUE2':
-            imgUrl = 'imgsPff/L60PelefinaHE40XB.pff'
-            xmlUrl = 'xml/L60PelefinaHE40XB-annotations.xml'
-            htmlUrl = open('static/html/L60PeleFina.htm', 'r')
-            imgNome = 'L60- Pele fina'
-            arqHtml = htmlUrl.read()
-            htmlUrl.close()
+    #         # imgUrl = 'imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff'
+    #         # xmlUrl = 'xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml'
+    #         # htmlUrl = open(
+    #         #     'static/html/L01PeleGrossaCoximdeGatoL2HE40.htm', 'r')
+    #         # imgNome = 'Pele Grossa'
+    #         # arqHtml = htmlUrl.read()
+    #         # htmlUrl.close()
 
-            return viewport(imgUrl, xmlUrl, arqHtml, imgNome)
+    #         return viewport(imgUrl, xmlUrl, arqHtml, imgNome)
+    #     elif request.form.get('action2') == 'VALUE2':
+    #         imgUrl = 'imgsPff/L60PelefinaHE40XB.pff'
+    #         xmlUrl = 'xml/L60PelefinaHE40XB-annotations.xml'
+    #         htmlUrl = open('static/html/L60PeleFina.htm', 'r')
+    #         imgNome = 'L60- Pele fina'
+    #         arqHtml = htmlUrl.read()
+    #         htmlUrl.close()
+
+    #         return viewport(imgUrl, xmlUrl, arqHtml, imgNome)
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
-                           version=current_version)
+                           version=current_version, form_img=form_img)
+
+# 05
+@backend.route('/teste05', methods=['GET', 'POST'])
+def teste05():
+    form_img = forms.ImageForm()
+    if request.method == 'POST':
+        imgUrl = form_img.img_path.data
+        xmlUrl = form_img.xml_path.data
+        imgNome = form_img.img_name.data
+        htmlUrl = open(form_img.htm_path.data, 'r')
+        arqHtml = htmlUrl.read()
+        htmlUrl.close()
+        
+        
+        print(form_img.img_path.data)
+        print(form_img.xml_path.data)
+        print(form_img.img_name.data)
+        print(form_img.htm_path.data)
+    image = imgUrl
+    xml = xmlUrl
+    html = arqHtml
+    nmImg = imgNome
+    return render_template(
+        'view.html',
+        current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
+    )
+# 05
 
 
 @backend.route('/viewport')
@@ -97,20 +156,57 @@ def viewport(imgUrl, xmlUrl, arqHtml, imgNome):
     )
 # 02 ^^^
 
+# API
+def inserirDados(imgPath, xmlPath, imgName, htmPath):
+    return {"imgPath":imgPath, "xmlPath":xmlPath, "imgName":imgName, "htmPath":htmPath}
 
-# 00
+@backend.route("/selecionaImagem", methods=["POST"])
+def selecionaImg():
+
+    body = request.get_json()
+    print("Entrou")
+
+    if("imgPath" not in body):
+        return geraResponse(400, "O parâmetro é imgPath obrigatório")
+    if("xmlPath" not in body):
+        return geraResponse(400, "O parâmetro é xmlPath obrigatório")
+    if("imgName" not in body):
+        return geraResponse(400, "O parâmetro é imgName obrigatório")
+    if("htmPath" not in body):
+        return geraResponse(400, "O parâmetro é htmPath obrigatório")
+    print(body)
+    dados = inserirDados(
+                        body["imgPath"],
+                        body["xmlPath"],
+                        body["imgName"],
+                        body["htmPath"]
+                        )
+    
+    print(dados)
+
+    return geraResponse(200, "Dados enviados", "dados", dados)
+
+def geraResponse(status, mensagem, nomeDoConteudo=False, conteudo=False):
+    response = {}
+    response["status"] = status
+    response["mensagem"] = mensagem
+
+    if(nomeDoConteudo and conteudo):
+        response[nomeDoConteudo] = conteudo
+
+    return response
+# API
+#  com funcao js
 @backend.route('/viewportTeste00', methods=['GET', 'POST'])
 def viewportTeste():
     
-    # if request.method == 'POST':
-
-    dados_json = request.get_json()
+    # dados_json = request.get_json()
     # dados = jsonify(request.form).json
 
-    # dados_json = '{"imgUrl" : "imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff", "xmlUrl" : "xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml", "imgNome": "Pele Grossa", "htmlUrl":"static/html/L01PeleGrossaCoximdeGatoL2HE40.htm"}'
-    print(dados_json)
+    dados_json = '{"imgUrl" : "imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff", "xmlUrl" : "xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml", "imgNome": "Pele Grossa", "htmlUrl":"static/html/L01PeleGrossaCoximdeGatoL2HE40.htm"}'
+    # print(dados_json)
     dados = json.loads(dados_json)
-    # print(dados.dumps())
+    # # print(dados.dumps())
     
 
     image = dados["imgUrl"]
@@ -125,19 +221,25 @@ def viewportTeste():
         current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
     )
 
+# 00 com ajax
+""" @backend.route('/viewportTeste', methods=['GET', 'POST'])
+def viewportTeste():  
 
-def geraResponse(status, mensagem, nomeDoConteudo=False, conteudo=False):
-    response = {}
-    response["status"] = status
-    response["mensagem"] = mensagem
+    image = request.form['imgUrl']
+    xml = request.form["xmlUrl"]
+    nmImg = request.form["imgNome"]
+    arqHtml = open(request.form["htmlUrl"], 'r')
+    html = arqHtml.read()
+    arqHtml.close()
 
-    if(nomeDoConteudo and conteudo):
-        response[nomeDoConteudo] = conteudo
-    return response
-
-
-def inserirDados(imgUrl, xmlUrl, imgNome):
-    return{"imgUrl": imgUrl, "xmlUrl": xmlUrl, "imgNome": imgNome}
+    print(image)
+    print(type(image))
+    return render_template(
+        'view.html',
+        current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
+    )
+ """
+    
 
 
 # 00
