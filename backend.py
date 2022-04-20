@@ -1,4 +1,5 @@
 from __future__ import annotations
+from ensurepip import version
 #from crypt import methods  # comentar esta linha para funcionar no windows
 import html
 import re
@@ -31,13 +32,12 @@ backend.config['UPLOAD_PATH'] = './slides'
 
 
 @backend.route('/')
-def index():
+def home():
     return render_template('home.html', page_name='Home', current_year=current_year,
                            version=current_version)
 
 @backend.route('/browse', methods=['GET', 'POST'])
 def browse():
-    
     form_img = forms.ImageForm()
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, form_img=form_img)
@@ -62,6 +62,9 @@ def viewport():
         current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
     )
 
+@backend.route('/index')
+def index():
+    return render_template('index.html', page_name='Indice', current_year=current_year, version=current_version)
 
 @backend.route('/contribute', methods=['GET', 'POST'])
 def contribute():

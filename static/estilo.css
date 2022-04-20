@@ -12,10 +12,13 @@ p{
 }
 
 /* para mudar posicoes do txt e da img */
-/* .flex-direction{
+.flex-direction{
     flex-direction: row-reverse;
 }
-*/
+
+.flex-jf-content{
+    justify-content: space-between;
+}
 
 /* .imagem não funciona */
 /* .imagem{
@@ -192,3 +195,27 @@ nav a{
 }
 /*Menu Retratil*/
 
+
+
+
+/* Página Índice */
+.container .item-c .flex-container .indice{
+    background-color: #d3e1ed;
+    border: 1px solid #64c4d2;
+    border-radius: 5px;
+}
+
+.container .item-c .flex-container .indice p{
+    font-size: 15px;
+    font-family: 'Vidaloka';
+}
+
+.container .item-c .flex-container .indice ul{
+    list-style-type: none;
+}
+
+.container .item-c .flex-container .indice ul li{
+    font-size: 14px;
+}
+
+/* Página Índice */
