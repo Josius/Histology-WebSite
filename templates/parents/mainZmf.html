@@ -12,16 +12,30 @@
 	<body class="overflow-y">
 
 		<!-- Menu Retratil --> 
-	<input type="checkbox" id="check">
-	<label for="check" id="icone"><img src="https://i.imgur.com/RWHvwPE.png"/></label>
-	<div class="barra">	
-		<nav>
-			<a href="./"><div class="link">Página Inicial</div></a>
-			<a href="./browse"><div class="link">Página Navegar</div></a>
-			<a href=""><div class="link">Guia Histológico {{ current_year }}</div></a>
-			<a href=""><div class="link">alguma outra funcionalidade</div></a>
-		</nav>	
-	</div>
+		<header class="cabecalhoMenuRetratil flex-container">
+
+			<input type="checkbox" id="check">
+			<label for="check" id="icone">&#9776;</label>
+			<div class="barra">	
+				<nav>
+					<a href="./"><div class="link">Página Inicial</div></a>
+					<a href="./browse"><div class="link">Página Navegar</div></a>
+					<a href=""><div class="link">Guia Histológico {{ current_year }}</div></a>
+					<a href=""><div class="link">alguma outra funcionalidade</div></a>
+				</nav>	
+			</div>
+
+			<input type="checkbox" id="check">
+			<label for="check" id="icone">&#9770;</label>
+			<div class="barra">	
+				<nav>
+					<a href=""><div class="link">11111</div></a>
+					<a href=""><div class="link">22222</div></a>
+					<a href=""><div class="link">333333</div></a>
+					<a href=""><div class="link">444444</div></a>
+				</nav>	
+			</div>
+		</header>
 		<!-- Menu Retratil -->
 
 			<!--Menu superior comum-->
@@ -42,7 +56,7 @@
 			<div>alguma outra funcionalidade</div>
         </header>-->
 		<!--Menu superior comum-->
-	
+		
 		<section class="flex-container flex-direction">	
             {% block content %} {% endblock %}
         </section>
