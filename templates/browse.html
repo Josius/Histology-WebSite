@@ -12,33 +12,11 @@
     <section>
         <h2>mais texto e img</h2>
         <div class="flex-container flex-pos">
-            <!-- 05 -->
+
             <div class="item">
                 <h2>teste 05</h2>
                 <div class="miniatura">
-<!-- com request - nao deu certo -->
-                    <!-- <form method="POST">
-                        <input name="imgPath" id="imgPath"  type="hidden" value="imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff">
-                        <input name="xmlPath" type="hidden" value="xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml">
-                        <input name="imgName" type="hidden" value="Pele Grossa">
-                        <input name="htmPath" type="hidden" value="static/html/L01PeleGrossaCoximdeGatoL2HE40.htm">
-                        <input type="submit" >
-                            
-                    </form> -->
-                    
-                    <!-- <form method="POST">
-                        <input name="text" id="img" type="hidden" value="imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff">
-                        <input type="submit">
-                    </form> -->
-                    <!-- <form action="{{ url_for('teste05') }}" method="POST">
-                        <a href="./teste05" onclick="enviarDados()">
-                            <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}"
-                            alt="" width="60%" height="60%">
-                        </a>
-                        <h6>não deu certo</h6>
-                    </form> -->
-<!-- com request - nao deu certo -->
-                    <form action="{{ url_for('teste05') }}" method="POST">
+                    <form action="{{ url_for('viewport') }}" method="POST">
                         {{ form_img.csrf_token }}
                         {{ form_img.img_path(value="imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff") }}
                         {{ form_img.xml_path(value="xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml") }}                        
@@ -50,7 +28,15 @@
                             alt="" width="60%" height="60%">
                         </button>
                     </form>
-                    <form action="{{ url_for('teste05') }}" method="POST">
+                    
+                </div>
+                <h2>teste 05</h2>
+                <h3>link</h3>
+            </div>
+            
+            <div class="item">
+                <div class="miniatura">
+                    <form action="{{ url_for('viewport') }}" method="POST">
                         <h6>deu certo</h6>
                         {{ form_img.csrf_token }}
                         {{ form_img.img_path(value="imgsPff/L60PelefinaHE40XB.pff") }}
@@ -65,135 +51,7 @@
                         <h6>deu certo</h6>
                     </form>
                 </div>
-                <h2>teste 05</h2>
-                <h3>link</h3>
-            </div>
-            <!-- 04 -->
-            <div class="item">
-                <div class="miniatura">
-                    <form >                    
-                        <a href="./viewportTeste00" onclick="enviarDados()">
-                            
-                            <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}"
-                                alt="" width="60%" height="60%">
-                            <input id="imgPath" name="zImagePath" type="hidden"
-                                value="imgsPff/L01PeleGrossaCoximdeGatoL2HE40X.pff">
-                            <input id="xmlPath" name="zAnnotationPath" type="hidden"
-                                value="xml/L01PeleGrossaCoximdeGatoL2HE40X-annotations.xml">
-                            <input id="imgName" name="zImageName" type="hidden" value="Pele Grossa">
-                            <input id="htmPath" name="zhtmPath" type="hidden"
-                                value="static/html/L01PeleGrossaCoximdeGatoL2HE40.htm">
-
-                        </a>
-                    </form>
-                </div>
-                <h2>teste 04</h2>
-                <h3>link</h3>
-            </div>
-            <!-- <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
-            <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div> -->
-            <!-- <script>
-                $(document).ready(function () {
-                    $('#submit').click(function () {
-                        var formdata = serialize();
-                        $.ajax({
-                            type: 'POST',
-                            contentType: 'application/json',
-                            data: JSON.stringify(formdata),
-                            dataType: 'json',
-                            url: 'http://127.0.0.1:5000/viewportTeste00',
-                            success: function (e) {
-                                console.log(e);
-                                window.location = "http://127.0.0.1:5000/viewportTeste00";
-                            },
-                            error: function (error) {
-                                console.log(error);
-                            }
-                        });
-                    });
-                });
-            </script> -->
-
-            <!-- 
-            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-            <script>
-                function myfunction() {
-                    const imgUrl = document.getElementById("imgPath").value;
-                    const xmlUrl = document.getElementById("xmlPath").value;
-                    const imgNome = document.getElementById("imgName").value;
-                    const htmlUrl = document.getElementById("htmPath").value;
-
-                    const dict_values = { imgUrl, xmlUrl, imgNome, htmlUrl } //Pass the javascript variables to a dictionary.
-                    const s = JSON.stringify(dict_values); // Stringify converts a JavaScript object or value to a JSON string
-                    console.log(s); // Prints the variables to console window, which are in the JSON format
-                    window.alert(s)
-                    $.ajax({
-                        url: "/viewportTeste00",
-                        type: "POST",
-                        contentType: "application/json",
-                        data: JSON.stringify(s)
-                    });
-
-                }
-            </script> -->
-
-            <!-- 03 -->
-            <div class="item">
-                <div class="miniatura">
-                    <form action="" method="POST">
-                        <button type="submit" value="VALUE1" name="action1">
-                            <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}"
-                                alt="" width="60%" height="60%">
-                        </button>
-                    </form>
-                </div>
                 <p>L01PeleGrossaCoximDeGatoL2HE40X</p>
-                <h3>link</h3>
-            </div>
-
-            <!-- 02  CODIGO ORIGINAL-->
-            <div class="item">
-                <div class="miniatura">
-                    <form action="" method="POST">
-                        <button type="submit" value="VALUE2" name="action2">
-                            <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE40XB.jpg')}}" alt=""
-                                class="imagem" width="60%" height="60%">
-                        </button>
-                    </form>
-                </div>
-                <p>L60PeleFinaHE40XB</p>
-                <h3>link</h3>
-            </div>
-
-
-
-            <!-- 00 - CÓDIGO ABAIXO FUNCIONA PORQUE ANTES O viewport ESTAVA CONFIGURADO PARA ABRIR ESTA IMG -->
-            <div class="item">
-                <div class="miniatura">
-                    <form>
-                        <a href="./viewportTeste00" onclick="dadosDeVisualizacao()">
-
-                            <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE.jpg')}}" alt=""
-                                class="imagem" width="60%" height="60%">
-                            <input id="imgPath" name="zImagePath" type="hidden" value="imgsPff/L60PelefinaHE40XB.pff">
-                            <input id="xmlPath" name="zAnnotationPath" type="hidden"
-                                value="xml/L60PelefinaHE40XB-annotations.xml">
-                            <input id="imgName" name="zImageName" type="hidden" value="L60- Pele fina">
-
-                        </a>
-                    </form>
-                </div>
-                <h2>teste 00</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE40XB.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
                 <h3>link</h3>
             </div>
 
