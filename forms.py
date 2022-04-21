@@ -90,3 +90,6 @@ class ImageForm(FlaskForm):
     xml_path = HiddenField("xmlPath")
     img_name = HiddenField("imgName")
     htm_path = HiddenField("htmPath")
+
+class ArqImgForm(FlaskForm):
+    arq_nome = HiddenField("arq_nome")

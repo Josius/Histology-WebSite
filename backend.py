@@ -1,6 +1,6 @@
 from __future__ import annotations
 from ensurepip import version
-#from crypt import methods  # comentar esta linha para funcionar no windows
+# from crypt import methods  # comentar esta linha para funcionar no windows
 import html
 import re
 from tkinter import Image
@@ -36,39 +36,70 @@ def home():
     return render_template('home.html', page_name='Home', current_year=current_year,
                            version=current_version)
 
+
 @backend.route('/browse', methods=['GET', 'POST'])
 def browse():
-    form_img = forms.ImageForm()
+    # form_img = forms.ImageForm()
+    arq_nome = forms.ArqImgForm()
+
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
-                           version=current_version, form_img=form_img)
+                           version=current_version, nome_arq=arq_nome)
+
+
+# @backend.route('/viewport', methods=['GET', 'POST'])
+# def viewport():
+#     form_img = forms.ImageForm()
+#     if request.method == 'POST':
+#         imgUrl = form_img.img_path.data
+#         xmlUrl = form_img.xml_path.data
+#         imgNome = form_img.img_name.data
+#         htmlUrl = open(form_img.htm_path.data, 'r')
+#         arqHtml = htmlUrl.read()
+#         htmlUrl.close()
+
+#     image = imgUrl
+#     xml = xmlUrl
+#     html = arqHtml
+#     nmImg = imgNome
+#     return render_template(
+#         'view.html',
+#         current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
+#     )
+
 
 @backend.route('/viewport', methods=['GET', 'POST'])
 def viewport():
-    form_img = forms.ImageForm()
+    arq_path = forms.ArqImgForm()
     if request.method == 'POST':
-        imgUrl = form_img.img_path.data
-        xmlUrl = form_img.xml_path.data
-        imgNome = form_img.img_name.data
-        htmlUrl = open(form_img.htm_path.data, 'r')
+        dados = []
+        url = 'static/lmns/' + arq_path.arq_nome.data
+        
+        f = open(url, 'r')
+        for linha in f:
+            dados.append(linha.split())
+        f.close()
+        
+        htmlUrl = open(str(dados[3]).strip('[]').replace("'",""), 'r')
         arqHtml = htmlUrl.read()
-        htmlUrl.close()
+        htmlUrl.close() 
 
-    image = imgUrl
-    xml = xmlUrl
-    html = arqHtml
-    nmImg = imgNome
+        image = str(dados[0]).strip('[]').replace("'","")
+        xml = str(dados[1]).strip('[]').replace("'","")
+        nmImg = str(dados[2]).strip('[]').replace("'","").replace(",", "")
+        html = arqHtml
+        
     return render_template(
         'view.html',
         current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
     )
 
-@backend.route('/index')
+@ backend.route('/index')
 def index():
-    return render_template('index.html', page_name='Indice', current_year=current_year, version=current_version)
+    return render_template('index.html', page_name = 'Indice', current_year = current_year, version = current_version)
 
-@backend.route('/contribute', methods=['GET', 'POST'])
+@ backend.route('/contribute', methods = ['GET', 'POST'])
 def contribute():
-    page_name = 'Contribua'
+    page_name='Contribua'
     try:
         if session['user_email']:
             return redirect(url_for('dashboard'))
@@ -76,16 +107,16 @@ def contribute():
     except KeyError:
         pass
 
-    login_form = forms.LoginForm()
-    sign_up_form = forms.SignUpForm()
+    login_form=forms.LoginForm()
+    sign_up_form=forms.SignUpForm()
 
-    return render_template('contribute.html', page_name=page_name, current_year=current_year,
-                           version=current_version, login_form=login_form, sign_up_form=sign_up_form)
+    return render_template('contribute.html', page_name = page_name, current_year = current_year,
+                           version = current_version, login_form = login_form, sign_up_form = sign_up_form)
 
 
-@backend.route('/signup', methods=['GET', 'POST'])
+@ backend.route('/signup', methods = ['GET', 'POST'])
 def signup():
-    sign_up_form = forms.SignUpForm()
+    sign_up_form=forms.SignUpForm()
 
     if sign_up_form.validate():
         if None in (sign_up_form.email.data, sign_up_form.name.data, sign_up_form.password.data,
