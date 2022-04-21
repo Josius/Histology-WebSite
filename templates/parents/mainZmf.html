@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css')}}">
 		
 		<script src="{{url_for('static', filename='ZoomifyImageViewerEnterprise-min.js')}}"></script>
-		
+
 	</head>
 
 	<body class="overflow-y">
@@ -14,8 +14,8 @@
 		<!-- Menu Retratil --> 
 		<header class="cabecalhoMenuRetratil flex-container">
 
-			<input type="checkbox" id="check">
-			<label for="check" id="icone">&#9776;</label>
+			<input type="checkbox" name="Menu" id="check">
+			<label for="check" id="icone">&#9776;<b>Menu</b></label>
 			<div class="barra">	
 				<nav>
 					<a href="./"><div class="link">Página Inicial</div></a>
@@ -25,17 +25,7 @@
 				</nav>	
 			</div>
 
-			<input type="checkbox" id="check">
-			<label for="check" id="icone">&#9770;</label>
-			<div class="barra">	
-				<nav>
-					<a href=""><div class="link">11111</div></a>
-					<a href=""><div class="link">22222</div></a>
-					<a href=""><div class="link">333333</div></a>
-					<a href=""><div class="link">444444</div></a>
-				</nav>	
-			</div>
-		</header>
+		</header> 
 		<!-- Menu Retratil -->
 
 			<!--Menu superior comum-->
@@ -56,13 +46,8 @@
 			<div>alguma outra funcionalidade</div>
         </header>-->
 		<!--Menu superior comum-->
-<<<<<<< HEAD
 		
 		<section class="flex-container flex-direction">	
-=======
-	
-		<section class="flex-container">	
->>>>>>> 5ca55368938d55d77a4164fb6191469a3246929a
             {% block content %} {% endblock %}
         </section>
 
