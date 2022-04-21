@@ -39,42 +39,20 @@ def home():
 
 @backend.route('/browse', methods=['GET', 'POST'])
 def browse():
-    # form_img = forms.ImageForm()
+    
     arq_nome = forms.ArqImgForm()
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, nome_arq=arq_nome)
-
-
-# @backend.route('/viewport', methods=['GET', 'POST'])
-# def viewport():
-#     form_img = forms.ImageForm()
-#     if request.method == 'POST':
-#         imgUrl = form_img.img_path.data
-#         xmlUrl = form_img.xml_path.data
-#         imgNome = form_img.img_name.data
-#         htmlUrl = open(form_img.htm_path.data, 'r')
-#         arqHtml = htmlUrl.read()
-#         htmlUrl.close()
-
-#     image = imgUrl
-#     xml = xmlUrl
-#     html = arqHtml
-#     nmImg = imgNome
-#     return render_template(
-#         'view.html',
-#         current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
-#     )
-
 
 @backend.route('/viewport', methods=['GET', 'POST'])
 def viewport():
     arq_path = forms.ArqImgForm()
     if request.method == 'POST':
         dados = []
-        url = 'static/lmns/' + arq_path.arq_nome.data
+        local_dados_lamina = 'static/dadosLmns/' + arq_path.arq_nome.data
         
-        f = open(url, 'r')
+        f = open(local_dados_lamina, 'r')
         for linha in f:
             dados.append(linha.split())
         f.close()

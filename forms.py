@@ -84,12 +84,5 @@ class AddSlideMarker(FlaskForm):
     coordinates = FieldList(IntegerField, max_entries=2, label='Coordenadas')
     text = StringField(label='Texto', validators=[Length(max=2000)], render_kw={'maxlength': 2000})
 
-# 01
-class ImageForm(FlaskForm):
-    img_path = HiddenField("imgPath")
-    xml_path = HiddenField("xmlPath")
-    img_name = HiddenField("imgName")
-    htm_path = HiddenField("htmPath")
-
 class ArqImgForm(FlaskForm):
     arq_nome = HiddenField("arq_nome")
