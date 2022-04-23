@@ -20,12 +20,6 @@ p{
     justify-content: space-between;
 }
 
-/* .imagem não funciona */
-/* .imagem{
-    width:"60%";
-    height:"60%";
-}
-*/
 
 /* 
 #titulo{
@@ -40,6 +34,20 @@ p{
     margin: auto;
     background-color: #d3e1ed;
     overflow-y: hidden;
+}
+
+.miniatura-btn{
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.miniatura-img{
+    width: 50%;
+    height: 50%;
 }
 
 .cabecalho{
