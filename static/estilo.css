@@ -265,12 +265,12 @@ nav a{
 }
 
 #info{
-    width: 250px;
-    left: -250px;
+    width: 290px;
+    left: -290px;
 }
 
 #info:target{
-    transform: translate(250px);
+    transform: translate(290px);
 }
 /*Menu Retratil*/
 
