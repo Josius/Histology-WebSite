@@ -291,6 +291,19 @@ nav a{
     right: 450px;
 }
 /*Botao de Download a imagem*/
+.opcoesDownload{
+    text-align: center;
+    padding:10px;
+}
+
+#myContainer { 
+    width:900px; 
+    height:450px; 
+    margin:auto; 
+    border:1px; 
+    border-style:solid; 
+    border-color:#696969;
+}
 
 
 /* Página Índice */
