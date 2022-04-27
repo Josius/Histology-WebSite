@@ -35,6 +35,16 @@
 					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quam eros, tincidunt nec elit non, venenatis sagittis risus. Mauris et ligula ac erat convallis blandit non vitae felis. Nullam sollicitudin mi non est condimentum, non varius massa iaculis. Suspendisse potenti. Nunc dignissim dapibus magna a ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in augue rutrum, porttitor leo eget, sollicitudin tellus. Vestibu</div>
 				</nav>	
 			</div>
+			<div class="opcoesDownload">
+				<form name="myForm" id="myForm">
+					<input type="button" name="saveView" id="saveView" value="Save View To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false)" />
+					<input type="button" name="showView" id="showView" value="Show View In Browser" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, true)" />
+					<input type="button" name="saveViewLocal" id="saveViewLocal" value="Save View Local" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" />
+					<input type="button" name="saveAll" id="saveAll" value="Save All To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false)" />
+					<input type="button" name="showAll" id="showAll" value="Show All In Browser" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, true)" />
+					<input type="button" name="saveAllLocal" id="saveAllLocal" value="Save All Local" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" />
+				</form>
+			</div>
 		
 		<section class="flex-container flex-direction" >	
             {% block content %} {% endblock %}

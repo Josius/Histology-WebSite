@@ -17,20 +17,11 @@
         </footer>
         
     </article>
+
+    
     
     <section id="myContainer"></section>
 
-    <div style="text-align:center; padding:10px;">
-        <form name="myForm" id="myForm">
-            <input type="button" name="saveView" id="saveView" value="Save View To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false)" />
-            <input type="button" name="showView" id="showView" value="Show View In Browser" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, true)" />
-            <input type="button" name="saveViewLocal" id="saveViewLocal" value="Save View Local" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" />
-            <input type="button" name="saveAll" id="saveAll" value="Save All To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false)" />
-            <input type="button" name="showAll" id="showAll" value="Show All In Browser" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, true)" />
-            <input type="button" name="saveAllLocal" id="saveAllLocal" value="Save All Local" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" />
-        </form>
-    </div>
-   
     <!-- CONFIGURAÇÃO ZOOMIFY -->
     <script type="text/javascript"> 
         Z.showImage("myContainer", 
@@ -57,4 +48,5 @@
             "zToolbarVisible=1"
             ); 
     </script>
+    
 {% endblock %}

@@ -294,6 +294,7 @@ nav a{
 .opcoesDownload{
     text-align: center;
     padding:10px;
+    max-height: 30px;
 }
 
 #myContainer { 
