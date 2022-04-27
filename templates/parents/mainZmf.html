@@ -6,20 +6,10 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css')}}">
 		
 		<script src="{{url_for('static', filename='ZoomifyImageViewerEnterprise-min.js')}}"></script>
-
-		<script type="text/javascript"> 
-			Z.showImage("myContainer", 
-				"Images/ZoomifyImageExample-Small", 
-				"zMarkupMode=1&zAnnotationPath=Assets/Annotations/SaveToFile&zFileHandlerPath=Assets/FileHandlers/files.php&zSaveImageFilename=../../mySavedFile.jpg&zAnnotationsAutoSave=0"); 
-		</script>
-
+		
 	</head>
 
 	<body class="overflow-y">
-
-		
-		<!--Precisa jogar o zmf no myContainer
-			<div id="myContainer"></div>-->
 
 		<header class="cabecalho_mainZmf"></header>
 
@@ -45,20 +35,10 @@
 					<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quam eros, tincidunt nec elit non, venenatis sagittis risus. Mauris et ligula ac erat convallis blandit non vitae felis. Nullam sollicitudin mi non est condimentum, non varius massa iaculis. Suspendisse potenti. Nunc dignissim dapibus magna a ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in augue rutrum, porttitor leo eget, sollicitudin tellus. Vestibu</div>
 				</nav>	
 			</div>
-
-			<div class="opcoesDownload">
-				<form name="myForm" id="myForm">
-					<input type="button" name="saveViewLocal" id="saveViewLocal" value="Save View Local" 
-					onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" 
-					ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false, true)"/>
-				</form>
-			</div>
 		
 		<section class="flex-container flex-direction" >	
             {% block content %} {% endblock %}
         </section>
-
-		
 
 	</body>
 

@@ -20,7 +20,17 @@
     
     <section id="myContainer"></section>
 
-
+    <div style="text-align:center; padding:10px;">
+        <form name="myForm" id="myForm">
+            <input type="button" name="saveView" id="saveView" value="Save View To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false)" />
+            <input type="button" name="showView" id="showView" value="Show View In Browser" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, true)" />
+            <input type="button" name="saveViewLocal" id="saveViewLocal" value="Save View Local" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" />
+            <input type="button" name="saveAll" id="saveAll" value="Save All To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false)" />
+            <input type="button" name="showAll" id="showAll" value="Show All In Browser" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, true)" />
+            <input type="button" name="saveAllLocal" id="saveAllLocal" value="Save All Local" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" />
+        </form>
+    </div>
+   
     <!-- CONFIGURAÇÃO ZOOMIFY -->
     <script type="text/javascript"> 
         Z.showImage("myContainer", 
@@ -30,7 +40,9 @@
 
             //LABELS E FUNCIONALIDADES
             src="zAnnotationPath={{url_for('static', filename=xmlFile)}}&" + 
-            "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" + 
+            "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" +
+            "zMarkupMode=1&zAnnotationPath=Assets/Annotations/SaveToFile&zFileHandlerPath=Assets/FileHandlers/files.php&zSaveImageFilename=../../mySavedFile.jpg&zAnnotationsAutoSave=0"+
+
             
             //"zLogoVisible=0" + //esta funcionalidade esconde o logo, mas da conflito com outras funcoes, como zToolbarVisible
             //"zMaskVisible=1&" + //funciona somente com a label, no texto funciona so o perimetro nao deixando cinza outras areas
@@ -45,5 +57,4 @@
             "zToolbarVisible=1"
             ); 
     </script>
-
 {% endblock %}
