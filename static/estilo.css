@@ -171,7 +171,7 @@ body {
 
 /*Menu Retratil*/
 
-.cabecalho_mainZmf{
+/* .cabecalho_mainZmf{
     width: 100%;
     height: 55px;
     display: flex;
@@ -182,8 +182,8 @@ body {
     border-bottom-width: 4px;
     border-bottom-style: solid;
     justify-content:space-between;
-}
-
+} */
+/* 
 .icone {
     position:fixed;
     font-size: 20px;
@@ -202,28 +202,28 @@ body {
 .icone:hover{
     background-color: #fcb421;
     color: #fff;
-}
+} */
 
 #check{
-    position: absolute;
+    /* position: absolute; */
     display: none;
-    background-color: #f00;
+    /* background-color: #f00; */
 }
 
 
 
 .barra{
     background-color: #333;
-    position: fixed;
+    /* position: fixed; */
     height: 100%;
     width: 300px;
     position: absolute;
-    overflow: hidden;
+    /* overflow: hidden; */
     left: -300px;
     transition: all .2s linear;
-    z-index: 20000;/*Numero exagerado arbitrario pra barra ficar na frente da imagem*/
+    z-index: 1;
 }
-
+/* 
 .barra .link{
     display: block;
     border-bottom: solid 1px #000;
@@ -242,7 +242,7 @@ body {
     background-color: #3d3d44;
     text-decoration: none;
     transition: all .2s;
-}
+} */
 
 nav{
     width: 100%;
@@ -254,16 +254,16 @@ nav a{
 }
 
 .link{
-    color: #f4f4f9;
+    padding: 20px;
     font-family: 'Arial';
     font-size: 12pt;
-    padding: 20px;
-    border-bottom: 2px solid #222;
     transition:  all .2s linear;
+    color: #f4f4f9;
+    border-bottom: 2px solid #222;
     opacity: 0;
     margin-top: 200px;
 }
-
+/* 
 .voltar{
     border-left: solid 5px #fcb421;
     color: #f4f4f9;
@@ -272,24 +272,29 @@ nav a{
     padding: 20px;
     border-bottom: 2px solid #222;
     transition:  all .2s linear;
-}
+} */
 
 .link:hover{
     background-color: #64c4d2;
-    color: #fff;
+    /* color: #fff; */
 }
 
-.voltar:hover{
+/* .voltar:hover{
     background-color: #64c4d2;
     color: #fff;
+} */
+
+#check:checked ~ .barra{
+    transform: translateX(300px);
 }
 
-#check:checked ~ .barra a .link{
+
+#check:checked ~ .barra nav a .link{
         opacity: 1;
         margin-top: 0;
         transition-delay: .2s;
 }
-#check:checked ~ #principal{
+/* #check:checked ~ #principal{
         transform: translateX(300px);
 }
 
@@ -312,10 +317,19 @@ nav a{
 
 #info:target{
     transform: translateX(290px);
-}
+} */
+
 /*Menu Retratil*/
 
+
+
+
+
+
+
+
 /*Botao de Download a imagem*/
+/* 
 .botaoDownload{
     position:absolute;
     font-size: 20px;
@@ -330,11 +344,12 @@ nav a{
     top: 0;
     z-index: 7;
     right: 450px;
-}
+} */
 
 /*Botao de Download a imagem*/
+/* 
 .opcoesDownload{
     text-align: center;
     padding:10px;
     max-height: 30px;
-}
+} */
