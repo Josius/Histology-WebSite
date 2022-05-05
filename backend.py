@@ -64,8 +64,7 @@ def viewport():
         image = str(dados[0]).strip('[]').replace("'","")
         xml = str(dados[1]).strip('[]').replace("'","")
         nmImg = str(dados[2]).strip('[]').replace("'","").replace(",", "")
-        html = arqHtml
-        
+        html = arqHtml        
     return render_template(
         'view.html',
         current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg

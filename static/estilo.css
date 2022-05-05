@@ -1,22 +1,46 @@
-p{
-    margin: auto;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
 }
 
-.flex-container{
+html,
+body {
+
+    /* margin: 0;
+    width: 100%;
+    height: 100%; */
+    overflow: hidden;
+
+    /* height: 100%; */
+    background-color: #d3e1ed;
+    font-family: montserrat, arial, sans-serif;
+    min-height: 100vh;
+}
+
+#opcao {
+    text-decoration: none;
+    color: inherit;
+}
+
+.flex-container {
     display: flex;
 }
 
-.flex-pos{
+.flex-pos {
     flex-wrap: wrap;
     justify-content: space-around;
+    align-items: center;
 }
 
 /* para mudar posicoes do txt e da img */
-.flex-direction{
+
+.flex-direction {
     flex-direction: row-reverse;
 }
 
-.flex-jf-content{
+.flex-jf-cnt-spc-btw {
     justify-content: space-between;
 }
 
@@ -28,64 +52,66 @@ p{
 }
 */
 
-.overflow-y{
-    /* font-family: montserrat, arial, sans-serif; */
-    /* font-family: Source Sans Pro, sans-serif; */
-    margin: auto;
-    background-color: #d3e1ed;
-    overflow-y: hidden;
+
+.exibicao {
+    background-color: #ededed;
+    /* background-color: green; */
+    /* height: 100%; */
+    /* height: 100vh; */
+    /* overflow-y: hidden; */
 }
 
-.miniatura-btn{
-    background-color: transparent;
-    background-repeat: no-repeat;
-    border: none;
-    cursor: pointer;
-    overflow: hidden;
-    outline: none;
-}
 
-.miniatura-img{
-    width: 50%;
-    height: 50%;
-}
+.exibicao-cabecalho {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
 
-.cabecalho{
-    
-    font-family: Source Sans Pro SemiBold; /*TESTE DE FONTE PARA CABEÇALHOS, RODAPÉS E TÍTULOS*/
     color: white;
     background-color: #64c4d2;
-    padding: 3px;
-    border-bottom-color: #fcb421;
-    border-bottom-width: 2px;
-    border-bottom-style: solid;
-    justify-content:space-between;
+    border-bottom: solid 4px #fcb421;
+    height: 50px;
+    padding: 0.5rem;
+    overflow: hidden;
+    /* justify-content:space-between; */
+    /* z-index: 1; */
+
+    /* background-color: yellow; */
 }
 
-.narrativa{
-    
-    background-color: #ededed;
-    /* background-color: black; */
-    height: 100%;
-    max-height: 600px;
+.exibicao-txt-img {
+    position: relative;
+
+    /* background-color: blue; */
+    /* max-height: 100%; */
+    height: calc(100vh - 50px);
+}
+
+/* .exibicao-rodape {
     width: 100%;
-    max-width: 450px;
+    color: white;
+    background-color: #1094ab;
+    height: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+} */
 
-    justify-self: center;
-    padding: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    letter-spacing: 0.1rem;
-    line-height: 150%;
-    overflow-y: scroll;
-    font-size: 15px;
+.exibicao-narrativa {
+    /* position: absolute;
+    top: 27px;
+    bottom: 0;
+    right: 0;
+    z-index: 1; */
     
-    margin: 0;
-    border: 0;
-    padding: 0;
+    background-color: #d3e1ed;
+    width: 400px;
+    min-width: 40vw;
+    overflow-y: scroll;
 }
 
-.tituloTexto{
+.exibicao-narrativa-titulo {
     font-family: Source Sans Pro SemiBold;
     color: white;
     position: sticky;
@@ -94,21 +120,25 @@ p{
     background-color: #1094ab;
     margin: 0;
     text-align: center;
+    
     /* font-size: 13px; */
     font-weight: bold;
+    /* background-color: gray; */
 }
 
-.textoNarrativa{
+.exibicao-narrativa-texto {
     margin-left: 10px;
     font-family: Montserrat;
     font-size: 14px;
+    padding: 10px;
+    /* background-color: rebeccapurple; */
 }
 
-.item-footer{
-    font-family: Source Sans Pro SemiBold;
+.exibicao-narrativa-rodape {
     position: sticky;
     bottom: 0;
     width: 100%;
+    font-family: Source Sans Pro SemiBold;
     color: white;
     background-color: #1094ab;
     /* margin: 0; */
@@ -116,14 +146,27 @@ p{
     text-align: center;
     font-size: 13px;
     font-weight: bold;
+    /* background-color: palevioletred; */
 }
 
-#myContainer{
-    
-    width:100%;
-    height: 100%;
-    max-height: 600px;
-    border:0px;
+#exibicao-imagem {
+    /* position: absolute;
+    top: 27px;
+    bottom: 0;
+    left: 0;
+    right: 400px;
+    z-index: 0; */
+    /* width: 600px; */
+    /* height: 600px; */
+    width: 50%;
+    min-width: 60vw;
+    /* min-height: 100%; */
+    /* background-color: chartreuse; */
+    /*
+    configuração base
+    width: 50%;
+    min-width: 60vw;
+    */
 }
 
 /*Menu Retratil*/
@@ -295,28 +338,3 @@ nav a{
     padding:10px;
     max-height: 30px;
 }
-
-
-/* Página Índice */
-.container .item-c .flex-container .indice{
-    background-color: #d3e1ed;
-    border: 1px solid #64c4d2;
-    border-radius: 5px;
-}
-
-.container .item-c .flex-container .indice p{
-    font-size: 15px;
-    font-family: 'Vidaloka';
-}
-
-.container .item-c .flex-container .indice ul{
-    list-style-type: none;
-}
-
-.container .item-c .flex-container .indice ul li{
-    font-size: 14px;
-}
-
-/* Página Índice */
-
-  

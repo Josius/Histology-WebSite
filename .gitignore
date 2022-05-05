@@ -9,9 +9,9 @@
 /static/view-stylesheet.css.map
 /static/imgsPff/*.pff
 listaCodigosUsados
-/static/estilo-Teste.css
-/templates/view-Teste.html
-/templates/parents/mainZmf-Teste.html
+/static/estilo-T.css
+/templates/view-T.html
+/templates/parents/mainZmf-T.html
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode

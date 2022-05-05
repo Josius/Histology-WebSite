@@ -176,3 +176,53 @@ input {
 }
 
 /*# sourceMappingURL=stylesheet.css.map */
+
+/* configuração da página navegar */
+.flex-container{
+  display: flex;
+}
+
+.flex-direction {
+  flex-direction: row-reverse;
+}
+
+.flex-pos{
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.miniatura-btn{
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.miniatura-img{
+  width: 50%;
+  height: 50%;
+}
+/* configuração da página navegar */
+
+/* Página Índice */
+.container .item-c .flex-container .indice {
+  background-color: #d3e1ed;
+  border: 1px solid #64c4d2;
+  border-radius: 5px;
+}
+
+.container .item-c .flex-container .indice p {
+  font-size: 15px;
+  font-family: 'Vidaloka';
+}
+
+.container .item-c .flex-container .indice ul {
+  list-style-type: none;
+}
+
+.container .item-c .flex-container .indice ul li {
+  font-size: 14px;
+}
+/* Página Índice */

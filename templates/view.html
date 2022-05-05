@@ -4,17 +4,15 @@
 {% extends './parents/mainZmf.html' %}
 
 {% block content %}
-  
     
-
-    <article class="narrativa">
-        <h1 class="tituloTexto">
+    <article class="exibicao-narrativa">
+        <header class="exibicao-narrativa-titulo">
             {{ nomeImagem }}
-        </h1>
-        <div class="textoNarrativa">
+        </header>
+        <div class="exibicao-narrativa-texto">
             {{ htmlFile|safe }}
         </div>
-        <footer class="item-footer">
+        <footer class="exibicao-narrativa-rodape">
             Guia Histológico {{ current_year }}  |  Versão {{ version }}
         </footer>
         
@@ -22,11 +20,14 @@
 
     
     
-    <section id="myContainer"></section>
+    <section id="exibicao-imagem">
+        <!-- <img src="{{url_for('static', filename='imgsMini/Teste.jpg')}}"> -->
+    </section>
 
     <!-- CONFIGURAÇÃO ZOOMIFY -->
+    
     <script type="text/javascript"> 
-        Z.showImage("myContainer", 
+        Z.showImage("exibicao-imagem", 
 
             //IMAGEM
             src="{{url_for('static', filename=imageFile)}}",
@@ -34,7 +35,8 @@
             //LABELS E FUNCIONALIDADES
             src="zAnnotationPath={{url_for('static', filename=xmlFile)}}&" + 
             "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" +
-            "zMarkupMode=1&zAnnotationPath=Assets/Annotations/SaveToFile&zFileHandlerPath=Assets/FileHandlers/files.php&zSaveImageFilename=../../mySavedFile.jpg&zAnnotationsAutoSave=0"+
+
+            // "zMarkupMode=1&zAnnotationPath=Assets/Annotations/SaveToFile&zFileHandlerPath=Assets/FileHandlers/files.php&zSaveImageFilename=../../mySavedFile.jpg&zAnnotationsAutoSave=0"+
 
             
             //"zLogoVisible=0" + //esta funcionalidade esconde o logo, mas da conflito com outras funcoes, como zToolbarVisible
