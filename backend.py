@@ -70,9 +70,14 @@ def viewport():
         current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
     )
 
-@ backend.route('/index')
-def index():
-    return render_template('index.html', page_name = 'Indice', current_year = current_year, version = current_version)
+@ backend.route('/index/<int:id>')
+def index(id):
+    if id == 1:
+        return render_template('index.html', page_name = 'Indice-A', current_year = current_year, version = current_version)
+
+@ backend.route('/teste')
+def teste():
+    return render_template('teste.html', page_name = 'Indice', current_year = current_year, version = current_version)
 
 @ backend.route('/contribute', methods = ['GET', 'POST'])
 def contribute():
