@@ -73,7 +73,59 @@ def viewport():
 @ backend.route('/index/<int:id>')
 def index(id):
     if id == 1:
-        return render_template('index.html', page_name = 'Indice-A', current_year = current_year, version = current_version)
+        return render_template('index/index.html', page_name = 'Indice', current_year = current_year, version = current_version)
+    if id == 2:
+        return render_template('index/A.html', page_name = 'Indice-A', current_year = current_year, version = current_version)
+    if id == 3:
+        return render_template('index/B.html', page_name = 'Indice-B', current_year = current_year, version = current_version)
+    if id == 4:
+        return render_template('index/C.html', page_name = 'Indice-C', current_year = current_year, version = current_version)
+    if id == 5:
+        return render_template('index/D.html', page_name = 'Indice-D', current_year = current_year, version = current_version)
+    if id == 6:
+        return render_template('index/E.html', page_name = 'Indice-E', current_year = current_year, version = current_version)
+    if id == 7:
+        return render_template('index/F.html', page_name = 'Indice-F', current_year = current_year, version = current_version)
+    if id == 8:
+        return render_template('index/G.html', page_name = 'Indice-G', current_year = current_year, version = current_version)
+    if id == 9:
+        return render_template('index/H.html', page_name = 'Indice-H', current_year = current_year, version = current_version)
+    if id == 10:
+        return render_template('index/I.html', page_name = 'Indice-I', current_year = current_year, version = current_version)
+    if id == 11:
+        return render_template('index/J.html', page_name = 'Indice-J', current_year = current_year, version = current_version)
+    if id == 12:
+        return render_template('index/K.html', page_name = 'Indice-K', current_year = current_year, version = current_version)
+    if id == 13:
+        return render_template('index/L.html', page_name = 'Indice-L', current_year = current_year, version = current_version)
+    if id == 14:
+        return render_template('index/M.html', page_name = 'Indice-M', current_year = current_year, version = current_version)
+    if id == 15:
+        return render_template('index/N.html', page_name = 'Indice-N', current_year = current_year, version = current_version)
+    if id == 16:
+        return render_template('index/O.html', page_name = 'Indice-O', current_year = current_year, version = current_version)
+    if id == 17:
+        return render_template('index/P.html', page_name = 'Indice-P', current_year = current_year, version = current_version)
+    if id == 18:
+        return render_template('index/Q.html', page_name = 'Indice-Q', current_year = current_year, version = current_version)
+    if id == 19:
+        return render_template('index/R.html', page_name = 'Indice-R', current_year = current_year, version = current_version)
+    if id == 20:
+        return render_template('index/S.html', page_name = 'Indice-S', current_year = current_year, version = current_version)
+    if id == 21:
+        return render_template('index/T.html', page_name = 'Indice-T', current_year = current_year, version = current_version)
+    if id == 22:
+        return render_template('index/U.html', page_name = 'Indice-U', current_year = current_year, version = current_version)
+    if id == 23:
+        return render_template('index/V.html', page_name = 'Indice-V', current_year = current_year, version = current_version)
+    if id == 24:
+        return render_template('index/W.html', page_name = 'Indice-W', current_year = current_year, version = current_version)
+    if id == 25:
+        return render_template('index/X.html', page_name = 'Indice-X', current_year = current_year, version = current_version)
+    if id == 26:
+        return render_template('index/Y.html', page_name = 'Indice-Y', current_year = current_year, version = current_version)
+    if id == 27:
+        return render_template('index/Z.html', page_name = 'Indice-Z', current_year = current_year, version = current_version)
 
 @ backend.route('/teste')
 def teste():
