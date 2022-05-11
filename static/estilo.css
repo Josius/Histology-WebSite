@@ -28,21 +28,16 @@ body {
     display: flex;
 }
 
-.flex-pos {
-    flex-wrap: wrap;
-    justify-content: space-around;
+.flex-spc-btw {
+    justify-content: space-between;
     align-items: center;
 }
 
 /* para mudar posicoes do txt e da img */
-
 .flex-direction {
     flex-direction: row-reverse;
 }
 
-.flex-jf-cnt-spc-btw {
-    justify-content: space-between;
-}
 
 
 /* 
@@ -80,6 +75,18 @@ body {
     /* background-color: yellow; */
 }
 
+.exibicao-cabecalho-esq {
+    /* justify-content: flex-start; */
+}
+
+.exibicao-cabecalho-cen {
+    /* justify-content: center; */
+}
+
+.exibicao-cabecalho-dir {
+    /* justify-content: flex-end; */
+}
+
 .exibicao-txt-img {
     position: relative;
 
@@ -104,7 +111,7 @@ body {
     bottom: 0;
     right: 0;
     z-index: 1; */
-    
+
     background-color: #d3e1ed;
     width: 400px;
     min-width: 40vw;
@@ -120,7 +127,7 @@ body {
     background-color: #1094ab;
     margin: 0;
     text-align: center;
-    
+
     /* font-size: 13px; */
     font-weight: bold;
     /* background-color: gray; */
@@ -183,7 +190,7 @@ body {
     border-bottom-style: solid;
     justify-content:space-between;
 } */
-/* 
+
 .icone {
     position:fixed;
     font-size: 20px;
@@ -202,28 +209,28 @@ body {
 .icone:hover{
     background-color: #fcb421;
     color: #fff;
-} */
+}
 
 #check{
-    /* position: absolute; */
+    position: absolute;
     display: none;
-    /* background-color: #f00; */
+    background-color: #f00;
 }
 
 
 
 .barra{
     background-color: #333;
-    /* position: fixed; */
+    position: fixed;
     height: 100%;
     width: 300px;
     position: absolute;
-    /* overflow: hidden; */
+    overflow: hidden;
     left: -300px;
     transition: all .2s linear;
-    z-index: 1;
+    z-index: 20000;/*Numero exagerado arbitrario pra barra ficar na frente da imagem*/
 }
-/* 
+
 .barra .link{
     display: block;
     border-bottom: solid 1px #000;
@@ -242,7 +249,7 @@ body {
     background-color: #3d3d44;
     text-decoration: none;
     transition: all .2s;
-} */
+}
 
 nav{
     width: 100%;
@@ -254,16 +261,16 @@ nav a{
 }
 
 .link{
-    padding: 20px;
+    color: #f4f4f9;
     font-family: 'Arial';
     font-size: 12pt;
-    transition:  all .2s linear;
-    color: #f4f4f9;
+    padding: 20px;
     border-bottom: 2px solid #222;
+    transition:  all .2s linear;
     opacity: 0;
     margin-top: 200px;
 }
-/* 
+
 .voltar{
     border-left: solid 5px #fcb421;
     color: #f4f4f9;
@@ -272,29 +279,24 @@ nav a{
     padding: 20px;
     border-bottom: 2px solid #222;
     transition:  all .2s linear;
-} */
+}
 
 .link:hover{
     background-color: #64c4d2;
-    /* color: #fff; */
+    color: #fff;
 }
 
-/* .voltar:hover{
+.voltar:hover{
     background-color: #64c4d2;
     color: #fff;
-} */
-
-#check:checked ~ .barra{
-    transform: translateX(300px);
 }
 
-
-#check:checked ~ .barra nav a .link{
+#check:checked ~ .barra a .link{
         opacity: 1;
         margin-top: 0;
         transition-delay: .2s;
 }
-/* #check:checked ~ #principal{
+#check:checked ~ #principal{
         transform: translateX(300px);
 }
 
@@ -317,19 +319,10 @@ nav a{
 
 #info:target{
     transform: translateX(290px);
-} */
-
+}
 /*Menu Retratil*/
 
-
-
-
-
-
-
-
 /*Botao de Download a imagem*/
-/* 
 .botaoDownload{
     position:absolute;
     font-size: 20px;
@@ -344,12 +337,34 @@ nav a{
     top: 0;
     z-index: 7;
     right: 450px;
-} */
+}
 
 /*Botao de Download a imagem*/
-/* 
 .opcoesDownload{
     text-align: center;
     padding:10px;
     max-height: 30px;
-} */
+}
+
+
+/* Página Índice */
+.container .item-c .flex-container .indice{
+    background-color: #d3e1ed;
+    border: 1px solid #64c4d2;
+    border-radius: 5px;
+}
+
+.container .item-c .flex-container .indice p{
+    font-size: 15px;
+    font-family: 'Vidaloka';
+}
+
+.container .item-c .flex-container .indice ul{
+    list-style-type: none;
+}
+
+.container .item-c .flex-container .indice ul li{
+    font-size: 14px;
+}
+
+/* Página Índice */

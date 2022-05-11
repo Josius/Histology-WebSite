@@ -1,37 +1,56 @@
 <!DOCTYPE html>
 <html xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css')}}">
-		
-		<script src="{{url_for('static', filename='ZoomifyImageViewerEnterprise-min.js')}}"></script>
-		
-	</head>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='estilo.css')}}">
 
-	<body>
+	<script src="{{url_for('static', filename='ZoomifyImageViewerEnterprise-min.js')}}"></script>
 
-		
+</head>
 
-		<div class="exibicao">
-			<header class="exibicao-cabecalho flex-container flex-pos">
-				<!-- <div>
-					<a href="./" id="opcao">
-						página inicial
-					</a>
-				</div>
-				<div>
-					<a href="./browse" id="opcao">
-						página navegar
-					</a>
-				</div>
-				<div>
-					Guia Histológico {{ current_year }}
-				</div>
-				<div>alguma outra funcionalidade</div> -->
-			</header>
+<body>
 
-		<!-- Menu Retratil --> 
+
+
+	<div class="exibicao">
+		<header class="exibicao-cabecalho flex-container flex-spc-btw">
+			<div class="exibicao-cabecalho-esq">
+				<!-- <input type="checkbox" name="Menu" id="check">
+				<label for="check" class="icone">&#9776;<b>Menu</b></label>
+				<div class="barra">
+					<nav>
+						<a href="./">
+							<div class="link">Home</div>
+						</a>
+						<a href="./browse">
+							<div class="link">Navegar</div>
+						</a>
+						<a href="./index">
+							<div class="link">Índice</div>
+						</a>
+						<a href="">
+							<div class="link">Guia Histológico {{ current_year }}</div>
+						</a>
+						<a href="#info">
+							<div class="link">Informações da Lâmina<span>+</span></div>
+						</a>
+					</nav>
+				</div> -->
+				<!-- <a href="./" id="opcao">
+					página inicial
+				</a>
+				<a href="./browse" id="opcao">
+					página navegar
+				</a> -->
+			</div>
+			<div class="exibicao-cabecalho-cent" style="position: center;">
+				Guia Histológico {{ current_year }}
+			</div>
+			<div class="exibicao-cabecalho-dir">alguma outra funcionalidade</div>
+		</header>
+
+		<!-- Menu Retratil -->
 		<input type="checkbox" name="Menu" id="check">
 		<label for="check" class="icone">&#9776;<b>Menu</b></label>
 
@@ -47,32 +66,32 @@
 		</div>
 		<!--Menu Informacoes da Lamina-->
 
-		<!-- <div class="barra" id="info">	
+		<div class="barra" id="info">	
 			<nav>
 				<a href="#principal"><div class="voltar">Voltar</div></a>
 				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quam eros, tincidunt nec elit non, venenatis sagittis risus. Mauris et ligula ac erat convallis blandit non vitae felis. Nullam sollicitudin mi non est condimentum, non varius massa iaculis. Suspendisse potenti. Nunc dignissim dapibus magna a ultricies. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in augue rutrum, porttitor leo eget, sollicitudin tellus. Vestibu</div>
 			</nav>	
-		</div> -->
+		</div>
 
 
 		<!-- <div class="opcoesDownload">
 			<form name="myForm" id="myForm"> -->
-				<!--<input type="button" name="saveView" id="saveView" value="Save View To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false)" />-->
-				<!-- <input type="button" name="showView" id="showView" value="Mostrar Visão (Browser)" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, true)" />
+		<!--<input type="button" name="saveView" id="saveView" value="Save View To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false)" />-->
+		<!-- <input type="button" name="showView" id="showView" value="Mostrar Visão (Browser)" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, true)" />
 				<input type="button" name="saveViewLocal" id="saveViewLocal" value="Download da Visão" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" /> -->
-				<!--<input type="button" name="saveAll" id="saveAll" value="Save All To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false)" />
+		<!--<input type="button" name="saveAll" id="saveAll" value="Save All To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false)" />
 				<input type="button" name="showAll" id="showAll" value="Show All In Browser" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, true)" />
 				<input type="button" name="saveAllLocal" id="saveAllLocal" value="Save All Local" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" />-->
-			<!-- </form>
+		<!-- </form>
 		</div> -->
 
-			
-		
-			<section class="exibicao-txt-img flex-container flex-direction">	
-				{% block content %} {% endblock %}
-			</section>
-		</div>
 
-	</body>
+
+		<section class="exibicao-txt-img flex-container flex-direction">
+			{% block content %} {% endblock %}
+		</section>
+	</div>
+
+</body>
 
 </html>
