@@ -126,11 +126,7 @@ def index(id):
         return render_template('index/Y.html', page_name = 'Indice-Y', current_year = current_year, version = current_version)
     if id == 27:
         return render_template('index/Z.html', page_name = 'Indice-Z', current_year = current_year, version = current_version)
-
-@ backend.route('/teste')
-def teste():
-    return render_template('teste.html', page_name = 'Indice', current_year = current_year, version = current_version)
-
+    
 @ backend.route('/contribute', methods = ['GET', 'POST'])
 def contribute():
     page_name='Contribua'
