@@ -1,97 +1,121 @@
-{% extends './parents/main.html' %}
-
-{% block content %}
-
-<section class="flex-container flex-direction">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Histologia - {{page_name}}</title>
+    <meta http-equiv="Content-Language" content="pt-br" charset="utf-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css')}}">
     
-    <section class="indice">
-        <p>ÍNDICE</p>
-        <ul>
-            <li>
-                <a href="/index/2">A</a>
-            </li>
-            <li>
-                <a href="/index/3">B</a>
-            </li>
-            <li>
-                <a href="/index/4">C</a>
-            </li>
-            <li>
-                <a href="/index/5">D</a>
-            </li>
-            <li>
-                <a href="/index/6">E</a>
-            </li>
-            <li>
-                <a href="/index/7">F</a>
-            </li>
-            <li>
-                <a href="/index/8">G</a>
-            </li>
-            <li>
-                <a href="/index/9">H</a>
-            </li>
-            <li>
-                <a href="/index/10">I</a>
-            </li>
-            <li>
-                <a href="/index/11">J</a>
-            </li>
-            <li>
-                <a href="/index/12">K</a>
-            </li>
-            <li>
-                <a href="/index/13">L</a>
-            </li>
-            <li>
-                <a href="/index/14">M</a>
-            </li>
-            <li>
-                <a href="/index/15">N</a>
-            </li>
-            <li>
-                <a href="/index/16">O</a>
-            </li>
-            <li>
-                <a href="/index/17">P</a>
-            </li>
-            <li>
-                <a href="/index/18">Q</a>
-            </li>
-            <li>
-                <a href="/index/19">R</a>
-            </li>
-            <li>
-                <a href="/index/20">S</a>
-            </li>
-            <li>
-                <a href="/index/21">T</a>
-            </li>
-            <li>
-                <a href="/index/22">U</a>
-            </li>
-            <li>
-                <a href="/index/23">V</a>
-            </li>
-            <li>
-                <a href="/index/24">W</a>
-            </li>
-            <li>
-                <a href="/index/25">X</a>
-            </li>
-            <li>
-                <a href="/index/26">Y</a>
-            </li>
-            <li>
-                <a href="/index/27">Z</a>
-            </li>
-        </ul>
-    </section>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='Microscope_icon.png')}}" />
 
-    <section>
-        {%block conteudo_index %}{%endblock%}
-    </section>
+</head>
 
-</section>
+<body>
+    <div class="container">
+        <div class="item-a">
+            <img src="{{ url_for('static', filename='images/LogoUSP.png')}}" alt="Logo USP">
+        </div>
+        <div class="item-b">
+            <div class="item-b1"><a {% if page_name == "Home" %} class="active"{% endif %} href='/'>Home</a></div>
+            <div class="item-b2"><a {% if page_name == "Navegar" %} class="active"{% endif %} href='/browse'>Navegar</a></div>
+            <div class="item-b3"><a {% if page_name == "Indice" %} class="active"{% endif %} href='/index/1'>Índice</a></div>
+            <div class="item-b4"><a {% if page_name in ["Contribua", "Dashboard"] %} class="active"{% endif %}href='/contribute'>Contribua</a></div>
+            <div class="item-b5"><a {% if page_name == "Ajuda" %} class="active"{% endif %}href='/help'>Ajuda</a></div>
+        </div>
+        <div class="item-c">
+            <section class="flex-container flex-direction">
+    
+                <section class="indice">
+                    <p><a href="/index/1">ÍNDICE</a></p>
+                    <ul>
+                        <li>
+                            <a href="/index/2">A</a>
+                        </li>
+                        <li>
+                            <a href="/index/3">B</a>
+                        </li>
+                        <li>
+                            <a href="/index/4">C</a>
+                        </li>
+                        <li>
+                            <a href="/index/5">D</a>
+                        </li>
+                        <li>
+                            <a href="/index/6">E</a>
+                        </li>
+                        <li>
+                            <a href="/index/7">F</a>
+                        </li>
+                        <li>
+                            <a href="/index/8">G</a>
+                        </li>
+                        <li>
+                            <a href="/index/9">H</a>
+                        </li>
+                        <li>
+                            <a href="/index/10">I</a>
+                        </li>
+                        <li>
+                            <a href="/index/11">J</a>
+                        </li>
+                        <li>
+                            <a href="/index/12">K</a>
+                        </li>
+                        <li>
+                            <a href="/index/13">L</a>
+                        </li>
+                        <li>
+                            <a href="/index/14">M</a>
+                        </li>
+                        <li>
+                            <a href="/index/15">N</a>
+                        </li>
+                        <li>
+                            <a href="/index/16">O</a>
+                        </li>
+                        <li>
+                            <a href="/index/17">P</a>
+                        </li>
+                        <li>
+                            <a href="/index/18">Q</a>
+                        </li>
+                        <li>
+                            <a href="/index/19">R</a>
+                        </li>
+                        <li>
+                            <a href="/index/20">S</a>
+                        </li>
+                        <li>
+                            <a href="/index/21">T</a>
+                        </li>
+                        <li>
+                            <a href="/index/22">U</a>
+                        </li>
+                        <li>
+                            <a href="/index/23">V</a>
+                        </li>
+                        <li>
+                            <a href="/index/24">W</a>
+                        </li>
+                        <li>
+                            <a href="/index/25">X</a>
+                        </li>
+                        <li>
+                            <a href="/index/26">Y</a>
+                        </li>
+                        <li>
+                            <a href="/index/27">Z</a>
+                        </li>
+                    </ul>
+                </section>
+            
+                <section>
+                    {%block conteudo_index %}{%endblock%}
+                </section>
+            
+            </section>
+        </div>
+    </div>
+    <div class="item-d">Guia Histológico {{ current_year }}  |  Versão {{ version }}</div>
 
-{% endblock %}
+    
+</body>
