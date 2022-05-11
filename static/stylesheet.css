@@ -210,12 +210,13 @@ input {
 .container .item-c .flex-container .indice {
   background-color: #d3e1ed;
   border: 1px solid #64c4d2;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .container .item-c .flex-container .indice p {
   font-size: 15px;
   font-family: 'Vidaloka';
+  border-bottom: solid 4px #64c4d2;
 }
 
 .container .item-c .flex-container .indice ul {
@@ -223,6 +224,33 @@ input {
 }
 
 .container .item-c .flex-container .indice ul li {
-  font-size: 14px;
+  font-size: 15px;
 }
+
+.indice ul li a{
+  list-style-type: none;
+  display: block;
+  list-style: none;
+  text-decoration: none;
+  transition: all .2s;
+  /* border-bottom: solid 1px #000; */
+}
+
+/* .indice ul li:hover{
+  background-color:#fcb421;
+  color:#f4f4f9;
+} */
+
+.indice p a{
+  list-style-type: none;
+  display: block;
+  list-style: none;
+  text-decoration: none;
+  transition: all .2s;
+}
+
+/* .indice p a:hover{
+  background-color:#fcb421;
+  color:#f4f4f9;
+} */
 /* Página Índice */

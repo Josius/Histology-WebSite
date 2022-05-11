@@ -367,4 +367,13 @@ nav a{
     font-size: 14px;
 }
 
+.indice ul li a{
+}
+
+.indice ul li a:hover{
+    background-color: #fcb421;
+    color: #fff;
+}
+
+
 /* Página Índice */
