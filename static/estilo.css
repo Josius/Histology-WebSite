@@ -7,13 +7,7 @@
 
 html,
 body {
-
-    /* margin: 0;
-    width: 100%;
-    height: 100%; */
     overflow: hidden;
-
-    /* height: 100%; */
     background-color: #d3e1ed;
     font-family: montserrat, arial, sans-serif;
     min-height: 100vh;
@@ -38,42 +32,24 @@ body {
     flex-direction: row-reverse;
 }
 
-
-
-/* 
-#titulo{
-    color: white;
-    background-color: #64c4d2;    
-}
-*/
-
-
 .exibicao {
     background-color: #ededed;
-    /* background-color: green; */
-    /* height: 100%; */
-    /* height: 100vh; */
-    /* overflow-y: hidden; */
 }
 
 
 .exibicao-cabecalho {
-    /* position: relative; */
-    /* left: 0;
-    top: 0; */
-    /* width: 100%; */
-
+    /*
+    position: relative;
+    left: 0;
+    top: 0; 
+    z-index: 1;
+    */
     color: white;
     background-color: #64c4d2;
     border-bottom: solid 4px #fcb421;
     height: 70px;
     padding: 0.5rem;
     overflow: hidden;
-    /* font-weight: bold; */
-    /* justify-content:space-between; */
-    /* z-index: 1; */
-
-    /* background-color: yellow; */
 }
 
 .exibicao-cabecalho-esq {
@@ -90,28 +66,17 @@ body {
 
 .exibicao-txt-img {
     /* position: relative; */
-
-    /* background-color: blue; */
-    /* max-height: 100%; */
     height: calc(100vh - 70px);
 }
 
-/* .exibicao-rodape {
-    width: 100%;
-    color: white;
-    background-color: #1094ab;
-    height: 20px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-} */
-
 .exibicao-narrativa {
-    /* position: absolute;
+    /* 
+    position: absolute;
     top: 27px;
     bottom: 0;
     right: 0;
-    z-index: 1; */
+    z-index: 1; 
+    */
 
     background-color: #d3e1ed;
     width: 400px;
@@ -128,10 +93,8 @@ body {
     background-color: #1094ab;
     margin: 0;
     text-align: center;
-
-    /* font-size: 13px; */
     font-weight: bold;
-    /* background-color: gray; */
+    
 }
 
 .exibicao-narrativa-texto {
@@ -139,7 +102,6 @@ body {
     font-family: Montserrat;
     font-size: 14px;
     padding: 10px;
-    /* background-color: rebeccapurple; */
 }
 
 .exibicao-narrativa-rodape {
@@ -149,49 +111,25 @@ body {
     font-family: Source Sans Pro SemiBold;
     color: white;
     background-color: #1094ab;
-    /* margin: 0; */
-    /* height: 24px; */
     text-align: center;
     font-size: 13px;
     font-weight: bold;
-    /* background-color: palevioletred; */
 }
 
 #exibicao-imagem {
-    /* position: absolute;
+    /* 
+    position: absolute;
     top: 27px;
     bottom: 0;
     left: 0;
     right: 400px;
-    z-index: 0; */
-    /* width: 600px; */
-    /* height: 600px; */
-    width: 50%;
-    min-width: 60vw;
-    /* min-height: 100%; */
-    /* background-color: chartreuse; */
-    /*
-    configuração base
-    width: 50%;
-    min-width: 60vw;
+    z-index: 0; 
     */
+    width: 50%;
+    min-width: 60vw;
 }
 
 /*Menu Retratil*/
-
-/* .cabecalho_mainZmf{
-    width: 100%;
-    height: 55px;
-    display: flex;
-    position: sticky;
-
-    background-color: #64c4d2;
-    border-bottom-color: #fcb421;
-    border-bottom-width: 4px;
-    border-bottom-style: solid;
-    justify-content:space-between;
-} */
-
 .icone {
     position:fixed;
     font-size: 20px;
