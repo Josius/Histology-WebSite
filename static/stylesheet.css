@@ -229,7 +229,6 @@ input {
 
 .indice ul li a{
   list-style-type: none;
-  display: block;
   list-style: none;
   text-decoration: none;
   transition: all .2s;
@@ -247,6 +246,17 @@ input {
   list-style: none;
   text-decoration: none;
   transition: all .2s;
+}
+
+.conteudo-index{  
+  width: 100%;
+  flex-direction: unset;
+
+}
+.title-index{
+  font-size: 30px;
+  padding: 30px;
+  font-weight:bolder;
 }
 
 /* .indice p a:hover{
