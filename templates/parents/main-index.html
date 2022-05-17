@@ -4,13 +4,15 @@
     <title>Histologia - {{page_name}}</title>
     <meta http-equiv="Content-Language" content="pt-br" charset="utf-8">
     <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css')}}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
     
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='Microscope_icon.png')}}" />
 
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-aa">
         <div class="item-a">
             <img src="{{ url_for('static', filename='images/LogoUSP.png')}}" alt="Logo USP">
         </div>
@@ -118,5 +120,5 @@
     </div>
     <div class="item-d">Guia Histológico {{ current_year }}  |  Versão {{ version }}</div>
 
-    
+    <script src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
 </body>

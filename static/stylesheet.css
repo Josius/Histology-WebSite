@@ -23,10 +23,11 @@ body {
   min-height: 100vh;
 }
 
-.container {
+.container-aa {
   display: grid;
   grid-template-areas: " header" "menu-line";
   height: 100%;
+  width: 100%;
 }
 
 .item-a {
@@ -207,23 +208,23 @@ input {
 /* configuração da página navegar */
 
 /* Página Índice */
-.container .item-c .flex-container .indice {
+.container-aa .item-c .flex-container .indice {
   background-color: #d3e1ed;
   border: 1px solid #64c4d2;
   border-radius: 10px;
 }
 
-.container .item-c .flex-container .indice p {
+.container-aa .item-c .flex-container .indice p {
   font-size: 15px;
   font-family: 'Vidaloka';
   border-bottom: solid 4px #64c4d2;
 }
 
-.container .item-c .flex-container .indice ul {
+.container-aa .item-c .flex-container .indice ul {
   list-style-type: none;
 }
 
-.container .item-c .flex-container .indice ul li {
+.container-aa .item-c .flex-container .indice ul li {
   font-size: 15px;
 }
 
