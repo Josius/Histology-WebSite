@@ -23,7 +23,7 @@ body {
   min-height: 100vh;
 }
 
-.container-aa {
+.container-aa{
   display: grid;
   grid-template-areas: " header" "menu-line";
   height: 100%;
@@ -208,60 +208,34 @@ input {
 /* configuração da página navegar */
 
 /* Página Índice */
-.container-aa .item-c .flex-container .indice {
+
+.indice{
   background-color: #d3e1ed;
   border: 1px solid #64c4d2;
   border-radius: 10px;
+  overflow: hidden;
+  transition: all .2s linear;
+
 }
 
-.container-aa .item-c .flex-container .indice p {
-  font-size: 15px;
-  font-family: 'Vidaloka';
-  border-bottom: solid 4px #64c4d2;
-}
-
-.container-aa .item-c .flex-container .indice ul {
-  list-style-type: none;
-}
-
-.container-aa .item-c .flex-container .indice ul li {
-  font-size: 15px;
-}
-
-.indice ul li a{
-  list-style-type: none;
-  list-style: none;
+.nav-link{
   text-decoration: none;
-  transition: all .2s;
-  /* border-bottom: solid 1px #000; */
-}
-
-/* .indice ul li:hover{
-  background-color:#fcb421;
-  color:#f4f4f9;
-} */
-
-.indice p a{
-  list-style-type: none;
   display: block;
-  list-style: none;
-  text-decoration: none;
-  transition: all .2s;
+}
+
+.nav-link:hover{
+  background-color: #fcb421;
+  color: black;
 }
 
 .conteudo-index{  
   width: 100%;
   flex-direction: unset;
-
 }
+
 .title-index{
   font-size: 30px;
   padding: 30px;
   font-weight:bolder;
 }
-
-/* .indice p a:hover{
-  background-color:#fcb421;
-  color:#f4f4f9;
-} */
 /* Página Índice */
