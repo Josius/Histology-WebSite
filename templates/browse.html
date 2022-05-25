@@ -1,9 +1,6 @@
 {% extends './parents/main.html' %}
 
 {% block content %}
-<!-- Abaixo, script para tentar usar o a href ao invés de button nas imgs -->
-<!-- <script src="{{url_for('static', filename='post.js')}}"></script> -->
-
 <div class="conteudo">
     <header>
         <h1>texto e imagem</h1>
@@ -21,7 +18,7 @@
                         <br>
                         <button type="submit" class="miniatura-btn">
                             <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                         </button>
                     </form>   
                 </div>
@@ -39,7 +36,7 @@
                         <br>
                         <button type="submit"  class="miniatura-btn">
                             <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE40XB.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                         </button>
                     </form>
                 </div>
@@ -63,7 +60,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/B2GlicogenioFigadoPAS.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -83,7 +80,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -93,7 +90,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L02BTraqueiaEEsofagoHE.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -103,7 +100,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L02LinguaAzulDeToluidina.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -123,7 +120,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L04OvarioEUteroL1HE40x.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -133,7 +130,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L05BTransicaoEstomagoEDuodenoDeGatoL140x.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -143,7 +140,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L05TransicaoEstomagoEDuodenoL3001.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -163,7 +160,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L9GranulomaPeriapicalL3.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -173,7 +170,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L11ArteriaDeGrandeCalibroL2Fucsina.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -183,7 +180,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L11VasoDeGrandeCalibreVerhoff.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
 
                     </a>
                 </div>
@@ -194,7 +191,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L12PulmaoBacoLinfonodoL2ImpregnacaoArgentica.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -204,7 +201,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L14ATraqueiaEEpigloteDeCaoL1FucsinaResorcina.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -214,7 +211,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L14TraqueiaEEpigloteVerhoffL2.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -224,7 +221,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L18AFetoDeRatoTricromicoDeMasson40X.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -244,7 +241,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L25BCerebroECerebelo.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -304,7 +301,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L31TransicaoEsofagoEEstomagoAHE40x.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -314,7 +311,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L32AIntestinoPorcao2e340x.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -324,7 +321,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L32AIntestinoPorcao140x.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -344,7 +341,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L35BSubmandibularHumanaL1.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -364,7 +361,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L37BUretraEBexigaMassonL140X.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -374,7 +371,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L37BUretraEBexigaTricromicoDeMassomL240x.jpg')}}"
-                            alt="" class="miniatura-img">
+                            alt="" class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -414,7 +411,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L55EsfregacoSanguineoL2.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
@@ -424,7 +421,7 @@
                 <div class="miniatura">
                     <a href="">
                         <img src="{{url_for('static', filename='imgsMini/L55EsfregacoSanguineoL3.jpg')}}" alt=""
-                            class="miniatura-img">
+                            class="img-fluid img-thumbnail">
                     </a>
                 </div>
                 <h2>texto</h2>
