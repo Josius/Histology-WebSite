@@ -5,7 +5,7 @@
 
 {% block content %}
     
-    <article class="exibicao-narrativa">
+    <article class="exibicao-narrativa container-fluid">
         <header class="exibicao-narrativa-titulo">
             {{ nomeImagem }}
         </header>
@@ -15,16 +15,15 @@
         <footer class="exibicao-narrativa-rodape">
             Guia Histológico {{ current_year }}  |  Versão {{ version }}
         </footer>
-        
     </article>
 
-    <section id="exibicao-imagem">
+    <section class="container-fluid exibicao"  id="exibicao-imagem">
         <!-- <img src="{{url_for('static', filename='imgsMini/Teste.jpg')}}"> -->
     </section>
 
     <!-- CONFIGURAÇÃO ZOOMIFY -->
     
-    <script class="img-fluid" type="text/javascript"> 
+    <script type="text/javascript"> 
         Z.showImage("exibicao-imagem", 
 
             //IMAGEM
