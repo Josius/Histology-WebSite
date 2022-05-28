@@ -37,5 +37,12 @@ class Slide(TableBase):
     approved_by = Column(String(320), ForeignKey('users.email', onupdate='CASCADE'))
     approved_at = Column(DateTime)
 
+class Img(TableBase):
+    __tablename__ = 'imgs'
+
+    id = Column(Integer, primary_key=True)
+    name=Column(String, unique=True, nullable=False) #nome da imagem
+    imgs_pff=Column(String, unique=True, nullable=False) # caminho da imagem .pff
+    imgs_min=Column(String, unique=True, nullable=False) # caminho da imagem .jpg(miniatura)
 
 TableBase.metadata.create_all(db.engine)
