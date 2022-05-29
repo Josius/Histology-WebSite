@@ -12,6 +12,7 @@ from configparser import ConfigParser
 from db import db_session
 from werkzeug.utils import secure_filename
 import models
+from models import Img
 import datetime
 import forms
 import os
@@ -41,9 +42,10 @@ def home():
 def browse():
     
     arq_nome = forms.ArqImgForm()
+    imgs = db_session.query(models.Img)
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
-                           version=current_version, nome_arq=arq_nome)
+                           version=current_version, nome_arq=arq_nome,imgs=imgs)
 
 @backend.route('/viewport', methods=['GET', 'POST'])
 def viewport():

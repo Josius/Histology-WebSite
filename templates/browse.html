@@ -3,31 +3,33 @@
 {% block content %}
 <div class="conteudo">
     <header>
-        <h1>texto e imagem</h1>
+        <h1>Pagina Navegar</h1>
     </header>
     <section>
-        <h2>mais texto e img</h2>
         <div class="flex-container flex-pos">
 
-            <div class="item">
-                <h2>teste 06</h2>
+
+            {% for img in imgs %}
+
+
+                <div class="item">
                 <div class="miniatura">
                     <form action="{{ url_for('viewport') }}" method="POST">
                         {{ nome_arq.csrf_token }}
-                        {{ nome_arq.arq_nome(value="L01PeleGrossaCoximdeGatoL2HE40X") }}
+                        {{ nome_arq.arq_nome(value=img.imgs_pff) }}
                         <br>
                         <button type="submit" class="miniatura-btn">
-                            <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
+                            <img src="{{url_for('static', filename=img.imgs_min)}}"
+                            alt="" class="img-thumbnail">
                         </button>
                     </form>   
                 </div>
-                <h2>teste 06</h2>
-                <p>L01PeleGrossaCoximDeGatoL2HE40X</p>
-                <h3>link</h3>
+                <p>{{ img.name }}</p>
             </div>
 
-            <div class="item">
+            {% endfor %}
+
+            <!-- <div class="item">
                 <h6>teste 07</h6>
                 <div class="miniatura">
                     <form action="{{ url_for('viewport') }}" method="POST">
@@ -43,8 +45,8 @@
                 <h6>teste 07</h6>
                 <p>L60PeleFinaHE40XB</p>
                 <h3>link</h3>
-            </div>
-
+            </div> -->
+<!-- 
             <div class="item">
                 <div class="miniatura">
                     <a href="">
@@ -437,7 +439,7 @@
                 <h2>texto</h2>
                 <h3>link</h3>
             </div>
-
+ -->
 
         </div>
     </section>
