@@ -43,7 +43,7 @@
 				<div class="dropdown">
 					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
 						data-bs-toggle="dropdown" aria-expanded="false">
-						Download
+						<i class="bi bi-download"></i>	Download  
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 						<li><input class="dropdown-item" type="button" name="showView" id="showView"
@@ -60,7 +60,7 @@
 				
 				<!-- informacoes da lamina -->
 				<button class="btn btn-primary ms-auto" type="button" data-bs-toggle="offcanvas"
-					data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="color:black; background-color: #64c4d2; border-color: black;">
+					data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="color:#000000; background-color: #64c4d2; border-color: black;">
 					<!-- icone i -->
 					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 					class="bi bi-info-circle" viewBox="0 0 16 16">
@@ -85,6 +85,9 @@
 					</div>
 				</div>
 
+				<!-- espaco em branco -->
+				<p>&nbsp;&nbsp;</p>
+
 				<!-- menu retratil -->
 				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
 					data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -93,22 +96,25 @@
 				<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
 					aria-labelledby="offcanvasNavbarLabel">
 					<div class="offcanvas-header">
-						<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+						<h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-size:x-large"><b>Menu</b></h5>
 						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
 					<div class="offcanvas-body">
-						<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+						<ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="font-size: larger;">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="./">Home</a>
+								<a class="nav-link active" aria-current="page" href="./" ><i class="bi bi-house-door"></i>	Home</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="./browse">Navegar</a>
+								<a class="nav-link active" aria-current="page" href="./browse"><i class="bi bi-search"></i>		Navegar</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="./index/1">Indice</a>
+								<a class="nav-link active" aria-current="page" href="./index/1"><i class="bi bi-book"></i>	Indice</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="./index/1">Indice</a>
+								<a class="nav-link active" aria-current="page" href="./contribute"><i class="bi bi-file-earmark-text"></i>	Contribua</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="./help"><i class="bi bi-envelope"></i>		Ajuda</a>
 							</li>
 					</div>
 				</div>

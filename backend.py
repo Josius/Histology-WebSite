@@ -1,6 +1,6 @@
 from __future__ import annotations
 from ensurepip import version
-# from crypt import methods  # comentar esta linha para funcionar no windows
+from crypt import methods  # comentar esta linha para funcionar no windows
 import html
 import re
 from tkinter import Image
@@ -72,13 +72,18 @@ def viewport():
         current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg
     )
 
-@ backend.route('/index/<string:id>')
+@ backend.route('/index/<string:id>', methods=['GET', 'POST'])
 def index(id):
+
+    arq_nome = forms.ArqImgForm()
+    imgs = db_session.query(models.Img)
+    
+
     list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
     if id in list:
-        return render_template('index/%s.html'%(id), page_name = 'Indice-%s'%(id), current_year = current_year, version = current_version)
+        return render_template('index/%s.html'%(id), page_name = 'Indice-%s'%(id), current_year = current_year, version = current_version,nome_arq=arq_nome,imgs=imgs)
     else:
-        return render_template('index/index.html', page_name = 'Indice', current_year = current_year, version = current_version)
+        return render_template('index/index.html', page_name = 'Indice', current_year = current_year, version = current_version,nome_arq=arq_nome,imgs=imgs)
 
 @ backend.route('/contribute', methods = ['GET', 'POST'])
 def contribute():

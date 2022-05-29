@@ -11,25 +11,48 @@
 
             {% for img in imgs %}
 
-
-                <div class="item">
+            <div class="item">
                 <div class="miniatura">
                     <form action="{{ url_for('viewport') }}" method="POST">
                         {{ nome_arq.csrf_token }}
                         {{ nome_arq.arq_nome(value=img.imgs_pff) }}
                         <br>
                         <button type="submit" class="miniatura-btn">
-                            <img src="{{url_for('static', filename=img.imgs_min)}}"
-                            alt="" class="img-thumbnail">
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail">
+                                <div class="card-body">
+                                    <h5>{{ img.name }}</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                              </div>
+                              
                         </button>
-                    </form>   
+                    </form>
                 </div>
-                <p>{{ img.name }}</p>
             </div>
 
             {% endfor %}
 
             <!-- <div class="item">
+                <h2>teste 06</h2>
+                <div class="miniatura">
+                    <form action="{{ url_for('viewport') }}" method="POST">
+                        {{ nome_arq.csrf_token }}
+                        {{ nome_arq.arq_nome(value="L01PeleGrossaCoximdeGatoL2HE40X") }}
+                        <br>
+                        <button type="submit" class="miniatura-btn">
+                            <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}"
+                            alt="" class="img-fluid img-thumbnail">
+                        </button>
+                    </form>   
+                </div>
+                <h2>teste 06</h2>
+                <p>L01PeleGrossaCoximDeGatoL2HE40X</p>
+                <h3>link</h3>
+            </div> -->
+
+            
+                <!-- <div class="item">
                 <h6>teste 07</h6>
                 <div class="miniatura">
                     <form action="{{ url_for('viewport') }}" method="POST">
@@ -46,7 +69,7 @@
                 <p>L60PeleFinaHE40XB</p>
                 <h3>link</h3>
             </div> -->
-<!-- 
+                <!-- 
             <div class="item">
                 <div class="miniatura">
                     <a href="">

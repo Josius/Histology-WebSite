@@ -2,7 +2,7 @@
 
 {% block conteudo_index %}
 
-<section class="flex-container flex-direction">
+<!-- <section class="flex-container flex-direction">
     <section>
         <article>
             <h1>A</h1>
@@ -39,6 +39,31 @@
             <h3>A célula 4</h3>
             <h3>A célula 5</h3>
         </article>
-    </section>
+    </section> -->
+
+    {% for img in imgs %}
+        {% if img.name[0] == 'P' %}
+
+            <div class="item">
+                <div class="miniatura">
+                    <form action="{{ url_for('viewport') }}" method="POST">
+                        {{ nome_arq.csrf_token }}
+                        {{ nome_arq.arq_nome(value=img.imgs_pff) }}
+                        <br>
+                        <button type="submit" class="miniatura-btn">
+                            <div class="card" style="width: 18rem;">
+                                <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail">
+                                <div class="card-body">
+                                    <h5>{{ img.name }}</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                </div>
+                              </div>
+                              
+                        </button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
 
 {% endblock %}
