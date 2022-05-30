@@ -1,0 +1,92 @@
+{% extends './parents/main.html' %}
+
+{% block content %}
+<section class="flex-container flex-direction">
+
+
+    <nav class="nav flex-column indice">
+        <a class="nav-link" href="/index/Principal">ÍNDICE</a>
+        <a class="nav-link" href="/index/A">A</a>
+        <a class="nav-link" href="/index/B">B</a>
+        <a class="nav-link" href="/index/C">C</a>
+        <a class="nav-link" href="/index/D">D</a>
+        <a class="nav-link" href="/index/E">E</a>
+        <a class="nav-link" href="/index/F">F</a>
+        <a class="nav-link" href="/index/G">G</a>
+        <a class="nav-link" href="/index/H">H</a>
+        <a class="nav-link" href="/index/I">I</a>
+        <a class="nav-link" href="/index/J">J</a>
+        <a class="nav-link" href="/index/K">K</a>
+        <a class="nav-link" href="/index/L">L</a>
+        <a class="nav-link" href="/index/M">M</a>
+        <a class="nav-link" href="/index/N">N</a>
+        <a class="nav-link" href="/index/O">O</a>
+        <a class="nav-link" href="/index/P">P</a>
+        <a class="nav-link" href="/index/Q">Q</a>
+        <a class="nav-link" href="/index/R">R</a>
+        <a class="nav-link" href="/index/S">S</a>
+        <a class="nav-link" href="/index/T">T</a>
+        <a class="nav-link" href="/index/U">U</a>
+        <a class="nav-link" href="/index/V">V</a>
+        <a class="nav-link" href="/index/W">W</a>
+        <a class="nav-link" href="/index/X">X</a>
+        <a class="nav-link" href="/index/Y">Y</a>
+        <a class="nav-link" href="/index/Z">Z</a>
+    </nav>
+
+    <section class="conteudo-index">
+        <div class="title-index"> {{ page_name }} </div>
+        {% for img in imgs %}
+        {% if id in list and
+        img.name[0] == id %}
+
+        <div class="item">
+            <div class="miniatura">
+                <form action="{{ url_for('viewport') }}" method="POST">
+                    {{ nome_arq.csrf_token }}
+                    {{ nome_arq.arq_nome(value=img.imgs_pff) }}
+                    <br>
+                    <button type="submit" class="miniatura-btn">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail">
+                            <div class="card-body">
+                                <h5>{{ img.name }}</h5>
+                                <p class="card-text">Some quick example text to build on the card title and
+                                    make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+        {% if id not in list %}
+
+        <div class="item">
+            <div class="miniatura">
+                <form action="{{ url_for('viewport') }}" method="POST">
+                    {{ nome_arq.csrf_token }}
+                    {{ nome_arq.arq_nome(value=img.imgs_pff) }}
+                    <br>
+                    <button type="submit" class="miniatura-btn">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail">
+                            <div class="card-body">
+                                <h5>{{ img.name }}</h5>
+                                <p class="card-text">Some quick example text to build on the card title and
+                                    make up the bulk of the card's content.</p>
+                            </div>
+                        </div>
+
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </section>
+
+</section>
+
+{% endblock %}

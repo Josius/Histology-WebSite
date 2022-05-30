@@ -77,13 +77,14 @@ def index(id):
 
     arq_nome = forms.ArqImgForm()
     imgs = db_session.query(models.Img)
-    
-
     list = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    if id in list:
-        return render_template('index/%s.html'%(id), page_name = 'Indice-%s'%(id), current_year = current_year, version = current_version,nome_arq=arq_nome,imgs=imgs)
-    else:
-        return render_template('index/index.html', page_name = 'Indice', current_year = current_year, version = current_version,nome_arq=arq_nome,imgs=imgs)
+
+    return render_template('index.html', page_name = 'Indice-%s'%(id), current_year = current_year, 
+    version = current_version,nome_arq=arq_nome,imgs=imgs,id=id, list=list)
+    # if id in list:
+    #     return render_template('index/%s.html'%(id), page_name = 'Indice-%s'%(id), current_year = current_year, version = current_version,nome_arq=arq_nome,imgs=imgs, id=id)
+    # else:
+    #     return render_template('index/index.html', page_name = 'Indice', current_year = current_year, version = current_version,nome_arq=arq_nome,imgs=imgs,id=id)
 
 @ backend.route('/contribute', methods = ['GET', 'POST'])
 def contribute():
