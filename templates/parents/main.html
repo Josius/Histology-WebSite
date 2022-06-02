@@ -25,11 +25,12 @@
         <div class="item-b">
             <div class="item-b1"><a {% if page_name == "Home" %} class="active"{% endif %} href='/'>Home</a></div>
             <div class="item-b2"><a {% if page_name == "Navegar" %} class="active"{% endif %} href='/browse'>Navegar</a></div>
-            <div class="item-b3"><a {% if page_name == "Indice" %} class="active"{% endif %} href='/index/A'>Índice</a></div>
+            <div class="item-b3"><a {% if page_name == 'Indice-%s'%(id) %} class="active"{% endif %} href='/index/Principal'>Índice</a></div>
             <div class="item-b4"><a {% if page_name in ["Contribua", "Dashboard"] %} class="active"{% endif %}href='/contribute'>Contribua</a></div>
             <div class="item-b5"><a {% if page_name == "Ajuda" %} class="active"{% endif %}href='/help'>Ajuda</a></div>
         </div>
-        <div class="item-c">
+        
+        <div class="item-c container-fluid">
             {% block content %} {% endblock %}
         </div>
     </div>
