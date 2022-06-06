@@ -4,24 +4,29 @@
 
 
 
-<div class="container-fluid">
-    <form action="{{ url_for('help_me') }}" method="POST">
+<div class="d-flex row justify-content-center">
+    <div
+        style="margin: 20px;border-radius: 10px; border: 1px solid #D3E1ED; background-color: #D3E1ED;">
 
-        {{ help_form.csrf_token }}
-        <div class="form-group">
-            {{ help_form.help_text.label }}
-            {{ help_form.help_text }}
-        </div>
-        <div class="form-group">
-            {{ help_form.full_name.label }}
-            {{ help_form.full_name }}
-        </div>
-        <div class="form-group">
-            {{ help_form.email.label }}
-            {{ help_form.email }}
-        </div>
-        <input type="submit" value="Enviar">
-    </form>
+        <form action="{{ url_for('help_me') }}" method="POST">
+
+            {{ help_form.csrf_token }}
+            <div class="form-group">
+                {{ help_form.help_text.label }}<br>
+                {{ help_form.help_text }}
+            </div>
+            <div class="form-group">
+                {{ help_form.full_name.label }}<br>
+                {{ help_form.full_name }}
+            </div>
+            <div class="form-group">
+                {{ help_form.email.label }}<br>
+                {{ help_form.email }}
+            </div>
+            <input type="submit" value="Enviar">
+        </form>
+
+    </div>
 
 </div>
 
