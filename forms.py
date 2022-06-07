@@ -6,27 +6,27 @@ from datetime import date
 
 
 class LoginForm(FlaskForm):
-    email = StringField(label="Email", validators=[Length(max=320)], render_kw={'maxlength': 320})
+    email = StringField(label="Email", validators=[Length(max=320)], render_kw={'maxlength': 320, "placeholder": "digite seu email"})
     password = PasswordField(label="Senha", validators=[Length(min=6, max=32)],
-                             render_kw={'maxlength': 32})
+                             render_kw={'maxlength': 32, "placeholder": "digite sua senha"})
 
 
 class SignUpForm(FlaskForm):
-    name = StringField(label='Nome', validators=[Length(max=120)], render_kw={'maxlength': 120})
-    surname = StringField(label='Sobrenome', validators=[Length(max=120)], render_kw={'maxlength': 120})
-    email = StringField(label='Email', validators=[Length(max=320)], render_kw={'maxlength': 320})
+    name = StringField(label='Nome', validators=[Length(max=120)], render_kw={'maxlength': 120, "placeholder": "nome"})
+    surname = StringField(label='Sobrenome', validators=[Length(max=120)], render_kw={'maxlength': 120, "placeholder": "sobrenome"})
+    email = StringField(label='Email', validators=[Length(max=320)], render_kw={'maxlength': 320, "placeholder": "email"})
     password = PasswordField(label='Senha', validators=[Length(min=6, max=32)],
-                             render_kw={'maxlength': 32})
+                             render_kw={'maxlength': 32, "placeholder": "senha"})
     password2 = PasswordField(label='Repita a senha', validators=[Length(min=6, max=32)],
-                              render_kw={'maxlength': 32})
+                              render_kw={'maxlength': 32, "placeholder": "repita sua senha"})
 
 
 class HelpForm(FlaskForm):
-    full_name = StringField(label='Nome Completo', render_kw={'maxlength': 120})
+    full_name = StringField(label='Nome Completo', render_kw={'maxlength': 120, "placeholder": "Nome Completo"})
     email = StringField(label='Email', validators=[Length(min=8, max=320)],
-                        render_kw={'maxlength': 320})
+                        render_kw={'maxlength': 320, "placeholder": "email"})
     help_text = StringField(label='Texto', validators=[Length(min=100, max=1000)],
-                            render_kw={'maxlength': 1000, 'class': 'large_text_input'})
+                            render_kw={'maxlength': 1000, 'class': 'large_text_input', "placeholder": "Texto"})
 
 
 class UserData(FlaskForm):

@@ -25,23 +25,31 @@
 		<nav class="navbar  fixed-top" style="background-color: #64c4d2; border-bottom: solid 4px #fcb421;">
 			<div class="container-fluid">
 
-				<!-- botoes de download(os descomentados funcionam) -->
+				<!-- botoes de download(os descomentados funcionam - 121 da doc) -->
 				<!-- <form name="myForm" id="myForm">
-				<input type="button" name="saveView" id="saveView" value="Save View To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false)" />
-				<input type="button" name="showView" id="showView" value="Mostrar Visão (Browser)"
+					<input type="button" name="saveView" id="saveView" value="Save View To File"
+						onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false)"
+						ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false)" />
+					<input type="button" name="showView" id="showView" value="Mostrar Visão (Browser)"
 						onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, true)"
 						ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, true)" />
 					<input type="button" name="saveViewLocal" id="saveViewLocal" value="Download da Visão"
 						onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false, true)"
-						ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" /> 
-				<input type="button" name="saveAll" id="saveAll" value="Save All To File" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false)" />
-					<input type="button" name="showAll" id="showAll" value="Show All In Browser" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, true)" />
-					<input type="button" name="saveAllLocal" id="saveAllLocal" value="Save All Local" onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" />
+						ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" />
+					<input type="button" name="saveAll" id="saveAll" value="Save All To File"
+						onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false)"
+						ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false)" />
+					<input type="button" name="showAll" id="showAll" value="Show All In Browser"
+						onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, true)"
+						ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, true)" />
+					<input type="button" name="saveAllLocal" id="saveAllLocal" value="Save All Local"
+						onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false, true)"
+						ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" />
 				</form> -->
 
 				<!-- menu dropdown -->
 				<div class="dropdown">
-					<a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+					<a style="background-color:#64c4d2; color:#000000" class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
 						data-bs-toggle="dropdown" aria-expanded="false">
 						<i class="bi bi-download"></i> Download
 					</a>
@@ -54,6 +62,18 @@
 								value="Download da Visão"
 								onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false, true)"
 								ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false, true)" /></li>
+						<!-- <li><input class="dropdown-item" type="button" name="saveView" id="saveView" value="Save View To File"
+								onmousedown="Z.Viewport.saveAnnotationsToImageFile(false, false)"
+								ontouchstart="Z.Viewport.saveAnnotationsToImageFile(false, false)" /></li> -->
+						<!-- <li><input class="dropdown-item" type="button" name="saveAll" id="saveAll" value="Save All To File"
+								onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false)"
+								ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false)" /></li>
+						<li><input class="dropdown-item" type="button" name="showAll" id="showAll" value="Show All In Browser"
+								onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, true)"
+								ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, true)" /></li>
+						<li><input class="dropdown-item" type="button" name="saveAllLocal" id="saveAllLocal" value="Save All Local"
+								onmousedown="Z.Viewport.saveAnnotationsToImageFile(true, false, true)"
+								ontouchstart="Z.Viewport.saveAnnotationsToImageFile(true, false, true)" /></li> -->
 					</ul>
 				</div>
 
@@ -154,7 +174,7 @@
 
 	<!-- conteudo -->
 	<div class="container-fluid" style="padding-top:60px">
-		<section class="exibicao-txt-img flex-container flex-direction">
+		<section class="exibicao-txt-img flex-container">
 			{% block content %} {% endblock %}
 		</section>
 	</div>

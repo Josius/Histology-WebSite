@@ -7,27 +7,24 @@
         <h1>Pagina Navegar</h1>
         <br>
         <br>
-        
+
     </header>
 
 
     <!-- barra de busca -->
-    <div class="container container-busca">
-
-        <div class="row height d-flex justify-content-center align-items-center">
-
-          <div class="col-md-8">
-
-            <div class="search">
-              <i class="fa fa-search"></i>
-              <input type="text" class="form-control" placeholder="Qual a lamina desejada?">
-              <button class="btn btn-primary">Pesquisar</button>
+    <form action="" method="POST">
+        <div class="container container-busca">
+            <div class="row height d-flex justify-content-center align-items-center">
+                <div class="col-md-8">
+                    <div class="search">
+                        <i class="fa fa-search"></i>
+                        <input type="text" class="form-control" placeholder="Qual a lamina desejada?">
+                        <button class="btn btn-primary">Pesquisar</button>
+                    </div>
+                </div>
             </div>
-            
-          </div>
-          
         </div>
-    </div>
+    </form>
 
     
 
@@ -36,6 +33,7 @@
         <div class="container">
             <form action="{{ url_for('viewport') }}" method="POST">
                 <div class="d-flex row justify-content-center">
+
                     {% for img in imgs %}
 
                     {{ nome_arq.csrf_token }}
@@ -44,7 +42,8 @@
                     <div class="col-sm" style="margin:20px;">
                         <button type="submit" class="miniatura-btn container-fluid">
                             <div class="card " style="width: 10rem">
-                                <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail" style="height: 200px;width:200px">
+                                <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail"
+                                    style="height: 200px;width:200px">
                                 <div class="card-body" style="height: 90px;width: 160px;">
                                     <h5>{{ img.name }}</h5>
                                     <!-- <p class="card-text">Some quick example text to build on the card title and make up the
@@ -56,87 +55,8 @@
                     <br>
                     {% endfor %}
 
-                    {% for img in imgs %}
 
-                    {{ nome_arq.csrf_token }}
-                    {{ nome_arq.arq_nome(value=img.imgs_pff) }}
-                    <br>
-                    <div class="col-sm" style="margin:20px;">
-                        <button type="submit" class="miniatura-btn container-fluid">
-                            <div class="card " style="width: 10rem">
-                                <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail" style="height: 200px;width:200px">
-                                <div class="card-body" style="height: 90px;width: 160px;">
-                                    <h5>{{ img.name }}</h5>
-                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p> -->
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <br>
-                    {% endfor %}
 
-                    {% for img in imgs %}
-
-                    {{ nome_arq.csrf_token }}
-                    {{ nome_arq.arq_nome(value=img.imgs_pff) }}
-                    <br>
-                    <div class="col-sm" style="margin:20px;">
-                        <button type="submit" class="miniatura-btn container-fluid">
-                            <div class="card " style="width: 10rem">
-                                <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail" style="height: 200px;width:200px">
-                                <div class="card-body" style="height: 90px;width: 160px;">
-                                    <h5>{{ img.name }}</h5>
-                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p> -->
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <br>
-                    {% endfor %}
-
-                    {% for img in imgs %}
-
-                    {{ nome_arq.csrf_token }}
-                    {{ nome_arq.arq_nome(value=img.imgs_pff) }}
-                    <br>
-                    <div class="col-sm" style="margin:20px;">
-                        <button type="submit" class="miniatura-btn container-fluid">
-                            <div class="card " style="width: 10rem">
-                                <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail" style="height: 200px;width:200px">
-                                <div class="card-body" style="height: 90px;width: 160px;">
-                                    <h5>{{ img.name }}</h5>
-                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p> -->
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <br>
-                    {% endfor %}
-
-                    {% for img in imgs %}
-
-                    {{ nome_arq.csrf_token }}
-                    {{ nome_arq.arq_nome(value=img.imgs_pff) }}
-                    <br>
-                    <div class="col-sm" style="margin:20px;">
-                        <button type="submit" class="miniatura-btn container-fluid">
-                            <div class="card " style="width: 10rem">
-                                <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail" style="height: 200px;width:200px">
-                                <div class="card-body" style="height: 90px;width: 160px;">
-                                    <h5>{{ img.name }}</h5>
-                                    <!-- <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p> -->
-                                </div>
-                            </div>
-                        </button>
-                    </div>
-                    <br>
-                    {% endfor %}
-
-                    
                 </div>
             </form>
         </div>

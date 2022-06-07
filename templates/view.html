@@ -4,50 +4,54 @@
 {% extends './parents/mainZmf.html' %}
 
 {% block content %}
-    
-    <article class="exibicao-narrativa container-fluid">
-        <header class="exibicao-narrativa-titulo">
-            {{ nomeImagem }}
-        </header>
-        <div class="exibicao-narrativa-texto">
-            {{ htmlFile|safe }}
-        </div>
-        <footer class="exibicao-narrativa-rodape">
-            Guia Histológico {{ current_year }}  |  Versão {{ version }}
-        </footer>
-    </article>
 
-    <section class="container-fluid exibicao"  id="exibicao-imagem">
-        <!-- <img src="{{url_for('static', filename='imgsMini/Teste.jpg')}}"> -->
-    </section>
+<!-- visualizador -->
+<section class="exibicao" id="exibicao-imagem">
+    <!-- <img src="{{url_for('static', filename='imgsMini/Teste.jpg')}}"> -->
+</section>
 
-    <!-- CONFIGURAÇÃO ZOOMIFY -->
-    
-    <script type="text/javascript"> 
-        Z.showImage("exibicao-imagem", 
+<!-- narrativa -->
+<article class="exibicao-narrativa">
+    <header class="exibicao-narrativa-titulo">
+        {{ nomeImagem }}
+    </header>
+    <div class="exibicao-narrativa-texto">
+        {{ htmlFile|safe }}
+    </div>
+    <footer class="exibicao-narrativa-rodape">
+        Guia Histológico {{ current_year }} | Versão {{ version }}
+    </footer>
+</article>
 
-            //IMAGEM
-            src="{{url_for('static', filename=imageFile)}}",
 
-            //LABELS E FUNCIONALIDADES
-            src="zAnnotationPath={{url_for('static', filename=xmlFile)}}&" + 
-            "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" +
 
-            "zMarkupMode=1&zAnnotationPath=Assets/Annotations/SaveToFile&zFileHandlerPath=Assets/FileHandlers/files.php&zSaveImageFilename=../../mySavedFile.jpg&zAnnotationsAutoSave=0"+
+<!-- CONFIGURAÇÃO ZOOMIFY -->
 
-            
-            //"zLogoVisible=0" + //esta funcionalidade esconde o logo, mas da conflito com outras funcoes, como zToolbarVisible
-            //"zMaskVisible=1&" + //funciona somente com a label, no texto funciona so o perimetro nao deixando cinza outras areas
-            
-            //"zRulerVisible=2&" //refere-se a cx de medida abaixo do painel miniFoto, ver 26-Ruler.htm - usar com zUnits e zUnitsPerImage
-            //"zRulerWidth=200&" + //acredito que seja a largura da cx de medida acima
-            //"zNavigatorWidth=200&" + //largura do painel miniFoto
-            //"zCaptionBoxes=0&" + //ainda nao entendi o q faz, acho que precisa de outra funcao para trabalharem juntos
-            //"zMagnifierVisible=2" + //painel direito inferior de zoom automatico com ponta da seta do mouse
-            // "zLogoCustomPath=Assets/LogoCustom/uspLogo3a24x24.png" //nao funcionou
-            
-            "zToolbarVisible=1"
-            ); 
-    </script>
-    
+<script type="text/javascript">
+    Z.showImage("exibicao-imagem",
+
+        //IMAGEM
+        src = "{{url_for('static', filename=imageFile)}}",
+
+        //LABELS E FUNCIONALIDADES
+        src = "zAnnotationPath={{url_for('static', filename=xmlFile)}}&" +
+        "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" +
+
+        "zMarkupMode=1&zAnnotationPath=Assets/Annotations/SaveToFile&zFileHandlerPath=Assets/FileHandlers/files.php&zSaveImageFilename=../../mySavedFile.jpg&zAnnotationsAutoSave=0" +
+
+
+        //"zLogoVisible=0" + //esta funcionalidade esconde o logo, mas da conflito com outras funcoes, como zToolbarVisible
+        //"zMaskVisible=1&" + //funciona somente com a label, no texto funciona so o perimetro nao deixando cinza outras areas
+
+        //"zRulerVisible=2&" //refere-se a cx de medida abaixo do painel miniFoto, ver 26-Ruler.htm - usar com zUnits e zUnitsPerImage
+        //"zRulerWidth=200&" + //acredito que seja a largura da cx de medida acima
+        //"zNavigatorWidth=200&" + //largura do painel miniFoto
+        //"zCaptionBoxes=0&" + //ainda nao entendi o q faz, acho que precisa de outra funcao para trabalharem juntos
+        //"zMagnifierVisible=2" + //painel direito inferior de zoom automatico com ponta da seta do mouse
+        // "zLogoCustomPath=Assets/LogoCustom/uspLogo3a24x24.png" //nao funcionou
+
+        "zToolbarVisible=1"
+    ); 
+</script>
+
 {% endblock %}

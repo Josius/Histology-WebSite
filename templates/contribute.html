@@ -10,11 +10,11 @@
         <form action="{{ url_for('login') }}" method="POST">
             {{ login_form.csrf_token }}
             <div class="form-group">
-                {{ login_form.email.label }}<br>
+                <!-- {{ login_form.email.label }}<br> -->
                 {{ login_form.email }}
             </div>
             <div class="form-group"><br>
-                {{ login_form.password.label }}<br>
+                <!-- {{ login_form.password.label }}<br> -->
                 {{ login_form.password }}
             </div>
             <input type="submit" value="Acessar">
@@ -29,26 +29,27 @@
     <div style="margin: 20px;border-radius: 10px; border: 1px solid #D3E1ED; background-color: #D3E1ED; max-width: 400px;">
         <div>
             <h3>Cadastre-se</h3>
-            <form action="{{ url_for('signup') }}" method="POST" class="container-fluid">
+            <form action="{{ url_for('signup') }}" method="POST">
                 {{ sign_up_form.csrf_token }}
                 <div class="form-group">
-                    {{ sign_up_form.name.label }}<br>
+                    <!-- <label>jkasfhalksjhf</label><br> -->
+                    <!-- {{ sign_up_form.name.label }}<br> -->
                     {{ sign_up_form.name }}
                 </div>
                 <div class="form-group"><br>
-                    {{ sign_up_form.surname.label }}<br>
+                    <!-- {{ sign_up_form.surname.label }}<br> -->
                     {{ sign_up_form.surname }}
                 </div>
                 <div class="form-group"><br>
-                    {{ sign_up_form.email.label }}<br>
+                    <!-- {{ sign_up_form.email.label }}<br> -->
                     {{ sign_up_form.email }}
                 </div>
                 <div class="form-group"><br>
-                    {{ sign_up_form.password.label }}<br>
+                    <!-- {{ sign_up_form.password.label }}<br> -->
                     {{ sign_up_form.password }}
                 </div>
                 <div class="form-group"><br>
-                    {{ sign_up_form.password2.label }}<br>
+                    <!-- {{ sign_up_form.password2.label }}<br> -->
                     {{ sign_up_form.password2 }}
                 </div>
 
