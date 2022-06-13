@@ -7,9 +7,7 @@ from datetime import date
 
 
 class SearchForm(FlaskForm):
-    searched = StringField(label ="Searched", validators=[DataRequired()])
-    submit = SubmitField(label="Submit")
-
+    searched = StringField('')
 
 class LoginForm(FlaskForm):
     email = StringField(label="Email", validators=[Length(max=320)], render_kw={'maxlength': 320, "placeholder": "digite seu email"})

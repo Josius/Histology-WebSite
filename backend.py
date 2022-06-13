@@ -19,6 +19,7 @@ from forms import SearchForm
 import os
 import json
 import requests
+from sqlalchemy import func
 
 backend = Flask(__name__)
 
@@ -43,17 +44,15 @@ def home():
 def browse():
 
     arq_nome = forms.ArqImgForm()
-    # q = request.args.get('q')
-    # if q :
-    #     imgs = db_sessiop
 
-    q = request.args.get('q')
-    # q='Fina'
+    searched = request.args.get('searched')
     
-    if q: 
-        imgs = db_session.query(models.Img).filter(Img.name.contains(q))
+    if searched: 
+        searched = searched.lower()
+        imgs = db_session.query(models.Img).filter(Img.name.contains(searched))
     else:
-        imgs = imgs = db_session.query(models.Img)
+        imgs = db_session.query(models.Img)
+
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, nome_arq=arq_nome,imgs=imgs)

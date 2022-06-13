@@ -15,11 +15,14 @@
     <div class="row height d-flex justify-content-center align-items-center container-busca">
         <div class="col-md-8">
             <form method="GET" class="d-flex" role="search">
-                <input class="form-control mr-sm-2" type="search" placeholder="Busque ..." name="q">
+                <input class="form-control mr-sm-2" type="search" placeholder="Busque ..." name="searched">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </div>
+
+    <h3>Você procurou por: </h3>
+    <div>{{ searched }}</div>
 
     <div id="laminas">
 
