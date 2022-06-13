@@ -15,6 +15,7 @@ import models
 from models import Img
 import datetime
 import forms
+from forms import SearchForm
 import os
 import json
 import requests
@@ -40,15 +41,26 @@ def home():
 
 @backend.route('/browse', methods=['GET', 'POST'])
 def browse():
-    
+
     arq_nome = forms.ArqImgForm()
-    imgs = db_session.query(models.Img)
+    # q = request.args.get('q')
+    # if q :
+    #     imgs = db_sessiop
+
+    q = request.args.get('q')
+    # q='Fina'
+    
+    if q: 
+        imgs = db_session.query(models.Img).filter(Img.name.contains(q))
+    else:
+        imgs = imgs = db_session.query(models.Img)
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, nome_arq=arq_nome,imgs=imgs)
 
 @backend.route('/viewport', methods=['GET', 'POST'])
 def viewport():
+
     arq_path = forms.ArqImgForm()
     if request.method == 'POST':
         dados = []

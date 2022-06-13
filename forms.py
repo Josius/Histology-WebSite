@@ -1,8 +1,14 @@
+from wsgiref.validate import validator
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileRequired, FileAllowed
-from wtforms import StringField, PasswordField, DateField, FieldList, IntegerField, FileField, HiddenField
+from wtforms import StringField, PasswordField, DateField, FieldList, IntegerField, FileField, HiddenField, SubmitField
 from wtforms.validators import Length, ValidationError, DataRequired
 from datetime import date
+
+
+class SearchForm(FlaskForm):
+    searched = StringField(label ="Searched", validators=[DataRequired()])
+    submit = SubmitField(label="Submit")
 
 
 class LoginForm(FlaskForm):
