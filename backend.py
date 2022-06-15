@@ -48,14 +48,26 @@ def browse():
     searched = request.args.get('searched')
     
     if searched: 
-        searched = searched.lower()
+        searched = searched.casefold()
+ 
+        imgs = db_session.query(models.Img)
+        for x in imgs:
+            x.name = x.name.casefold()
         imgs = db_session.query(models.Img).filter(Img.name.contains(searched))
     else:
         imgs = db_session.query(models.Img)
 
+    quant = 0
+    for x in imgs:
+        quant += 1
+
+    if quant > 0:
+        quant = 'Encontradas: %s'%(quant)
+    else:
+        quant = "Nenhuma Encontrada"
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
-                           version=current_version, nome_arq=arq_nome,imgs=imgs)
+                           version=current_version, nome_arq=arq_nome,imgs=imgs, searched=searched,quant=quant)
 
 @backend.route('/viewport', methods=['GET', 'POST'])
 def viewport():
