@@ -20,38 +20,48 @@
             </form>
         </div>
     </div>
-
+    {% if searched != None %}
     <h3>Você procurou por: {{ searched }}</h3>
+    {% endif %}
     <h3>{{ quant }}</h3>
-    
+
     <div id="laminas">
 
-        <form action="{{ url_for('viewport') }}" method="POST">
-            <div class="d-flex row justify-content-center">
-                {% for img in imgs %}
-                
-                {{ nome_arq.csrf_token }}
-                {{ nome_arq.arq_nome(value=img.imgs_pff) }}
-                <br>
-                <div class="col-sm" style="margin:20px;">
-                    <button type="submit" class="miniatura-btn container-fluid">
-                        <div class="card " style="width: 10rem">
-                            <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail"
-                                style="height: 200px;width:200px">
-                            <div class="card-body" style="height: 90px;width: 160px;">
-                                <h5>{{ img.name }}</h5>
-                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p> -->
-                            </div>
-                        </div>
-                    </button>
-                </div>
-                <br>
-                {% endfor %}
-            </div>
-        </form>
+        <h1>{{ tipo }}</h1>
 
-        
+        <a href="{{ url_for('index' , id = 'A') }}">kljahalkdsjfhaslkjfhasdlkjh</a>
+
+        <div class="row">
+            {% for img in imgs %}
+            <div class="col-sm">
+                <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
+                    <div class="d-flex row justify-content-center">
+
+                        {{ nome_arq.csrf_token }}
+                        {{ nome_arq.arq_nome(value=img.imgs_pff) }}
+                        <br>
+                        <div class="col-sm" style="margin:20px;">
+                            <button type="submit" class="miniatura-btn container-fluid">
+                                <div class="card " style="width: 10rem">
+                                    <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail"
+                                        style="height: 200px;width:200px">
+                                    <div class="card-body" style="height: 90px;width: 160px;">
+                                        <h5>{{ img.name }}</h5>
+                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p> -->
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+                        <br>
+                    </div>
+                </form>
+            </div>
+
+            {% endfor %}
+        </div>
+
+
 
         <div>Corpo vetor
 
@@ -77,437 +87,6 @@
             Felis imperdiet proin fermentum leo vel orci. Dignissim sodales ut eu sem integer vitae justo eget.
             Faucibus ornare suspendisse sed nisi lacus sed viverra tellus in. Et pharetra pharetra massa massa
             ultricies mi.</div>
-
-        <!-- <div class="item">
-                <h2>teste 06</h2>
-                <div class="miniatura">
-                    <form action="{{ url_for('viewport') }}" method="POST">
-                        {{ nome_arq.csrf_token }}
-                        {{ nome_arq.arq_nome(value="L01PeleGrossaCoximdeGatoL2HE40X") }}
-                        <br>
-                        <button type="submit" class="miniatura-btn">
-                            <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                        </button>
-                    </form>   
-                </div>
-                <h2>teste 06</h2>
-                <p>L01PeleGrossaCoximDeGatoL2HE40X</p>
-                <h3>link</h3>
-            </div> -->
-
-
-        <!-- <div class="item">
-                <h6>teste 07</h6>
-                <div class="miniatura">
-                    <form action="{{ url_for('viewport') }}" method="POST">
-                        {{ nome_arq.csrf_token }}
-                        {{ nome_arq.arq_nome(value="L60PelefinaHE40XB") }}
-                        <br>
-                        <button type="submit"  class="miniatura-btn">
-                            <img src="{{url_for('static', filename='imgsMini/L60PeleFinaHE40XB.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                        </button>
-                    </form>
-                </div>
-                <h6>teste 07</h6>
-                <p>L60PeleFinaHE40XB</p>
-                <h3>link</h3>
-            </div> -->
-        <!-- 
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/Adrenal140x.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/B2GlicogenioFigadoPAS.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaBHE.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L01PeleGrossaCoximDeGatoL2HE40X.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L02BTraqueiaEEsofagoHE.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L02LinguaAzulDeToluidina.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L4OvarioEUteroHE40X.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L04OvarioEUteroL1HE40x.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L05BTransicaoEstomagoEDuodenoDeGatoL140x.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L05TransicaoEstomagoEDuodenoL3001.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L6AParotidaHEL4.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L9GranulomaPeriapicalL3.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L11ArteriaDeGrandeCalibroL2Fucsina.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L11VasoDeGrandeCalibreVerhoff.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L12PulmaoBacoLinfonodoL2ImpregnacaoArgentica.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L14ATraqueiaEEpigloteDeCaoL1FucsinaResorcina.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L14TraqueiaEEpigloteVerhoffL2.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L18AFetoDeRatoTricromicoDeMasson40X.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L23Coracao2HE20x.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L25BCerebroECerebelo.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L28AVertebraL3HE.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L30ATimo240X.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L30Baco240x.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L31AEstomagoBHE40x.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L31EstomagoAHE40x.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L31TransicaoEsofagoEEstomagoAHE40x.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L32AIntestinoPorcao2e340x.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L32AIntestinoPorcao140x.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L32BIntestino40x.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L35BSubmandibularHumanaL1.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L37ARimHE.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L37BUretraEBexigaMassonL140X.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L37BUretraEBexigaTricromicoDeMassomL240x.jpg')}}"
-                            alt="" class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L39TesticuloHEL3.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L40BPancreasEmHE40x.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L52Lingua.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L55EsfregacoSanguineoL2.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L55EsfregacoSanguineoL3.jpg')}}" alt=""
-                            class="img-fluid img-thumbnail">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
-            <div class="item">
-                <div class="miniatura">
-                    <a href="">
-                        <img src="{{url_for('static', filename='imgsMini/L59PalatoDeGatoHeL1.jpg')}}" alt="" width="60%"
-                            height="60%">
-                    </a>
-                </div>
-                <h2>texto</h2>
-                <h3>link</h3>
-            </div>
- -->
 
     </div>
 </div>

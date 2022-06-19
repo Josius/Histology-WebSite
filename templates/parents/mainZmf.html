@@ -93,44 +93,27 @@
 				<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
 					aria-labelledby="offcanvasRightLabel">
 					<div class="offcanvas-header">
-						<h5 id="offcanvasRightLabel">Infomacoes da Lamina</h5>
+						<h5 id="offcanvasRightLabel">Informações Técnicas</h5>
 						<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
 							aria-label="Close"></button>
 					</div>
 					<div class="offcanvas-body">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fringilla a massa sed tincidunt.
-						Vivamus est massa, laoreet scelerisque sodales sit amet, sodales non neque. Mauris pretium
-						convallis iaculis. Curabitur fringilla laoreet consectetur. Nullam placerat erat id leo
-						elementum, quis congue nulla lobortis. Suspendisse potenti. Integer mattis aliquet malesuada.
-						Integer facilisis diam lorem, quis congue ex pharetra eget. Cras vitae ante nec arcu vestibulum
-						egestas. Curabitur velit felis, ornare vel fermentum at, semper quis tellus. Vivamus eleifend
-						vitae odio nec accumsan. Mauris dictum neque vel mollis tempus. In dictum, felis interdum
-						rhoncus blandit, nunc est tincidunt urna, tempor rhoncus lectus ligula ut est.
-
-						Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-						Morbi commodo lacus non condimentum fermentum. In sed tempus tellus. Fusce ornare non ante eget
-						dignissim. Suspendisse pulvinar ex sollicitudin eros bibendum, maximus ultrices nulla vehicula.
-						Integer vel orci nec nunc interdum scelerisque. Fusce vitae iaculis quam. Ut viverra, tortor non
-						pulvinar vestibulum, magna tortor gravida ante, eu ultrices nisl erat at nibh. Quisque nec
-						commodo felis. Donec at libero in mi cursus pretium. Phasellus gravida massa ultricies odio
-						ultrices, gravida fermentum nisl faucibus. Aliquam ac ipsum dignissim, semper arcu eu, ultrices
-						lorem. Aliquam condimentum, massa id elementum gravida, lectus nibh dictum mauris, in pretium
-						lorem enim pretium erat. Nullam sed diam condimentum, tristique ex vel, consequat dui.
-
-						Phasellus varius sodales faucibus. Integer pharetra lacinia augue, commodo ultrices orci
-						dignissim nec. Donec et consequat erat. Sed facilisis mauris dapibus fermentum interdum. Donec
-						efficitur justo tortor, vel ornare magna tincidunt at. Curabitur pretium nisi venenatis ligula
-						bibendum porttitor. Donec auctor lorem id malesuada vestibulum. Morbi rhoncus luctus
-						scelerisque. Curabitur vitae lectus vitae erat rutrum eleifend non in leo. Ut tempus urna
-						mauris, nec auctor dui auctor eu. In elementum iaculis lacus non sodales. In consectetur lacus
-						eu lacus ultricies iaculis. Donec hendrerit nunc a ipsum sodales, vel iaculis metus lacinia.
-						Nullam viverra scelerisque lectus, quis auctor tortor porta a. Nullam urna risus, efficitur at
-						mollis quis, ornare vel enim.
+						<article>
+							<b>Nome da lâmina:	{{ img_id }}</b><br><br>
+							<b>Tecido:</b> <br><br>
+							<b>Coloração:</b><br><br>
+							<b>Tamanho da imagem:</b><br><br>
+							<b>Tamanho em pixel:</b><br><br>
+							<b>Resolução:</b> <br><br>
+							<b> Magnificação:</b><br><br>
+							<b>Fonte:</b><br><br>
+						</article>
 					</div>
 				</div>
 
 				<!-- espaco em branco -->
 				<p>&nbsp;&nbsp;</p>
+
 
 				<!-- menu retratil -->
 				<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
@@ -146,20 +129,20 @@
 					<div class="offcanvas-body">
 						<ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="font-size: larger;">
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="./"><i
+								<a class="nav-link active" aria-current="page" href="/"><i
 										class="bi bi-house-door"></i> Home</a>
 							</li>
 
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="./index/1"><i
+								<a class="nav-link active" aria-current="page" href="/index/Principal"><i
 										class="bi bi-book"></i> Indice</a>
 							</li>
-							<li class="nav-item">
+							<!-- <li class="nav-item">
 								<a class="nav-link active" aria-current="page" href="./contribute"><i
 										class="bi bi-file-earmark-text"></i> Contribua</a>
-							</li>
+							</li> -->
 							<li class="nav-item">
-								<a class="nav-link active" aria-current="page" href="./help"><i
+								<a class="nav-link active" aria-current="page" href="/help"><i
 										class="bi bi-envelope"></i> Ajuda</a>
 							</li>
 
@@ -169,26 +152,25 @@
 									<i class="bi bi-search"></i> Navegar</a>
 								</a>
 								<ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-									<li><a class="dropdown-item" href="./browse">Página Navegar</a></li>
+									<li><a class="dropdown-item" href="/browse">Página Navegar</a></li>
 									<li>
 										<hr class="dropdown-divider">
 									</li>
 									<li>
 										<form method="GET" action="{{url_for('browse')}}" class="d-flex" role="search">
 											<input class="form-control me-2" type="search"
-												placeholder="Busque diretamente" name="searched" >
+												placeholder="Busque diretamente" name="searched">
 											<button class="btn btn-outline-success" type="submit">Search</button>
 										</form>
 									</li>
 								</ul>
 							</li>
 						</ul>
-
-
-						
-
 					</div>
 				</div>
+
+
+
 			</div>
 		</nav>
 	</div>

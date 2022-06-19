@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <title>Histologia - {{page_name}}</title>
     <meta http-equiv="Content-Language" content="pt-br" charset="utf-8">
-    
-    
+
+
     <!-- CSS Botstrap -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- Icones Bootstap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
     <!-- CSS nosso -->
@@ -18,26 +20,101 @@
 
 <body>
 
+
+
+
+
+
     <div class="container-aa">
         <div class="item-a">
             <img src="{{ url_for('static', filename='images/LogoUSP.png')}}" alt="Logo USP">
         </div>
         <div class="item-b">
-            <div class="item-b1"><a {% if page_name == "Home" %} class="active"{% endif %} href='/'>Home</a></div>
-            <div class="item-b2"><a {% if page_name == "Navegar" %} class="active"{% endif %} href='/browse'>Navegar</a></div>
-            <div class="item-b3"><a {% if page_name == 'Indice-%s'%(id) %} class="active"{% endif %} href='/index/Principal'>Índice</a></div>
-            <div class="item-b4"><a {% if page_name in ["Contribua", "Dashboard"] %} class="active"{% endif %}href='/contribute'>Contribua</a></div>
-            <div class="item-b5"><a {% if page_name == "Ajuda" %} class="active"{% endif %}href='/help'>Ajuda</a></div>
+            <div class="item-b1"><a {% if page_name=="Home" %} class="active" {% endif %} href='/'>Home</a></div>
+            <div class="item-b2"><a {% if page_name=="Navegar" %} class="active" {% endif %} href='/browse'>Navegar</a>
+            </div>
+            <div class="item-b3"><a {% if page_name=='Indice-%s' %(id) %} class="active" {% endif %}
+                    href='/index/Principal'>Índice</a></div>
+            <!-- <div class="item-b4"><a {% if page_name in ["Contribua", "Dashboard" ] %} class="active" {% endif
+                    %}href='/contribute'>Contribua</a></div> -->
+            <div class="item-b5"><a {% if page_name=="Ajuda" %} class="active" {% endif %}href='/help'>Ajuda</a></div>
+
         </div>
-        
+
+        <!-- nav bar -->
+        <!-- <nav class="navbar  fixed-top" style="background-color: #64c4d2; border-bottom: solid 4px #fcb421;">
+            <div class="container-fluid">
+
+                menu retratil -->
+                <!--<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-size:x-large"><b>Menu</b></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="font-size: larger;">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./"><i
+                                        class="bi bi-house-door"></i> Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./index/Principal"><i
+                                        class="bi bi-book"></i> Indice</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./contribute"><i
+                                        class="bi bi-file-earmark-text"></i> Contribua</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="./help"><i
+                                        class="bi bi-envelope"></i> Ajuda</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-search"></i> Navegar</a>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                    <li><a class="dropdown-item" href="./browse">Página Navegar</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <form method="GET" action="{{url_for('browse')}}" class="d-flex" role="search">
+                                            <input class="form-control me-2" type="search"
+                                                placeholder="Busque diretamente" name="searched">
+                                            <button class="btn btn-outline-success" type="submit">Search</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </nav>
+ -->
+
         <div class="item-c container-fluid">
             {% block content %} {% endblock %}
         </div>
     </div>
-    <div class="item-d">Guia Histológico {{ current_year }}  |  Versão {{ version }}</div>
-    
+    <div class="item-d">Guia Histológico {{ current_year }} | Versão {{ version }}</div>
+
     <!-- JavaScript Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
 
 
 </body>

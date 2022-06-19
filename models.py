@@ -1,3 +1,4 @@
+from tokenize import Double
 import db
 from sqlalchemy import Column, String, DateTime, SmallInteger, Date, func, Integer, ForeignKey, Boolean, ARRAY
 from sqlalchemy.orm import relationship
@@ -44,5 +45,19 @@ class Img(TableBase):
     name=Column(String, unique=True, nullable=False) #nome da imagem
     imgs_pff=Column(String, unique=True, nullable=False) # caminho da imagem .pff
     imgs_min=Column(String, unique=True, nullable=False) # caminho da imagem .jpg(miniatura)
+
+class Img_Pff(TableBase):
+    __tablename__ = 'imgs_pff'
+
+    id = Column(Integer, primary_key=True)
+    nome_da_lamina = Column(String, unique=True, nullable=False)
+    tecido = Column(String, nullable=False)
+    tamanho_da_imagem = Column(String, nullable=False)
+    tamanho_pixel = Column(String, nullable=False) #tamanho do pixel 
+    resolução = Column(String, nullable=False)
+    magnificação = Column(String, nullable=False) #até quanto vai o zoom
+    fonte = Column(String, nullable=False)
+    caminho = Column(String, unique=True, nullable=False) # caminho da imagem .pff
+
 
 TableBase.metadata.create_all(db.engine)
