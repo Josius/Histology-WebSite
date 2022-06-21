@@ -1,25 +1,43 @@
 {% extends './parents/main.html' %}
 
 {% block content %}
+
 <div class="conteudo">
     <header>
         <br>
         <h1>Pagina Navegar</h1>
         <br>
-        <br>
-
     </header>
 
-    <!-- barra de busca -->
+    <!-- <script>
+        function submitFilter(){
+            document.getElementById("search_bar").submit();
+            document.getElementById("filter").submit();
+        }
 
-    <div class="row height d-flex justify-content-center align-items-center container-busca">
-        <div class="col-md-8">
-            <form method="GET" class="d-flex" role="search">
-                <input class="form-control mr-sm-2" type="search" placeholder="Busque ..." name="searched">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </div>
+    </script> -->
+
+    <!-- barra de busca -->
+    <form method="GET" class="d-flex" role="search" id="search_bar">
+        <input class="form-control me-2" type="search" placeholder="Busque ..." name="searched">
+        Nome<input type="checkbox" class="btn btn-outline-success" name="filtro" value="nome">
+        Fonte<input type="checkbox" class="btn btn-outline-success" name="filtro" value="fonte">
+        Nome da Lamina<input type="checkbox" class="btn btn-outline-success" name="filtro" value="nome_da_lamina">
+        Coloracao<input type="checkbox" class="btn btn-outline-success" name="filtro" value="coloracao">
+        <input type="submit" class="btn btn-outline-success" value="Pesquisar">
+    </form>
+
+    <!-- <form method="POST" class="d-flex" id="filter">
+        Nome<input type="checkbox" class="btn btn-outline-success" name="filtro" value="nome">
+        Fonte<input type="checkbox" class="btn btn-outline-success" name="filtro" value="fonte">
+        Nome da Lamina<input type="checkbox" class="btn btn-outline-success" name="filtro" value="nome_da_lamina">
+        Coloracao<input type="checkbox" class="btn btn-outline-success" name="filtro" value="coloracao">
+        <input type="submit" class="btn btn-outline-success" value="Pesquisar">
+    </form>
+
+    <input type="button" value="Click Me!" onclick="submitFilter()"> -->
+
+
     {% if searched != None %}
     <h3>Você procurou por: {{ searched }}</h3>
     {% endif %}
@@ -28,8 +46,6 @@
     <div id="laminas">
 
         <h1>{{ tipo }}</h1>
-
-        <a href="{{ url_for('index' , id = 'A') }}">kljahalkdsjfhaslkjfhasdlkjh</a>
 
         <div class="row">
             {% for img in imgs %}

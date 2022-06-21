@@ -40,6 +40,13 @@ def home():
                            version=current_version)
 
 
+@backend.route('/chapters', methods=['GET', 'POST'])
+def chapters():
+
+        return render_template('chapters.html', page_name='Capitulos',current_year=current_year,
+                                current_version=current_version)
+
+
 @backend.route('/browse', methods=['GET', 'POST'])
 def browse():
 
@@ -47,7 +54,15 @@ def browse():
 
     searched = request.args.get('searched')
 
+    # if request.method == 'POST':
+    #     filtro = request.form.getlist('filtro')
+    #     print(filtro)
+
     if searched:
+
+        filtro = request.form.getlist('filtro')
+        print("O filtro sera:   ", filtro)
+
         searched = searched.casefold()
 
         imgs = db_session.query(models.Img)
@@ -67,13 +82,17 @@ def browse():
         quant = "Nenhuma Encontrada"
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
-                           version=current_version, nome_arq=arq_nome, imgs=imgs, searched=searched, quant=quant)
+                           version=current_version, nome_arq=arq_nome, imgs=imgs,
+                           searched=searched, quant=quant)
 
 
 @backend.route('/viewport/<int:img_id>', methods=['GET', 'POST'])
 def viewport(img_id):
 
     arq_path = forms.ArqImgForm()
+
+    img = db_session.query(models.Img).filter_by(id=img_id).first()
+
     if request.method == 'POST':
         dados = []
         local_dados_lamina = 'static/dadosLmns/' + arq_path.arq_nome.data
@@ -91,9 +110,11 @@ def viewport(img_id):
         xml = str(dados[1]).strip('[]').replace("'", "")
         nmImg = str(dados[2]).strip('[]').replace("'", "").replace(",", "")
         html = arqHtml
+
     return render_template(
         'view.html',
-        current_year=current_year, current_version=current_version, imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg, img_id=img_id)
+        current_year=current_year, current_version=current_version,
+        imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg, img=img)
 
 
 @ backend.route('/index/<string:id>', methods=['GET', 'POST'])
