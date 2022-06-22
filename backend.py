@@ -54,16 +54,38 @@ def browse():
 
     searched = request.args.get('searched')
     filtro = request.args.get('filtro')
-    print("Os filtros sao: ",filtro)
 
     if searched:
 
         searched = searched.casefold()
 
         imgs = db_session.query(models.Img)
-        for x in imgs:
-            x.name = x.name.casefold()
-        imgs = db_session.query(models.Img).filter(Img.name.contains(searched))
+
+        if filtro == 'name' or filtro=='none':
+            for x in imgs:
+                x.name = x.name.casefold()
+            imgs = db_session.query(models.Img).filter(Img.name.contains(searched))
+
+        if filtro == 'nome_da_lamina':
+            for x in imgs:
+                x.nome_da_lamina = x.nome_da_lamina.casefold()
+            imgs = db_session.query(models.Img).filter(Img.nome_da_lamina.contains(searched))
+
+        if filtro == 'tecido':
+            for x in imgs:
+                x.tecido = x.tecido.casefold()
+            imgs = db_session.query(models.Img).filter(Img.tecido.contains(searched))
+
+        if filtro == 'coloracao':
+            for x in imgs:
+                x.coloracao = x.coloracao.casefold()
+            imgs = db_session.query(models.Img).filter(Img.coloracao.contains(searched))
+
+        if filtro == 'fonte':
+            for x in imgs:
+                x.fonte = x.fonte.casefold()
+            imgs = db_session.query(models.Img).filter(Img.fonte.contains(searched))
+    
     else:
         imgs = db_session.query(models.Img)
 
@@ -75,6 +97,12 @@ def browse():
         quant = 'Encontradas: %s' % (quant)
     else:
         quant = "Nenhuma Encontrada"
+
+    if filtro == 'name': filtro = 'nome'
+    if filtro == 'nome_da_lamina': filtro = 'Nome da Lamina'
+    if filtro == 'tecido': filtro = 'Tecido'
+    if filtro == 'coloracao': filtro = 'Coloracao'
+    if filtro == 'fonte': filtro = 'Fonte'
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, nome_arq=arq_nome, imgs=imgs,

@@ -12,12 +12,9 @@
         <section class="conteudo-index container">
             <div class="row">
 
-
-
                 {% for img in imgs %}
                 {% if id in list and
                 img.name[0].lower() == id.lower() %}
-
 
                 <div class="col-sm">
                     <form action="{{ url_for('viewport', img_id = img.id) }}" method="POST">
@@ -111,5 +108,8 @@
     </section>
 
 </div>
+
+<br>
+<br>
 
 {% endblock %}
