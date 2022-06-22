@@ -2,108 +2,107 @@
 
 {% block content %}
 
-<div class="conteudo">
-    <header>
-        <br>
-        <h1>Pagina Navegar</h1>
-        <br>
-    </header>
+<div class="item-c">
 
-    <!-- <script>
-        function submitFilter(){
-            document.getElementById("search_bar").submit();
-            document.getElementById("filter").submit();
-        }
+    <div class="conteudo">
+        <header>
+            <br>
+            <h1>Pagina Navegar</h1>
+            <br>
+        </header>
 
-    </script> -->
+        <!-- barra de busca -->
+        <form method="GET" class="d-flex" role="search" id="search_bar">
+            <input class="form-control me-2" type="search" placeholder="Busque ..." name="searched">
 
-    <!-- barra de busca -->
-    <form method="GET" class="d-flex" role="search" id="search_bar">
-        <input class="form-control me-2" type="search" placeholder="Busque ..." name="searched">
-        Nome<input type="checkbox" class="btn btn-outline-success" name="filtro" value="nome">
-        Fonte<input type="checkbox" class="btn btn-outline-success" name="filtro" value="fonte">
-        Nome da Lamina<input type="checkbox" class="btn btn-outline-success" name="filtro" value="nome_da_lamina">
-        Coloracao<input type="checkbox" class="btn btn-outline-success" name="filtro" value="coloracao">
-        <input type="submit" class="btn btn-outline-success" value="Pesquisar">
-    </form>
-
-    <!-- <form method="POST" class="d-flex" id="filter">
-        Nome<input type="checkbox" class="btn btn-outline-success" name="filtro" value="nome">
-        Fonte<input type="checkbox" class="btn btn-outline-success" name="filtro" value="fonte">
-        Nome da Lamina<input type="checkbox" class="btn btn-outline-success" name="filtro" value="nome_da_lamina">
-        Coloracao<input type="checkbox" class="btn btn-outline-success" name="filtro" value="coloracao">
-        <input type="submit" class="btn btn-outline-success" value="Pesquisar">
-    </form>
-
-    <input type="button" value="Click Me!" onclick="submitFilter()"> -->
-
-
-    {% if searched != None %}
-    <h3>Você procurou por: {{ searched }}</h3>
-    {% endif %}
-    <h3>{{ quant }}</h3>
-
-    <div id="laminas">
-
-        <h1>{{ tipo }}</h1>
-
-        <div class="row">
-            {% for img in imgs %}
-            <div class="col-sm">
-                <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
-                    <div class="d-flex row justify-content-center">
-
-                        {{ nome_arq.csrf_token }}
-                        {{ nome_arq.arq_nome(value=img.imgs_pff) }}
-                        <br>
-                        <div class="col-sm" style="margin:20px;">
-                            <button type="submit" class="miniatura-btn container-fluid">
-                                <div class="card " style="width: 10rem">
-                                    <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="img-thumbnail"
-                                        style="height: 200px;width:200px">
-                                    <div class="card-body" style="height: 90px;width: 160px;">
-                                        <h5>{{ img.name }}</h5>
-                                        <!-- <p class="card-text">Some quick example text to build on the card title and make up the
-                                bulk of the card's content.</p> -->
-                                    </div>
-                                </div>
-                            </button>
-                        </div>
-                        <br>
-                    </div>
-                </form>
+            <div  style="margin-right:8px" >
+                <select id="filter" class="custom-select mr-sm-2" name="filtro" value="filtrar por"
+                    style="width:200px;">
+                    <option value="none">Filtrar por ...</option>
+                    <option value="name">Nome</option>
+                    <option value="nome_da_lamina">Nome da Lamina</option>
+                    <option value="tecido">Tecido</option>
+                    <option value="coloracao">Coloracao</option>
+                    <option value="fonte">Fonte</option>
+                </select>
             </div>
 
-            {% endfor %}
+
+
+            <input type="submit" class="btn btn-outline-success" value="Pesquisar">
+        </form>
+
+        {% if searched != None %}
+        <h3>Você procurou por: {{ searched }}</h3>
+        {% endif %}
+        <h3>com o filtro: {{ filtro }}</h3>
+        <h3>{{ quant }}</h3>
+
+
+        <div id="laminas">
+
+            <h1>{{ tipo }}</h1>
+
+            <div class="row">
+                {% for img in imgs %}
+                <div class="col-sm">
+                    <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
+                        <div class="d-flex row justify-content-center">
+
+                            {{ nome_arq.csrf_token }}
+                            {{ nome_arq.arq_nome(value=img.imgs_pff) }}
+                            <br>
+                            <div class="col-sm" style="margin:20px;">
+                                <button type="submit" class="miniatura-btn container-fluid">
+                                    <div class="card " style="width: 10rem">
+                                        <img src="{{url_for('static', filename=img.imgs_min)}}" alt=""
+                                            class="img-thumbnail" style="height: 200px;width:200px">
+                                        <div class="card-body" style="height: 90px;width: 160px;">
+                                            <h5>{{ img.name }}</h5>
+                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of the card's content.</p> -->
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <br>
+                        </div>
+                    </form>
+                </div>
+
+                {% endfor %}
+            </div>
+
+
+
+            <div>Corpo vetor
+
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ornare arcu odio ut sem nulla pharetra diam sit amet. Volutpat maecenas volutpat
+                blandit aliquam. Nibh venenatis cras sed felis eget velit aliquet sagittis id. Ac turpis egestas sed
+                tempus urna et pharetra pharetra massa. Tellus mauris a diam maecenas sed enim ut sem. Vitae purus
+                faucibus ornare suspendisse sed nisi lacus sed. Turpis nunc eget lorem dolor sed. Vel fringilla est
+                ullamcorper eget nulla facilisi. Id aliquet risus feugiat in ante. Amet est placerat in egestas.
+                Eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus.
+
+                Amet est placerat in egestas erat imperdiet sed euismod nisi. Lorem sed risus ultricies tristique nulla.
+                Vitae auctor eu augue ut lectus arcu bibendum. Nunc non blandit massa enim nec. Eget nunc lobortis
+                mattis aliquam faucibus purus. Pharetra et ultrices neque ornare aenean euismod elementum. Diam vel quam
+                elementum pulvinar etiam non quam lacus. Ut consequat semper viverra nam. Cursus in hac habitasse platea
+                dictumst quisque sagittis purus sit. Arcu cursus euismod quis viverra.
+
+                Lacus sed turpis tincidunt id aliquet. Neque aliquam vestibulum morbi blandit cursus risus at ultrices.
+                Dui faucibus in ornare quam. Nisi porta lorem mollis aliquam ut porttitor leo a. Purus semper eget duis
+                at. Vel turpis nunc eget lorem dolor sed viverra. Sed risus ultricies tristique nulla aliquet enim. Diam
+                vel quam elementum pulvinar etiam non quam. Dignissim diam quis enim lobortis scelerisque fermentum.
+                Pharetra magna ac placerat vestibulum lectus mauris ultrices. Volutpat blandit aliquam etiam erat velit.
+                Felis imperdiet proin fermentum leo vel orci. Dignissim sodales ut eu sem integer vitae justo eget.
+                Faucibus ornare suspendisse sed nisi lacus sed viverra tellus in. Et pharetra pharetra massa massa
+                ultricies mi.</div>
+
         </div>
 
-
-
-        <div>Corpo vetor
-
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ornare arcu odio ut sem nulla pharetra diam sit amet. Volutpat maecenas volutpat
-            blandit aliquam. Nibh venenatis cras sed felis eget velit aliquet sagittis id. Ac turpis egestas sed
-            tempus urna et pharetra pharetra massa. Tellus mauris a diam maecenas sed enim ut sem. Vitae purus
-            faucibus ornare suspendisse sed nisi lacus sed. Turpis nunc eget lorem dolor sed. Vel fringilla est
-            ullamcorper eget nulla facilisi. Id aliquet risus feugiat in ante. Amet est placerat in egestas.
-            Eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis rhoncus.
-
-            Amet est placerat in egestas erat imperdiet sed euismod nisi. Lorem sed risus ultricies tristique nulla.
-            Vitae auctor eu augue ut lectus arcu bibendum. Nunc non blandit massa enim nec. Eget nunc lobortis
-            mattis aliquam faucibus purus. Pharetra et ultrices neque ornare aenean euismod elementum. Diam vel quam
-            elementum pulvinar etiam non quam lacus. Ut consequat semper viverra nam. Cursus in hac habitasse platea
-            dictumst quisque sagittis purus sit. Arcu cursus euismod quis viverra.
-
-            Lacus sed turpis tincidunt id aliquet. Neque aliquam vestibulum morbi blandit cursus risus at ultrices.
-            Dui faucibus in ornare quam. Nisi porta lorem mollis aliquam ut porttitor leo a. Purus semper eget duis
-            at. Vel turpis nunc eget lorem dolor sed viverra. Sed risus ultricies tristique nulla aliquet enim. Diam
-            vel quam elementum pulvinar etiam non quam. Dignissim diam quis enim lobortis scelerisque fermentum.
-            Pharetra magna ac placerat vestibulum lectus mauris ultrices. Volutpat blandit aliquam etiam erat velit.
-            Felis imperdiet proin fermentum leo vel orci. Dignissim sodales ut eu sem integer vitae justo eget.
-            Faucibus ornare suspendisse sed nisi lacus sed viverra tellus in. Et pharetra pharetra massa massa
-            ultricies mi.</div>
-
     </div>
+
 </div>
 {% endblock %}

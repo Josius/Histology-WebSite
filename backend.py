@@ -53,15 +53,10 @@ def browse():
     arq_nome = forms.ArqImgForm()
 
     searched = request.args.get('searched')
-
-    # if request.method == 'POST':
-    #     filtro = request.form.getlist('filtro')
-    #     print(filtro)
+    filtro = request.args.get('filtro')
+    print("Os filtros sao: ",filtro)
 
     if searched:
-
-        filtro = request.form.getlist('filtro')
-        print("O filtro sera:   ", filtro)
 
         searched = searched.casefold()
 
@@ -83,7 +78,7 @@ def browse():
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, nome_arq=arq_nome, imgs=imgs,
-                           searched=searched, quant=quant)
+                           searched=searched, quant=quant, filtro=filtro)
 
 
 @backend.route('/viewport/<int:img_id>', methods=['GET', 'POST'])

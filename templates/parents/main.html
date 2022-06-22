@@ -22,7 +22,7 @@
 
     <div class="container-aa">
         <div class="item-a">
-            <img src="{{ url_for('static', filename='images/uspLogo.png')}}" alt="Logo USP">
+            <img src="{{ url_for('static', filename='Images/uspLogo.png')}}" alt="Logo USP">
         </div>
         <div class="item-b">
             <div class="item-b1"><a {% if page_name=="Home" %} class="active" {% endif %} href='/'>Home</a></div>
@@ -33,7 +33,10 @@
                     href='/index/Principal'>Índice</a></div>
             <!-- <div class="item-b4"><a {% if page_name in ["Contribua", "Dashboard" ] %} class="active" {% endif
                     %}href='/contribute'>Contribua</a></div> -->
-            <div class="item-b5"><a {% if page_name=="Ajuda" %} class="active" {% endif %}href='/help'>Ajuda</a></div>
+            <div class="item-b5"><a {% if page_name=="Ajuda" %} class="active" {% endif %}href='/help'>Ajuda/Tutorial</a></div>
+            <div class="item-b5"><a {% if page_name=="Ajuda" %} class="active" {% endif %}href='/help'>Ajuda/Tutorial</a></div>
+
+
 
         </div>
 
@@ -101,9 +104,9 @@
         </nav>
  -->
 
-        <div class="item-c">
+        
             {% block content %} {% endblock %}
-        </div>
+        
     </div>
     <div class="item-d">Guia Histológico {{ current_year }} | Versão {{ version }}</div>
 

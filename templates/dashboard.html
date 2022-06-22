@@ -1,22 +1,24 @@
 {% extends './parents/main.html' %}
 
 {% block content %}
-<h2> Olá, {{ user.__dict__['first_name'] }}! </h2>
-<div class="column">
-    <h3>Dados de sua conta:</h3>
-    <div class="dashboard_menu">
-        <div class="column">
-            <form action="{{ url_for('dashboard') }}" method="POST">
-                <input type="submit" name="edit_user_data" value="Editar Informações">
-            </form>
+<div class="item-c">
+
+    <h2> Olá, {{ user.__dict__['first_name'] }}! </h2>
+    <div class="column">
+        <h3>Dados de sua conta:</h3>
+        <div class="dashboard_menu">
+            <div class="column">
+                <form action="{{ url_for('dashboard') }}" method="POST">
+                    <input type="submit" name="edit_user_data" value="Editar Informações">
+                </form>
+            </div>
+            <div class="column">
+                <form action="{{ url_for('dashboard') }}" method="POST">
+                    <input type="submit" name="logoff" value="Logoff">
+                </form><br>
+            </div>
         </div>
-        <div class="column">
-            <form action="{{ url_for('dashboard') }}" method="POST">
-               <input type="submit" name="logoff" value="Logoff">
-            </form><br>
-        </div>
-    </div>
-    {% if not edit_mode %}
+        {% if not edit_mode %}
 
         {% set user_data = display_constructor(values=user.__dict__) %}
         <form action="{{ url_for('dashboard') }}">
@@ -30,7 +32,7 @@
             {{ user_data.bio.label }}
             {{ user_data.bio }}<br>
         </form>
-    {% else %}
+        {% else %}
 
         {% set user_data = display_constructor(values=user.__dict__, readonly=False) %}
         <form action="{{ url_for('dashboard') }}" method="POST">
@@ -45,22 +47,22 @@
             {{ user_data.bio }}<br>
             <input type="submit" value="Atualizar" name="update">
         </form>
-    {% endif %}
-</div>
+        {% endif %}
+    </div>
 
-<div class="column">
-    <h3>Lâminas cadastradas:</h3>
-    {% if slides |length == 0 %}
+    <div class="column">
+        <h3>Lâminas cadastradas:</h3>
+        {% if slides |length == 0 %}
         Nenhuma lâmina cadastrada!
-    {% else %}
+        {% else %}
         {% for slide in slides %}
-            {% set uploaded = slides[slide]['object'].uploaded_at.__str__() %}
-            <ol>Nome: {{ (slides[slide]['meta']['slide_title']) }} | enviada em: {{
-                uploaded[8:10] + '/' + uploaded[5:7] + '/' + uploaded[0:4]
-                }} </ol>
+        {% set uploaded = slides[slide]['object'].uploaded_at.__str__() %}
+        <ol>Nome: {{ (slides[slide]['meta']['slide_title']) }} | enviada em: {{
+            uploaded[8:10] + '/' + uploaded[5:7] + '/' + uploaded[0:4]
+            }} </ol>
         {% endfor %}
-    {% endif %}
-    {% if render_add_form %}
+        {% endif %}
+        {% if render_add_form %}
         <form action="{{ url_for('dashboard') }}" method="POST" enctype="multipart/form-data">
             {{ add_slide_form.csrf_token }}
             {{ add_slide_form.name.label }}
@@ -72,10 +74,11 @@
             {{ add_slide_form.image_file }}
             <input type="submit" value="Enviar" name="add_slide">
         </form>
-    {% else %}
+        {% else %}
         <form action="{{ url_for('dashboard') }}" method="POST">
             <input type="submit" value="Adicionar" name="add_slide">
         </form>
-    {% endif %}
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

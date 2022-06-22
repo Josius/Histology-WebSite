@@ -1,40 +1,58 @@
 {% extends './parents/main.html' %}
 
 {% block content %}
+<div class="item-c">
+
+    <h2>Como funciona o site:</h2>
+    <div class="container-fluid" style="text-align:left">
+        <article>
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+            tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial tutorial
+        </article>
+    </div>
+    <br>
+    <h2>Mande uma mensagem:</h2>
 
 
-<article>
-    tutorial do site tutorial do site tutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do site
-    tutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do site
-    tutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do site
-    tutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do sitetutorial do site
-</article>
-<div class="d-flex row justify-content-center">
-    <div
-        style="margin: 20px;border-radius: 10px; border: 1px solid #D3E1ED; background-color: #D3E1ED;">
+    <div class="container d-flex row" style=" text-align:left">
 
         <form action="{{ url_for('help_me') }}" method="POST">
 
             {{ help_form.csrf_token }}
             <div class="form-group">
-                <!-- {{ help_form.help_text.label }}<br> -->
-                {{ help_form.help_text }}
+                {{ help_form.help_text.label }}<br>
+                <div id="exampleFormControlInput1">{{ help_form.help_text }}</div>
+                <small class="form-text text-muted">Faça aqui a sua pergunta, sugestão, reclamação, etc</small>
             </div>
-            <div class="form-group">
-                <!-- {{ help_form.full_name.label }}<br> -->
+            <div class="form-group" style="padding-top:5px">
+                {{ help_form.full_name.label }}<br>
                 {{ help_form.full_name }}
             </div>
-            <div class="form-group">
-                <!-- {{ help_form.email.label }}<br> -->
+            <div class="form-group" style="padding-top:5px">
+                {{ help_form.email.label }}<br>
                 {{ help_form.email }}
             </div>
-            <input type="submit" value="Enviar">
+            <div style="padding-top:8px">
+                <input type="submit" value="Enviar" class="btn btn-primary">
+            </div>
         </form>
 
     </div>
-
+    <br>
+    <br>
 </div>
-
-<br>
-
 {% endblock %}
