@@ -282,6 +282,12 @@ def help_me():
     return render_template('help.html', page_name=page_name, current_year=current_year,
                            version=current_version, help_form=help_form)
 
+@backend.route('/about')
+def about():
+    page_name = 'Sobre'
+    return render_template('sobre.html', page_name=page_name, current_year=current_year,
+                           version=current_version)
+
 
 if __name__ == '__main__':
     backend.run(debug=True)

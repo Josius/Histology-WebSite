@@ -33,13 +33,15 @@
         //IMAGEM
         src = "{{url_for('static', filename=imageFile)}}",
 
+        
+
         //LABELS E FUNCIONALIDADES
-        src = "zAnnotationPath={{url_for('static', filename=xmlFile)}}&" +
+        src =         
+        "zAnnotationPath={{url_for('static', filename=xmlFile)}}&" +
         "zSkinPath={{url_for('static', filename='Assets/Skins/Default')}}&" +
 
-        "zMarkupMode=1&zAnnotationPath=Assets/Annotations/SaveToFile&zFileHandlerPath=Assets/FileHandlers/files.php&zSaveImageFilename=../../mySavedFile.jpg&zAnnotationsAutoSave=0" +
-
-
+        // "zMarkupMode=0&zAnnotationPath=Assets/Annotations/SaveToFile&zFileHandlerPath=Assets/FileHandlers/files.php&zSaveImageFilename=../../mySavedFile.jpg&zAnnotationsAutoSave=0" +
+        
         //"zLogoVisible=0" + //esta funcionalidade esconde o logo, mas da conflito com outras funcoes, como zToolbarVisible
         //"zMaskVisible=1&" + //funciona somente com a label, no texto funciona so o perimetro nao deixando cinza outras areas
 

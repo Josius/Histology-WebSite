@@ -22,22 +22,23 @@
 
     <div class="container-aa">
         <div class="item-a">
-            <img src="{{ url_for('static', filename='Images/uspLogo.png')}}" alt="Logo USP">
+            <h1><img src="{{ url_for('static', filename='Images/uspLogo.png')}}" alt="Logo USP"> Guia Histológico {{ current_year }}</h1>
+
         </div>
         <div class="item-b">
             <div class="item-b1"><a {% if page_name=="Home" %} class="active" {% endif %} href='/'>Home</a></div>
-            <div class="item-b2"><a {% if page_name=="Capitulos" %} class="active" {% endif %} href='/chapters'>Capitulos</a></div>
+            <div class="item-b2"><a {% if page_name=="Capitulos" %} class="active" {% endif %}
+                    href='/chapters'>Capitulos</a></div>
             <div class="item-b3"><a {% if page_name=="Navegar" %} class="active" {% endif %} href='/browse'>Navegar</a>
             </div>
             <div class="item-b4"><a {% if page_name=='Indice-%s' %(id) %} class="active" {% endif %}
                     href='/index/Principal'>Índice</a></div>
             <!-- <div class="item-b4"><a {% if page_name in ["Contribua", "Dashboard" ] %} class="active" {% endif
                     %}href='/contribute'>Contribua</a></div> -->
-            <div class="item-b5"><a {% if page_name=="Ajuda" %} class="active" {% endif %}href='/help'>Ajuda/Tutorial</a></div>
-            <div class="item-b5"><a {% if page_name=="Ajuda" %} class="active" {% endif %}href='/help'>Ajuda/Tutorial</a></div>
+            <div class="item-b5"><a {% if page_name=="Ajuda" %} class="active" {% endif%}href='/help'>Ajuda/Tutorial</a>
+            </div>
 
-
-
+            <div class="item-b6"><a {% if page_name=="Sobre" %} class="active" {% endif %} href='/about'>Sobre</a></div>
         </div>
 
         <!-- nav bar -->
@@ -45,7 +46,7 @@
             <div class="container-fluid">
 
                 menu retratil -->
-                <!--<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+        <!--<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -104,9 +105,9 @@
         </nav>
  -->
 
-        
-            {% block content %} {% endblock %}
-        
+
+        {% block content %} {% endblock %}
+
     </div>
     <div class="item-d">Guia Histológico {{ current_year }} | Versão {{ version }}</div>
 
