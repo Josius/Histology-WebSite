@@ -27,7 +27,7 @@
                 </select>
             </div>
 
-            <input type="submit" class="btn btn-outline-success" value="Pesquisar" >
+            <input type="submit" class="btn btn-outline-success" value="Pesquisar">
         </form>
 
         {% if searched != None %}
@@ -36,47 +36,50 @@
         {% if filtro != 'none' and filtro != none %}
         <h3>com o filtro: {{ filtro }}</h3>
         {% endif %}
-        <h3>{{ quant }}</h3>
+        <!-- <h3>{{ quant }}</h3> -->
+        <br>
 
 
-        <div id="laminas">
+        <div id="container">
 
             <h1>{{ tipo }}</h1>
 
+            <h1 class="fw-light text-center text-lg-start mt-4 mb-0">{{ quant }}</h1>
+            <hr class="mt-2 mb-5">
+
+
             <div class="row">
                 {% for img in imgs %}
-                <div class="col-sm">
+                <div class="row text-center text-lg-start">
                     <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
-                        <div class="d-flex row justify-content-center">
 
-                            {{ nome_arq.csrf_token }}
-                            {{ nome_arq.arq_nome(value=img.imgs_pff) }}
-                            <br>
-                            <div class="col-sm" style="margin:20px;">
-                                <button type="submit" class="miniatura-btn container-fluid">
-                                    <div class="card " style="width: 10rem">
-                                        <img src="{{url_for('static', filename=img.imgs_min)}}" alt=""
-                                            class="img-thumbnail" style="height: 200px;width:200px">
-                                        <div class="card-body" style="height: 90px;width: 160px;">
-                                            <h5>{{ img.name }}</h5>
-                                            <!-- <p class="card-text">Some quick example text to build on the card title and
-                                                make up the
-                                                bulk of the card's content.</p> -->
-                                        </div>
-                                    </div>
-                                </button>
+                        {{ nome_arq.csrf_token }}
+                        {{ nome_arq.arq_nome(value=img.imgs_pff) }}
+
+                        <button type="submit" class="miniatura-btn container-fluid">
+                            <div class="col-lg-3 col-md-4 col-6 card " style="text-align:left">
+                                <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{img.name}}</h5>
+                                    <!-- <p class="card-text">{{img.tecido}}</p> -->
+                                    <p class="card-text"><small class="text-muted">{{img.nome_da_lamina}}<br>{{img.tecido}}</small></p>
+                                  </div>
                             </div>
-                            <br>
-                        </div>
+                        </button>
+                        <br>
                     </form>
                 </div>
-
                 {% endfor %}
             </div>
+
+
+
 
         </div>
 
     </div>
 
 </div>
+
+
 {% endblock %}

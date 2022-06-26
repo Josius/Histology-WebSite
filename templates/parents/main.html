@@ -22,7 +22,8 @@
 
     <div class="container-aa">
         <div class="item-a">
-            <h1><img src="{{ url_for('static', filename='Images/uspLogo.png')}}" alt="Logo USP"> Guia Histológico {{ current_year }}</h1>
+            <h1><img src="{{ url_for('static', filename='Images/uspLogo.png')}}" alt="Logo USP"> Guia Histológico {{
+                current_year }}</h1>
 
         </div>
         <div class="item-b">
@@ -108,7 +109,12 @@
 
         {% block content %} {% endblock %}
 
+
     </div>
+    <br>
+    <br>
+    <br>
+
     <div class="item-d">Guia Histológico {{ current_year }} | Versão {{ version }}</div>
 
     <!-- JavaScript Bootstrap -->
