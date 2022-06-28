@@ -46,6 +46,12 @@ class Img(TableBase):
     imgs_pff=Column(String, unique=True, nullable=False) # caminho da imagem .pff
     imgs_min=Column(String, unique=True, nullable=False) # caminho da imagem .jpg(miniatura)
 
+class Info(TableBase):
+    __tablename__='info'
+
+    id = Column(Integer, primary_key=True)
+    imgs_id = Column(Integer, ForeignKey('imgs.id'))
+
     nome_da_lamina = Column(String, unique=True, nullable=False)
     tecido = Column(String, nullable=False)
     coloracao = Column(String, nullable=False)
@@ -54,5 +60,6 @@ class Img(TableBase):
     resolução = Column(String, nullable=False)
     magnificação = Column(String, nullable=False) #até quanto vai o zoom
     fonte = Column(String, nullable=False)
+
 
 TableBase.metadata.create_all(db.engine)

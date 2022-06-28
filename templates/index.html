@@ -7,106 +7,100 @@
     <div class="title-index"> {{ page_name }} </div>
     <br>
 
-    <section class="flex-container">
+    <ul class="nav ">
+        <a {% if id=='Principal' %} class="active-index nav-link" {% endif %} class="nav-link"
+            href="/index/Principal">Principal</a>
+        <a {% if id=='A' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/A">A</a>
+        <a {% if id=='B' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/B">B</a>
+        <a {% if id=='C' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/C">C</a>
+        <a {% if id=='D' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/D">D</a>
+        <a {% if id=='E' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/E">E</a>
+        <a {% if id=='F' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/F">F</a>
+        <a {% if id=='G' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/G">G</a>
+        <a {% if id=='H' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/H">H</a>
+        <a {% if id=='I' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/I">I</a>
+        <a {% if id=='J' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/J">J</a>
+        <a {% if id=='K' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/K">K</a>
+        <a {% if id=='L' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/L">L</a>
+        <a {% if id=='M' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/M">M</a>
+        <a {% if id=='N' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/N">N</a>
+        <a {% if id=='O' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/O">O</a>
+        <a {% if id=='P' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/P">P</a>
+        <a {% if id=='Q' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/Q">Q</a>
+        <a {% if id=='R' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/R">R</a>
+        <a {% if id=='S' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/S">S</a>
+        <a {% if id=='T' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/T">T</a>
+        <a {% if id=='U' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/U">U</a>
+        <a {% if id=='V' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/V">V</a>
+        <a {% if id=='W' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/W">W</a>
+        <a {% if id=='X' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/X">X</a>
+        <a {% if id=='Y' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/Y">Y</a>
+        <a {% if id=='Z' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/Z">Z</a>
+    </ul>
 
-        <section class="conteudo-index container">
-            <div class="row">
+    <div id="container">
 
-                {% for img in imgs %}
-                {% if id in list and
-                img.name[0].lower() == id.lower() %}
+        <h1>{{ tipo }}</h1>
 
-                <div class="col-sm">
-                    <form action="{{ url_for('viewport', img_id = img.id) }}" method="POST">
-                        <div class="d-flex row justify-content-center">
+        <h1 class="fw-light text-center text-lg-start mt-4 mb-0">{{ quant }}</h1>
+        <!-- <hr class="mt-2 mb-5"> -->
 
-                            {{ nome_arq.csrf_token }}
-                            {{ nome_arq.arq_nome(value=img.imgs_pff) }}
-                            <br>
-                            <div class="col-sm" style="margin:20px;">
-                                <button type="submit" class="miniatura-btn container-fluid">
-                                    <div class="card " style="width: 10rem">
-                                        <img src="{{url_for('static', filename=img.imgs_min)}}" alt=""
-                                            class="img-thumbnail" style="height: 200px;width:200px">
-                                        <div class="card-body" style="height: 90px;width: 160px;">
-                                            <h5>{{ img.name }}</h5>
-                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p> -->
-                                        </div>
-                                    </div>
-                                </button>
+
+
+
+        <div class="row">
+            {% for img in imgs %}
+            {% if id in list and
+            img.name[0].lower() == id.lower() %}
+            <div class=" text-center text-lg-start">
+                <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
+
+                    {{ nome_arq.csrf_token }}
+                    {{ nome_arq.arq_nome(value=img.imgs_pff) }}
+
+                    <button type="submit" class="miniatura-btn container-fluid">
+                        <div class="col-lg-3 col-md-4 col-6 card " style="text-align:left">
+                            <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{img.name}}</h5>
+                                <!-- <p class="card-text">{{img.tecido}}</p> -->
+                                <p class="card-text"><small
+                                        class="text-muted">{{img.nome_da_lamina}}<br>{{img.tecido}}</small></p>
                             </div>
-                            <br>
                         </div>
-                    </form>
-                </div>
-
-                {% endif %}
-                {% if id not in list %}
-
-                <div class="col-sm">
-                    <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
-                        <div class="d-flex row justify-content-center">
-
-                            {{ nome_arq.csrf_token }}
-                            {{ nome_arq.arq_nome(value=img.imgs_pff) }}
-                            <br>
-                            <div class="col-sm" style="margin:20px;">
-                                <button type="submit" class="miniatura-btn container-fluid">
-                                    <div class="card " style="width: 10rem">
-                                        <img src="{{url_for('static', filename=img.imgs_min)}}" alt=""
-                                            class="img-thumbnail" style="height: 200px;width:200px">
-                                        <div class="card-body" style="height: 90px;width: 160px;">
-                                            <h5>{{ img.name }}</h5>
-                                            <!-- <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p> -->
-                                        </div>
-                                    </div>
-                                </button>
-                            </div>
-                            <br>
-                        </div>
-                    </form>
-                </div>
-
-                {% endif %}
-                {% endfor %}
+                    </button>
+                    <br>
+                </form>
             </div>
-        </section>
+            {% endif %}
 
-        <nav class="nav flex-column indice">
-            <!-- <a {% if id=='Principal' %} class="active-index nav-link" {% endif %} class="nav-link"
-            href="/index/Principal">INDICE</a> -->
-            <a {% if id=='A' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/A">A</a>
-            <a {% if id=='B' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/B">B</a>
-            <a {% if id=='C' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/C">C</a>
-            <a {% if id=='D' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/D">D</a>
-            <a {% if id=='E' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/E">E</a>
-            <a {% if id=='F' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/F">F</a>
-            <a {% if id=='G' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/G">G</a>
-            <a {% if id=='H' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/H">H</a>
-            <a {% if id=='I' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/I">I</a>
-            <a {% if id=='J' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/J">J</a>
-            <a {% if id=='K' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/K">K</a>
-            <a {% if id=='L' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/L">L</a>
-            <a {% if id=='M' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/M">M</a>
-            <a {% if id=='N' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/N">N</a>
-            <a {% if id=='O' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/O">O</a>
-            <a {% if id=='P' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/P">P</a>
-            <a {% if id=='Q' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/Q">Q</a>
-            <a {% if id=='R' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/R">R</a>
-            <a {% if id=='S' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/S">S</a>
-            <a {% if id=='T' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/T">T</a>
-            <a {% if id=='U' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/U">U</a>
-            <a {% if id=='V' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/V">V</a>
-            <a {% if id=='W' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/W">W</a>
-            <a {% if id=='X' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/X">X</a>
-            <a {% if id=='Y' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/Y">Y</a>
-            <a {% if id=='Z' %} class="active-index nav-link" {% endif %} class="nav-link" href="/index/Z">Z</a>
-        </nav>
+            {% if id not in list %}
 
-    </section>
+            <div class=" text-center text-lg-start">
+                <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
 
+                    {{ nome_arq.csrf_token }}
+                    {{ nome_arq.arq_nome(value=img.imgs_pff) }}
+
+                    <button type="submit" class="miniatura-btn container-fluid">
+                        <div class="col-lg-3 col-md-4 col-6 card " style="text-align:left">
+                            <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{img.name}}</h5>
+                                <!-- <p class="card-text">{{img.tecido}}</p> -->
+                                <p class="card-text"><small
+                                        class="text-muted">{{img.nome_da_lamina}}<br>{{img.tecido}}</small></p>
+                            </div>
+                        </div>
+                    </button>
+                    <br>
+                </form>
+            </div>
+        </div>
+
+        {% endif %}
+        {% endfor %}
+    </div>
 </div>
 
 <br>
