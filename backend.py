@@ -40,9 +40,14 @@ def home():
                            version=current_version)
 
 
-@backend.route('/chapters', methods=['GET', 'POST'])
-def chapters():
+@backend.route('/chapters/<string:cap>', methods=['GET', 'POST'])
+def chapters(cap):
 
+        list = ['1','2','3','4','5','6','7','8','9','10','11','12','13']
+        if cap in list:
+            return render_template('chapters/capítulo-%s.html'%(cap), page_name='Capitulos',current_year=current_year,
+                                current_version=current_version)
+        
         return render_template('chapters.html', page_name='Capitulos',current_year=current_year,
                                 current_version=current_version)
 
@@ -61,7 +66,7 @@ def browse():
         searched = searched.lower()
 
         imgs = db_session.query(models.Img)
-        info = db_session.query(models.Info)
+        
 
         if filtro == 'name' or filtro == 'none':
             tableName = 'Img'
@@ -108,9 +113,11 @@ def browse():
     if filtro == 'coloracao': filtro = 'Coloração'
     if filtro == 'fonte': filtro = 'Fonte'
 
+    info = db_session.query(models.Info)
+
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, nome_arq=arq_nome, imgs=imgs,
-                           searched=searched, quant=quant, filtro=filtro,tableName = tableName)
+                           searched=searched, quant=quant, filtro=filtro, info = info)
 
 
 @backend.route('/viewport/<int:img_id>', methods=['GET', 'POST'])
