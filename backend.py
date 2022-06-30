@@ -98,6 +98,12 @@ def browse():
         print(list)
         imgs = db_session.query(models.Img).filter(Img.id.in_(list))
 
+    list = []
+    for i in imgs:
+        list.append([i.id])
+        
+    info = db_session.query(models.Img).filter(Info.imgs_id.in_(list))
+
     quant = 0
     for x in imgs:
         quant += 1
@@ -163,128 +169,128 @@ def index(id):
     return render_template('index.html', page_name='Indice-%s' % (id), current_year=current_year,
                            version=current_version, nome_arq=arq_nome, imgs=imgs, id=id, list=list)
 
-# @ backend.route('/contribute', methods = ['GET', 'POST'])
-# def contribute():
-#     page_name='Contribua'
-#     try:
-#         if session['user_email']:
-#             return redirect(url_for('dashboard'))
+@ backend.route('/contribute', methods = ['GET', 'POST'])
+def contribute():
+    page_name='Contribua'
+    try:
+        if session['user_email']:
+            return redirect(url_for('dashboard'))
 
-#     except KeyError:
-#         pass
+    except KeyError:
+        pass
 
-#     login_form=forms.LoginForm()
-#     sign_up_form=forms.SignUpForm()
+    login_form=forms.LoginForm()
+    sign_up_form=forms.SignUpForm()
 
-#     return render_template('contribute.html', page_name = page_name, current_year = current_year,
-#                            version = current_version, login_form = login_form, sign_up_form = sign_up_form)
-
-
-# @ backend.route('/signup', methods = ['GET', 'POST'])
-# def signup():
-#     sign_up_form=forms.SignUpForm()
-
-#     if sign_up_form.validate():
-#         if None in (sign_up_form.email.data, sign_up_form.name.data, sign_up_form.password.data,
-#                     sign_up_form.surname.data, sign_up_form.password2):
-#             return 'Por favor preencha todos os campos do formulário de cadastro'
-#         else:
-#             if sign_up_form.password.data != sign_up_form.password2.data:
-#                 return 'as senhas não são iguais'
-#             elif len(sign_up_form.password.data) < 6:
-#                 return 'a senha precisa de pelo menos 6 caracteres'
-#             session['user_email'] = sign_up_form.email.data
-#             new_user = models.User(email=sign_up_form.email.data,
-#                                    first_name=sign_up_form.name.data,
-#                                    surname=sign_up_form.surname.data,
-#                                    password=sign_up_form.password.data)
-#             db_session.add(new_user)
-#             db_session.commit()
-#             return redirect(url_for('dashboard'))
-#     else:
-#         return 'Por favor preencha todos os campos do formulário de cadastro'
+    return render_template('contribute.html', page_name = page_name, current_year = current_year,
+                           version = current_version, login_form = login_form, sign_up_form = sign_up_form)
 
 
-# @backend.route('/login', methods=['GET', 'POST'])
-# def login():
-#     login_form = forms.LoginForm()
+@ backend.route('/signup', methods = ['GET', 'POST'])
+def signup():
+    sign_up_form=forms.SignUpForm()
 
-#     if None in (login_form.email.data, login_form.password.data):
-#         if login_form.email.data is None:
-#             return 'Preencha o email'
-#         if login_form.password.data is None:
-#             return 'Preencha a senha'
-#     else:
-#         try:
-#             user = db_session.query(models.User).get(login_form.email.data)
-#             if user.password == login_form.password.data:
-#                 session['user_email'] = user.email
-#                 return redirect(url_for('dashboard'))
-#         except AttributeError:
-#             return 'Email não cadastrado'
-#     return 'Senha incorreta'
+    if sign_up_form.validate():
+        if None in (sign_up_form.email.data, sign_up_form.name.data, sign_up_form.password.data,
+                    sign_up_form.surname.data, sign_up_form.password2):
+            return 'Por favor preencha todos os campos do formulário de cadastro'
+        else:
+            if sign_up_form.password.data != sign_up_form.password2.data:
+                return 'as senhas não são iguais'
+            elif len(sign_up_form.password.data) < 6:
+                return 'a senha precisa de pelo menos 6 caracteres'
+            session['user_email'] = sign_up_form.email.data
+            new_user = models.User(email=sign_up_form.email.data,
+                                   first_name=sign_up_form.name.data,
+                                   surname=sign_up_form.surname.data,
+                                   password=sign_up_form.password.data)
+            db_session.add(new_user)
+            db_session.commit()
+            return redirect(url_for('dashboard'))
+    else:
+        return 'Por favor preencha todos os campos do formulário de cadastro'
 
 
-# @backend.route('/dashboard', methods=['GET', 'POST'], defaults={'edit_mode': False})
-# def dashboard(edit_mode):
-#     page_name = 'Dashboard'
-#     if request.form.get('logoff') == 'Logoff':
-#         session['user_email'] = None
-#     try:
-#         if session['user_email'] is None:
-#             return redirect(url_for('contribute'))
-#         else:
-#             user = db_session.query(models.User).get(session['user_email'])
-#             add_slide_form = forms.AddSlideForm()
-#             if request.form.get('edit_user_data') == 'Editar Informações':
-#                 edit_mode = True
-#             if request.form.get('update') == 'Atualizar':
-#                 user.first_name = request.form.get('first_name')
-#                 user.surname = request.form.get('surname')
-#                 user.birth_date = request.form.get('birth_date')
-#                 user.bio = request.form.get('bio')
-#                 db_session.commit()
-#                 user = db_session.query(models.User).get(session['user_email'])
-#             if request.form.get('add_slide') == 'Adicionar':
-#                 render_add_form = True
-#             else:
-#                 render_add_form = False
-#             if request.form.get('add_slide') == 'Enviar':
-#                 if add_slide_form.validate_on_submit():
-#                     add_slide_form = forms.AddSlideForm()
-#                     render_add_form = False
-#                     new_slide = models.Slide(user_id=user.email, species=add_slide_form.species.data,
-#                                              scan_date=add_slide_form.scan_date.data)
-#                     db_session.add(new_slide)
-#                     db_session.commit()
-#                     if not os.path.exists(f'./slides/{new_slide.id}'):
-#                         os.mkdir(f'./slides/{new_slide.id}')
-#                     file = add_slide_form.image_file.data
-#                     print(file.__dict__)
-#                     file.save(os.path.join(
-#                         f'./slides/{new_slide.id}', secure_filename('a')))
-#                     json_file = {'lang': 'pt-br',
-#                                  'slide_title': add_slide_form.name.data}
-#                     with open(f'./slides/{new_slide.id}/meta.json', 'w') as outfile:
-#                         json.dump(json_file, outfile)
-#                 else:
-#                     return add_slide_form.errors
+@backend.route('/login', methods=['GET', 'POST'])
+def login():
+    login_form = forms.LoginForm()
 
-#             slides = db_session.query(models.Slide).\
-#                 filter(models.Slide.user_id == session['user_email']).order_by(
-#                     models.Slide.uploaded_at).all()
-#             slides_dict = {}
-#             for slide in slides:
-#                 with open(f'./slides/{slide.id}/meta.json') as meta:
-#                     slides_dict[slide.id] = {
-#                         'object': slide, 'meta': json.load(meta)}
+    if None in (login_form.email.data, login_form.password.data):
+        if login_form.email.data is None:
+            return 'Preencha o email'
+        if login_form.password.data is None:
+            return 'Preencha a senha'
+    else:
+        try:
+            user = db_session.query(models.User).get(login_form.email.data)
+            if user.password == login_form.password.data:
+                session['user_email'] = user.email
+                return redirect(url_for('dashboard'))
+        except AttributeError:
+            return 'Email não cadastrado'
+    return 'Senha incorreta'
 
-#             return render_template('dashboard.html', page_name=page_name, current_year=current_year,
-#                                    version=current_version, user=user, display_constructor=forms.UserData,
-#                                    edit_mode=edit_mode, add_slide_form=add_slide_form, slides=slides_dict,
-#                                    request=request, render_add_form=render_add_form, json=json)
-#     except KeyError:
-#         return redirect(url_for('contribute'))
+
+@backend.route('/dashboard', methods=['GET', 'POST'], defaults={'edit_mode': False})
+def dashboard(edit_mode):
+    page_name = 'Dashboard'
+    if request.form.get('logoff') == 'Logoff':
+        session['user_email'] = None
+    try:
+        if session['user_email'] is None:
+            return redirect(url_for('contribute'))
+        else:
+            user = db_session.query(models.User).get(session['user_email'])
+            add_slide_form = forms.AddSlideForm()
+            if request.form.get('edit_user_data') == 'Editar Informações':
+                edit_mode = True
+            if request.form.get('update') == 'Atualizar':
+                user.first_name = request.form.get('first_name')
+                user.surname = request.form.get('surname')
+                user.birth_date = request.form.get('birth_date')
+                user.bio = request.form.get('bio')
+                db_session.commit()
+                user = db_session.query(models.User).get(session['user_email'])
+            if request.form.get('add_slide') == 'Adicionar':
+                render_add_form = True
+            else:
+                render_add_form = False
+            if request.form.get('add_slide') == 'Enviar':
+                if add_slide_form.validate_on_submit():
+                    add_slide_form = forms.AddSlideForm()
+                    render_add_form = False
+                    new_slide = models.Slide(user_id=user.email, species=add_slide_form.species.data,
+                                             scan_date=add_slide_form.scan_date.data)
+                    db_session.add(new_slide)
+                    db_session.commit()
+                    if not os.path.exists(f'./slides/{new_slide.id}'):
+                        os.mkdir(f'./slides/{new_slide.id}')
+                    file = add_slide_form.image_file.data
+                    print(file.__dict__)
+                    file.save(os.path.join(
+                        f'./slides/{new_slide.id}', secure_filename('a')))
+                    json_file = {'lang': 'pt-br',
+                                 'slide_title': add_slide_form.name.data}
+                    with open(f'./slides/{new_slide.id}/meta.json', 'w') as outfile:
+                        json.dump(json_file, outfile)
+                else:
+                    return add_slide_form.errors
+
+            slides = db_session.query(models.Slide).\
+                filter(models.Slide.user_id == session['user_email']).order_by(
+                    models.Slide.uploaded_at).all()
+            slides_dict = {}
+            for slide in slides:
+                with open(f'./slides/{slide.id}/meta.json') as meta:
+                    slides_dict[slide.id] = {
+                        'object': slide, 'meta': json.load(meta)}
+
+            return render_template('dashboard.html', page_name=page_name, current_year=current_year,
+                                   version=current_version, user=user, display_constructor=forms.UserData,
+                                   edit_mode=edit_mode, add_slide_form=add_slide_form, slides=slides_dict,
+                                   request=request, render_add_form=render_add_form, json=json)
+    except KeyError:
+        return redirect(url_for('contribute'))
 
 
 @backend.route('/help')
