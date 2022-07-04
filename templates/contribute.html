@@ -17,7 +17,10 @@
 </head>
 
 
-<body>
+<body style="background-color: #d3e1ed">
+    <br>
+    <br>
+    <br>
 
     <div class="container">
 
@@ -92,77 +95,72 @@
 
     </div>
 
-    <div class="d-flex row justify-content-center" style="padding-top:60px">
+    <div class="d-flex row justify-content-center" 
+    style="padding-top:60px; background-color: #ededed; margin:3rem;border-radius: 30px;">
 
-        <div
-            style="margin: 20px;border-radius: 10px; border: 1px solid #D3E1ED; background-color: #D3E1ED; max-width: 400px;">
 
-            <h3>Login</h3>
+        <div style="margin: 20px; max-width: 400px;">
+
             <form action="{{ url_for('login') }}" method="POST">
+
+                <h3>Login</h3>
                 {{ login_form.csrf_token }}
-                <div class="form-group">
-                    <!-- {{ login_form.email.label }}<br> -->
+                <div class="form-group" style="padding-top:5px">
+                    {{ login_form.email.label }}<br>
                     {{ login_form.email }}
                 </div>
-                <div class="form-group"><br>
-                    <!-- {{ login_form.password.label }}<br> -->
+                <div class="form-group" style="padding-top:5px">
+                    {{ login_form.password.label }}<br>
                     {{ login_form.password }}
                 </div>
-                <input type="submit" value="Acessar">
+                <div style="padding-top:8px">
+                    <input type="submit" value="Enviar" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+
+        <div style="margin: 20px; max-width: 400px;">
+            <h3>Cadastre-se</h3>
+            <form action="{{ url_for('signup') }}" method="POST">
+                {{ sign_up_form.csrf_token }}
+                <div class="form-group" style="padding-top:5px">
+                    {{ sign_up_form.name.label }}<br>
+                    {{ sign_up_form.name }}
+                </div>
+                <div class="form-group" style="padding-top:5px">
+                    {{ sign_up_form.surname.label }}<br>
+                    {{ sign_up_form.surname }}
+                </div>
+                <div class="form-group" style="padding-top:5px">
+                    {{ sign_up_form.email.label }}<br>
+                    {{ sign_up_form.email }}
+                </div>
+                <div class="form-group" style="padding-top:5px">
+                    {{ sign_up_form.password.label }}<br>
+                    {{ sign_up_form.password }}
+                </div>
+                <div class="form-group" style="padding-top:5px"> 
+                    {{ sign_up_form.password2.label }}<br>
+                    {{ sign_up_form.password2 }}<br>
+                    <small class="form-text text-muted">
+                        ATENÇÃO: a plataforma está em estágios iniciais de desenvolvimento, 
+                        recomenda-se utilizar senhas diferentes das de costume</small>
+                </div>
+
+                <div style="padding-top:8px">
+                    <input type="submit" value="Enviar" class="btn btn-primary">
+                </div>
             </form>
             <br>
+            <br>
+            <br>
 
-            <!-- <div id="forgotten">Esqueci minha senha</div> -->
 
         </div>
-
-
-        <div
-            style="margin: 20px;border-radius: 10px; border: 1px solid #D3E1ED; background-color: #D3E1ED; max-width: 400px;">
-            <div>
-                <h3>Cadastre-se</h3>
-                <form action="{{ url_for('signup') }}" method="POST">
-                    {{ sign_up_form.csrf_token }}
-                    <div class="form-group">
-                        <!-- <label>jkasfhalksjhf</label><br> -->
-                        <!-- {{ sign_up_form.name.label }}<br> -->
-                        {{ sign_up_form.name }}
-                    </div>
-                    <div class="form-group"><br>
-                        <!-- {{ sign_up_form.surname.label }}<br> -->
-                        {{ sign_up_form.surname }}
-                    </div>
-                    <div class="form-group"><br>
-                        <!-- {{ sign_up_form.email.label }}<br> -->
-                        {{ sign_up_form.email }}
-                    </div>
-                    <div class="form-group"><br>
-                        <!-- {{ sign_up_form.password.label }}<br> -->
-                        {{ sign_up_form.password }}
-                    </div>
-                    <div class="form-group"><br>
-                        <!-- {{ sign_up_form.password2.label }}<br> -->
-                        {{ sign_up_form.password2 }}
-                    </div>
-
-                    <input type="submit" value="Cadastrar">
-                </form>
-                <br>
-            </div>
-        </div>
-    </div>
-    <p>ATENÇÃO: a plataforma está em estágios iniciais de desenvolvimento, recomenda-se utilizar senhas diferentes
-        das
-        de
-        costume</p>
-
-
-
-
-    <!-- JavaScript Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
+        <!-- JavaScript Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
 
 </body>
 

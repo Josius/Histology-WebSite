@@ -1,84 +1,186 @@
-{% extends './parents/main.html' %}
 
-{% block content %}
-<div class="item-c">
 
-    <h2> Olá, {{ user.__dict__['first_name'] }}! </h2>
-    <div class="column">
-        <h3>Dados de sua conta:</h3>
-        <div class="dashboard_menu">
-            <div class="column">
-                <form action="{{ url_for('dashboard') }}" method="POST">
-                    <input type="submit" name="edit_user_data" value="Editar Informações">
-                </form>
+
+<!DOCTYPE html>
+<html xml:lang="EN" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <!-- CSS Botstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- Icones Bootstap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+    <!-- CSS nosso -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css')}}">
+
+    <script src="{{url_for('static', filename='ZoomifyImageViewerEnterprise-min.js')}}"></script>
+
+</head>
+
+
+<body>
+    <div class="container">
+
+        <!--nav bar-->
+        <nav class="navbar  fixed-top" style="background-color: #64c4d2; border-bottom: solid 4px #fcb421;">
+            <div class="container-fluid">
+
+
+                <!-- espaco em branco -->
+                <p>&nbsp;&nbsp;</p>
+
+
+                <!-- menu retratil -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-size:x-large"><b>Menu</b></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="font-size: larger;">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/"><i class="bi bi-house-door"></i>
+                                    Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/index/Principal"><i
+                                        class="bi bi-book"></i> Indice</a>
+                            </li>
+                            <!-- <li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="./contribute"><i
+										class="bi bi-file-earmark-text"></i> Contribua</a>
+							</li> -->
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/help"><i
+                                        class="bi bi-envelope"></i> Ajuda</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-search"></i> Navegar</a>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                    <li><a class="dropdown-item" href="/browse">Página Navegar</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <form method="GET" action="{{url_for('browse')}}" class="d-flex" role="search">
+                                            <input class="form-control me-2" type="search"
+                                                placeholder="Busque diretamente" name="searched">
+                                            <button class="btn btn-outline-success" type="submit">Search</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+
+
             </div>
-            <div class="column">
-                <form action="{{ url_for('dashboard') }}" method="POST">
-                    <input type="submit" name="logoff" value="Logoff">
-                </form><br>
+        </nav>
+
+
+    </div>
+    <div class="d-flex row justify-content-center" style="padding-top:60px">
+        <h2> Olá, {{ user.__dict__['first_name'] }}! </h2>
+        <div class="column">
+            <h3>Dados de sua conta:</h3>
+            <div class="dashboard_menu">
+                <div class="column">
+                    <form action="{{ url_for('dashboard') }}" method="POST">
+                        <input type="submit" name="edit_user_data" value="Editar Informações">
+                    </form>
+                </div>
+                <div class="column">
+                    <form action="{{ url_for('dashboard') }}" method="POST">
+                        <input type="submit" name="logoff" value="Logoff">
+                    </form><br>
+                </div>
             </div>
+            {% if not edit_mode %}
+
+            {% set user_data = display_constructor(values=user.__dict__) %}
+            <form action="{{ url_for('dashboard') }}">
+                {{ user_data.csrf_token }}
+                {{ user_data.first_name.label }}
+                {{ user_data.first_name }}<br>
+                {{ user_data.surname.label }}
+                {{ user_data.surname }}<br>
+                {{ user_data.birth_date.label }}
+                {{ user_data.birth_date }}<br>
+                {{ user_data.bio.label }}
+                {{ user_data.bio }}<br>
+            </form>
+            {% else %}
+
+            {% set user_data = display_constructor(values=user.__dict__, readonly=False) %}
+            <form action="{{ url_for('dashboard') }}" method="POST">
+                {{ user_data.csrf_token }}
+                {{ user_data.first_name.label }}
+                {{ user_data.first_name }}<br>
+                {{ user_data.surname.label }}
+                {{ user_data.surname }}<br>
+                {{ user_data.birth_date.label }}
+                {{ user_data.birth_date }}<br>
+                {{ user_data.bio.label }}
+                {{ user_data.bio }}<br>
+                <input type="submit" value="Atualizar" name="update">
+            </form>
+            {% endif %}
         </div>
-        {% if not edit_mode %}
 
-        {% set user_data = display_constructor(values=user.__dict__) %}
-        <form action="{{ url_for('dashboard') }}">
-            {{ user_data.csrf_token }}
-            {{ user_data.first_name.label }}
-            {{ user_data.first_name }}<br>
-            {{ user_data.surname.label }}
-            {{ user_data.surname }}<br>
-            {{ user_data.birth_date.label }}
-            {{ user_data.birth_date }}<br>
-            {{ user_data.bio.label }}
-            {{ user_data.bio }}<br>
-        </form>
-        {% else %}
-
-        {% set user_data = display_constructor(values=user.__dict__, readonly=False) %}
-        <form action="{{ url_for('dashboard') }}" method="POST">
-            {{ user_data.csrf_token }}
-            {{ user_data.first_name.label }}
-            {{ user_data.first_name }}<br>
-            {{ user_data.surname.label }}
-            {{ user_data.surname }}<br>
-            {{ user_data.birth_date.label }}
-            {{ user_data.birth_date }}<br>
-            {{ user_data.bio.label }}
-            {{ user_data.bio }}<br>
-            <input type="submit" value="Atualizar" name="update">
-        </form>
-        {% endif %}
+        <div class="column">
+            <h3>Lâminas cadastradas:</h3>
+            {% if slides |length == 0 %}
+            Nenhuma lâmina cadastrada!
+            {% else %}
+            {% for slide in slides %}
+            {% set uploaded = slides[slide]['object'].uploaded_at.__str__() %}
+            <ol>Nome: {{ (slides[slide]['meta']['slide_title']) }} | enviada em: {{
+                uploaded[8:10] + '/' + uploaded[5:7] + '/' + uploaded[0:4]
+                }} </ol>
+            {% endfor %}
+            {% endif %}
+            {% if render_add_form %}
+            <form action="{{ url_for('dashboard') }}" method="POST" enctype="multipart/form-data">
+                {{ add_slide_form.csrf_token }}
+                {{ add_slide_form.name.label }}
+                {{ add_slide_form.name }}<br>
+                {{ add_slide_form.species.label }}
+                {{ add_slide_form.species }}<br>
+                {{ add_slide_form.scan_date.label }}
+                {{ add_slide_form.scan_date }}<br>
+                {{ add_slide_form.image_file }}
+                <input type="submit" value="Enviar" name="add_slide">
+            </form>
+            {% else %}
+            <form action="{{ url_for('dashboard') }}" method="POST">
+                <input type="submit" value="Adicionar" name="add_slide">
+            </form>
+            {% endif %}
+        </div>
     </div>
 
-    <div class="column">
-        <h3>Lâminas cadastradas:</h3>
-        {% if slides |length == 0 %}
-        Nenhuma lâmina cadastrada!
-        {% else %}
-        {% for slide in slides %}
-        {% set uploaded = slides[slide]['object'].uploaded_at.__str__() %}
-        <ol>Nome: {{ (slides[slide]['meta']['slide_title']) }} | enviada em: {{
-            uploaded[8:10] + '/' + uploaded[5:7] + '/' + uploaded[0:4]
-            }} </ol>
-        {% endfor %}
-        {% endif %}
-        {% if render_add_form %}
-        <form action="{{ url_for('dashboard') }}" method="POST" enctype="multipart/form-data">
-            {{ add_slide_form.csrf_token }}
-            {{ add_slide_form.name.label }}
-            {{ add_slide_form.name }}<br>
-            {{ add_slide_form.species.label }}
-            {{ add_slide_form.species }}<br>
-            {{ add_slide_form.scan_date.label }}
-            {{ add_slide_form.scan_date }}<br>
-            {{ add_slide_form.image_file }}
-            <input type="submit" value="Enviar" name="add_slide">
-        </form>
-        {% else %}
-        <form action="{{ url_for('dashboard') }}" method="POST">
-            <input type="submit" value="Adicionar" name="add_slide">
-        </form>
-        {% endif %}
-    </div>
-</div>
-{% endblock %}
+
+
+
+    <!-- JavaScript Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
