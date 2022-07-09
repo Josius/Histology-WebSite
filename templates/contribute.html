@@ -17,86 +17,85 @@
 </head>
 
 
-<body style="background-color: #d3e1ed">
+<body>
     <br>
     <br>
     <br>
 
-    <div class="container">
 
-        <!--nav bar-->
-        <nav class="navbar  fixed-top" style="background-color: #64c4d2; border-bottom: solid 4px #fcb421;">
-            <div class="container-fluid">
-
-
-                <!-- espaco em branco -->
-                <p>&nbsp;&nbsp;</p>
+    <!--nav bar-->
+    <nav class="navbar  fixed-top" style="background-color: #64c4d2; border-bottom: solid 4px #fcb421;">
+        <div class="container-fluid">
 
 
-                <!-- menu retratil -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
-                    aria-labelledby="offcanvasNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-size:x-large"><b>Menu</b></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="font-size: larger;">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/"><i class="bi bi-house-door"></i>
-                                    Home</a>
-                            </li>
+            <!-- espaco em branco -->
+            <p>&nbsp;&nbsp;</p>
 
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/index/Principal"><i
-                                        class="bi bi-book"></i> Indice</a>
-                            </li>
-                            <!-- <li class="nav-item">
+
+            <!-- menu retratil -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel" style="font-size:x-large"><b>Menu</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3" style="font-size: larger;">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/"><i class="bi bi-house-door"></i>
+                                Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/index/Principal"><i
+                                    class="bi bi-book"></i> Indice</a>
+                        </li>
+                        <!-- <li class="nav-item">
 								<a class="nav-link active" aria-current="page" href="./contribute"><i
 										class="bi bi-file-earmark-text"></i> Contribua</a>
 							</li> -->
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/help"><i
-                                        class="bi bi-envelope"></i> Ajuda</a>
-                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/help"><i class="bi bi-envelope"></i>
+                                Ajuda</a>
+                        </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-search"></i> Navegar</a>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                                    <li><a class="dropdown-item" href="/browse">Página Navegar</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <form method="GET" action="{{url_for('browse')}}" class="d-flex" role="search">
-                                            <input class="form-control me-2" type="search"
-                                                placeholder="Busque diretamente" name="searched">
-                                            <button class="btn btn-outline-success" type="submit">Search</button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-search"></i> Navegar</a>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                                <li><a class="dropdown-item" href="/browse">Página Navegar</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li>
+                                    <form method="GET" action="{{url_for('browse')}}" class="d-flex" role="search">
+                                        <input class="form-control me-2" type="search" placeholder="Busque diretamente"
+                                            name="searched">
+                                        <button class="btn btn-outline-success" type="submit">Search</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-
-
-
             </div>
-        </nav>
 
 
-    </div>
 
-    <div class="d-flex row justify-content-center" 
-    style="padding-top:60px; background-color: #ededed; margin:3rem;border-radius: 30px;">
+        </div>
+    </nav>
+
+
+
+
+    <div class="d-flex row justify-content-center"
+        style="padding-top:60px; background-color: #ededed; margin:3rem;border-radius: 30px;">
 
 
         <div style="margin: 20px; max-width: 400px;">
@@ -104,9 +103,7 @@
             <form action="{{ url_for('login') }}" method="POST">
 
                 <h3>Login</h3>
-                {{ login_form.csrf_token }}
-                <div class="form-group" style="padding-top:5px">
-                    {{ login_form.email.label }}<br>
+                {{ login_form.csrf_token }}</div>
                     {{ login_form.email }}
                 </div>
                 <div class="form-group" style="padding-top:5px">
@@ -139,11 +136,11 @@
                     {{ sign_up_form.password.label }}<br>
                     {{ sign_up_form.password }}
                 </div>
-                <div class="form-group" style="padding-top:5px"> 
+                <div class="form-group" style="padding-top:5px">
                     {{ sign_up_form.password2.label }}<br>
                     {{ sign_up_form.password2 }}<br>
                     <small class="form-text text-muted">
-                        ATENÇÃO: a plataforma está em estágios iniciais de desenvolvimento, 
+                        ATENÇÃO: a plataforma está em estágios iniciais de desenvolvimento,
                         recomenda-se utilizar senhas diferentes das de costume</small>
                 </div>
 
