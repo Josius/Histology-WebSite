@@ -42,24 +42,18 @@ class Img(TableBase):
     __tablename__ = 'imgs'
 
     id = Column(Integer, primary_key=True)
-    name=Column(String, unique=True, nullable=False) #nome da imagem
+    nome=Column(String, unique=True, nullable=False) #nome da imagem
+
     imgs_pff=Column(String, unique=True, nullable=False) # caminho da imagem .pff
     imgs_min=Column(String, unique=True, nullable=False) # caminho da imagem .jpg(miniatura)
 
-class Info(TableBase):
-    __tablename__='info'
-
-    id = Column(Integer, primary_key=True)
-    imgs_id = Column(Integer, ForeignKey('imgs.id'))
-
-    nome_da_lamina = Column(String, unique=True, nullable=False)
+    numero_da_lamina = Column(String, unique=True, nullable=False)
     tecido = Column(String, nullable=False)
     coloracao = Column(String, nullable=False)
     tamanho_da_imagem = Column(String, nullable=False)
     tamanho_pixel = Column(String, nullable=False) #tamanho do pixel 
-    resolução = Column(String, nullable=False)
-    magnificação = Column(String, nullable=False) #até quanto vai o zoom
-    fonte = Column(String, nullable=False)
-
+    resolucao = Column(String, nullable=False)
+    magnificacao = Column(String, nullable=False) #até quanto vai o zoom
+    cap = Column(String, nullable=False)
 
 TableBase.metadata.create_all(db.engine)

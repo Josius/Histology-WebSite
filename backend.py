@@ -12,7 +12,7 @@ from configparser import ConfigParser
 from db import db_session
 from werkzeug.utils import secure_filename
 import models
-from models import Img, Info
+from models import Img
 import datetime
 import forms
 from forms import SearchForm
@@ -43,12 +43,12 @@ def home():
 @backend.route('/chapters/<string:cap>', methods=['GET', 'POST'])
 def chapters(cap):
 
-        list = ['1','2','3','4','5','6','7','8','9','10','11','12','13']
-        if cap in list:
-            return render_template('chapters/capítulo-%s.html'%(cap), page_name='Capitulos',current_year=current_year,
+    list = ['1','2','3','4','5','6','7','8','9','10','11','12','13']
+    if cap in list:
+        return render_template('chapters/capítulo-%s.html'%(cap), page_name='Capitulos',current_year=current_year,
                                 current_version=current_version)
         
-        return render_template('chapters.html', page_name='Capitulos',current_year=current_year,
+    return render_template('chapters.html', page_name='Capitulos',current_year=current_year,
                                 current_version=current_version)
 
 
@@ -59,7 +59,6 @@ def browse():
 
     searched = request.args.get('searched')
     filtro = request.args.get('filtro')
-    tableName = None
 
     if searched:
 
@@ -69,40 +68,27 @@ def browse():
         
 
         if filtro == 'name' or filtro == 'none':
-            tableName = 'Img'
+
             imgs = db_session.query(models.Img).filter(Img.name.ilike(r"%{}%".format(searched)))
 
         if filtro == 'nome_da_lamina':
-            tableName = 'Info'
-            imgs = db_session.query(models.Info).filter(Info.nome_da_lamina.ilike(r"%{}%".format(searched)))
+
+            imgs = db_session.query(models.Img).filter(Img.numero_da_lamina.ilike(r"%{}%".format(searched)))
 
         if filtro == 'tecido':
-            tableName = 'Info'
-            imgs = db_session.query(models.Info).filter(Info.tecido.ilike(r"%{}%".format(searched)))
+
+            imgs = db_session.query(models.Img).filter(Img.tecido.ilike(r"%{}%".format(searched)))
 
         if filtro == 'coloracao':
-            tableName = 'Info'
-            imgs = db_session.query(models.Info).filter(Info.coloracao.ilike(r"%{}%".format(searched)))
+
+            imgs = db_session.query(models.Img).filter(Img.coloracao.ilike(r"%{}%".format(searched)))
 
         if filtro == 'fonte':
-            tableName = 'Info'
-            imgs = db_session.query(models.Info).filter(Info.fonte.ilike(r"%{}%".format(searched)))
+
+            imgs = db_session.query(models.Img).filter(Img.cap.ilike(r"%{}%".format(searched)))
     else:
-        tableName = 'Img'
+
         imgs = db_session.query(models.Img)
-
-    if(tableName == 'Info'):
-        list = []
-        for y in imgs:
-            list += [y.imgs_id]
-        print(list)
-        imgs = db_session.query(models.Img).filter(Img.id.in_(list))
-
-    list = []
-    for i in imgs:
-        list.append([i.id])
-        
-    info = db_session.query(models.Img).filter(Info.imgs_id.in_(list))
 
     quant = 0
     for x in imgs:
@@ -119,11 +105,9 @@ def browse():
     if filtro == 'coloracao': filtro = 'Coloração'
     if filtro == 'fonte': filtro = 'Fonte'
 
-    info = db_session.query(models.Info)
-
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, nome_arq=arq_nome, imgs=imgs,
-                           searched=searched, quant=quant, filtro=filtro, info = info)
+                           searched=searched, quant=quant, filtro=filtro)
 
 
 @backend.route('/viewport/<int:img_id>', methods=['GET', 'POST'])
@@ -132,7 +116,7 @@ def viewport(img_id):
     arq_path = forms.ArqImgForm()
     
 
-    info = db_session.query(models.Info).filter_by(imgs_id=img_id).first()
+    img = db_session.query(models.Img).filter_by(id=img_id).first()
 
     if request.method == 'POST':
         dados = []
@@ -155,7 +139,7 @@ def viewport(img_id):
     return render_template(
         'view.html',
         current_year=current_year, current_version=current_version,
-        imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg, info = info)
+        imageFile=image, xmlFile=xml, htmlFile=html, nomeImagem=nmImg, img=img)
 
 
 @ backend.route('/index/<string:id>', methods=['GET', 'POST'])

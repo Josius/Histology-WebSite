@@ -51,7 +51,7 @@
         <div class="row">
             {% for img in imgs %}
             {% if id in list and
-            img.name[0].lower() == id.lower() %}
+            img.nome[0].lower() == id.lower() %}
             <div class=" text-center text-lg-start">
                 <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
 
@@ -62,10 +62,10 @@
                         <div class="col-lg-3 col-md-4 col-6 card " style="text-align:left">
                             <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="card-img-top">
                             <div class="card-body">
-                                <h5 class="card-title">{{img.name}}</h5>
+                                <h5 class="card-title">{{img.nome}}</h5>
                                 <!-- <p class="card-text">{{img.tecido}}</p> -->
                                 <p class="card-text"><small
-                                        class="text-muted">{{img.nome_da_lamina}}<br>{{img.tecido}}</small></p>
+                                        class="text-muted">{{img.numero_da_lamina}}<br>{{img.tecido}}</small></p>
                             </div>
                         </div>
                     </button>
@@ -86,10 +86,10 @@
                         <div class="col-lg-3 col-md-4 col-6 card " style="text-align:left">
                             <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="card-img-top">
                             <div class="card-body">
-                                <h5 class="card-title">{{img.name}}</h5>
+                                <h5 class="card-title">{{img.nome}}</h5>
                                 <!-- <p class="card-text">{{img.tecido}}</p> -->
                                 <p class="card-text"><small
-                                        class="text-muted">{{img.nome_da_lamina}}<br>{{img.tecido}}</small></p>
+                                        class="text-muted">{{img.numero_da_lamina}}<br>{{img.tecido}}</small></p>
                             </div>
                         </div>
                     </button>
