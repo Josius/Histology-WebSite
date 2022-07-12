@@ -165,6 +165,32 @@
         </article>
     </div>
 
+    <div class="container">
+        <div class="row">
+            {% for img in imgs %}
+            <div class="row text-center text-lg-start">
+                <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
+
+                    {{ nome_arq.csrf_token }}
+                    {{ nome_arq.arq_nome(value=img.imgs_pff) }}
+
+                    <button type="submit" class="miniatura-btn container-fluid">
+                        <div class="col-lg-3 col-md-4 col-6 card " style="text-align:left">
+                            <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{img.nome}}</h5>
+                                <!-- <p class="card-text">{{img.tecido}}</p> -->
+                                <p class="card-text"><small class="text-muted">{{img.numero_da_lamina}}<br>{{img.tecido}}</small></p>
+                              </div>
+                        </div>
+                    </button>
+                    <br>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}

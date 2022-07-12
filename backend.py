@@ -43,13 +43,22 @@ def home():
 @backend.route('/chapters/<string:cap>', methods=['GET', 'POST'])
 def chapters(cap):
 
+    arq_nome = forms.ArqImgForm()
+
+    imgs = db_session.query(models.Img)
+
     list = ['1','2','3','4','5','6','7','8','9','10','11','12','13']
     if cap in list:
-        return render_template('chapters/capítulo-%s.html'%(cap), page_name='Capitulos',current_year=current_year,
-                                current_version=current_version)
         
+        imgs= db_session.query(models.Img).filter(Img.cap.contains(cap))
+
+        return render_template('chapters/capítulo-%s.html'%(cap), page_name='Capitulos',current_year=current_year,
+                                current_version=current_version, imgs = imgs, nome_arq=arq_nome)
+
+    
+
     return render_template('chapters.html', page_name='Capitulos',current_year=current_year,
-                                current_version=current_version)
+                                current_version=current_version,imgs=imgs, nome_arq=arq_nome)
 
 
 @backend.route('/browse', methods=['GET', 'POST'])
@@ -67,11 +76,11 @@ def browse():
         imgs = db_session.query(models.Img)
         
 
-        if filtro == 'name' or filtro == 'none':
+        if filtro == 'nome' or filtro == 'none':
 
-            imgs = db_session.query(models.Img).filter(Img.name.ilike(r"%{}%".format(searched)))
+            imgs = db_session.query(models.Img).filter(Img.nome.ilike(r"%{}%".format(searched)))
 
-        if filtro == 'nome_da_lamina':
+        if filtro == 'numero_da_lamina':
 
             imgs = db_session.query(models.Img).filter(Img.numero_da_lamina.ilike(r"%{}%".format(searched)))
 
@@ -83,7 +92,7 @@ def browse():
 
             imgs = db_session.query(models.Img).filter(Img.coloracao.ilike(r"%{}%".format(searched)))
 
-        if filtro == 'fonte':
+        if filtro == 'cap':
 
             imgs = db_session.query(models.Img).filter(Img.cap.ilike(r"%{}%".format(searched)))
     else:
@@ -99,11 +108,11 @@ def browse():
     else:
         quant = "Nenhuma Encontrada"
 
-    if filtro == 'name': filtro = 'Nome'
-    if filtro == 'nome_da_lamina': filtro = 'Nome da Lamina'
+    if filtro == 'nome': filtro = 'Nome'
+    if filtro == 'numero_da_lamina': filtro = 'Nome da Lamina'
     if filtro == 'tecido': filtro = 'Tecido'
     if filtro == 'coloracao': filtro = 'Coloração'
-    if filtro == 'fonte': filtro = 'Fonte'
+    if filtro == 'cap': filtro = 'Capítulo'
 
     return render_template('browse.html', page_name='Navegar', current_year=current_year,
                            version=current_version, nome_arq=arq_nome, imgs=imgs,

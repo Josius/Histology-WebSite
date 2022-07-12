@@ -1,15 +1,14 @@
-
-INSERT INTO imgs (name, imgs_pff, imgs_min, nome_da_lamina, tecido,
-                  tamanho_da_imagem, tamanho_pixel, resolução,
-                  magnificação, fonte)
+INSERT INTO imgs (nome, imgs_pff, imgs_min, numero_da_lamina, tecido, coloracao
+                  ,tamanho_da_imagem, tamanho_pixel, resolucao,
+                  magnificacao, cap)
 VALUES ('Pele Fina', 'L60PelefinaHE40XB', 
         'imgsMini/L60PeleFinaHE40XB.jpg',
-       'LP02 - PELE FINA ','Pele fina coxim (gato)',
+       'LP02','Pele fina coxim (gato)',
        'hematoxilina e eosina: ',
        'indefinido',
        'indefinido',
        'indefinido',
        'indefinido',
-       'Faculdade de Odontologia de Bauru / Universidade de São Paulo- São Paulo, Brasil.'); 
+       '7'); 
 
 ***ver questão da pk, se é interessante criar um código que divida as imagens***
