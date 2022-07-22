@@ -24,6 +24,8 @@
 
     <div class="container">
 
+
+
         <!--nav bar-->
         <nav class="navbar  fixed-top" style="background-color: #64c4d2; border-bottom: solid 4px #fcb421;">
             <div class="container-fluid">
@@ -95,8 +97,10 @@
 
     </div>
 
-    <div class="d-flex row justify-content-center" 
-    style="padding-top:60px; background-color: #ededed; margin:3rem;border-radius: 30px;">
+    <div class="d-flex row justify-content-center"
+        style="padding-top:60px; background-color: #ededed; margin:3rem;border-radius: 30px;">
+
+        <h1 style="text-align: center;"><b>Área Restrita</b></h1>
 
 
         <div style="margin: 20px; max-width: 400px;">
@@ -139,13 +143,17 @@
                     {{ sign_up_form.password.label }}<br>
                     {{ sign_up_form.password }}
                 </div>
-                <div class="form-group" style="padding-top:5px"> 
+                <div class="form-group" style="padding-top:5px">
                     {{ sign_up_form.password2.label }}<br>
                     {{ sign_up_form.password2 }}<br>
                     <small class="form-text text-muted">
-                        ATENÇÃO: a plataforma está em estágios iniciais de desenvolvimento, 
+                        ATENÇÃO: a plataforma está em estágios iniciais de desenvolvimento,
                         recomenda-se utilizar senhas diferentes das de costume</small>
                 </div>
+                <br>
+
+                <button type="button" class="btn btn-lg btn-danger" data-bs-toggle="popover" data-bs-title="Sobre" data-bs-content="Esse cadastro é feito para que outros possoam contribuir no projeto fazendo upload de novas lâminas, textos, etc.">Sobre esse Cadastro</button>
+
 
                 <div style="padding-top:8px">
                     <input type="submit" value="Enviar" class="btn btn-primary">
@@ -154,14 +162,26 @@
             <br>
             <br>
             <br>
+            
 
 
         </div>
-        <!-- JavaScript Bootstrap -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-            crossorigin="anonymous"></script>
 
+
+
+
+    </div>
+
+    <!-- JavaScript Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <!-- JavaScript Popover(botão com balão)-->
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    </script>
 </body>
 
 </html>
