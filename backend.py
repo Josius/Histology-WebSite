@@ -109,7 +109,7 @@ def browse():
         quant = "Nenhuma Encontrada"
 
     if filtro == 'nome': filtro = 'Nome'
-    if filtro == 'numero_da_lamina': filtro = 'Nome da Lamina'
+    if filtro == 'numero_da_lamina': filtro = 'Nome da Lâmina'
     if filtro == 'tecido': filtro = 'Tecido'
     if filtro == 'coloracao': filtro = 'Coloração'
     if filtro == 'cap': filtro = 'Capítulo'
