@@ -58,7 +58,7 @@ body {
   border-top-width: 4px;
   border-top-style: solid;
   display: grid;
-  grid-template-areas: ". menua menub menuc menud menue menuf .";
+  grid-template-areas: ". menua menub menuc menud menue menuf menug .";
   justify-content: center;
   /* position: sticky; */
   top: 0px;
@@ -70,6 +70,7 @@ body {
   color: white;
 }
 
+.item-b .item-b7 a,
 .item-b .item-b6 a,
 .item-b .item-b5 a,
 .item-b .item-b4 a,
@@ -82,6 +83,7 @@ body {
   text-decoration: none;
 }
 
+.item-b .item-b7 a.active,
 .item-b .item-b6 a.active,
 .item-b .item-b5 a.active,
 .item-b .item-b4 a.active,
@@ -94,6 +96,7 @@ body {
   padding-right: 0.99rem;
 }
 
+.item-b .item-b7 a:hover,
 .item-b .item-b6 a:hover,
 .item-b .item-b5 a:hover,
 .item-b .item-b4 a:hover,
@@ -109,6 +112,7 @@ body {
 }
 
 .item-b .item-b2 {
+  
   grid-area: menub;
 }
 
@@ -126,6 +130,10 @@ body {
 
 .item-b .item-b6 {
   grid-area: menuf;
+}
+
+.item-b .item-b7 {
+  grid-area: menug;
 }
 
 .item-c {
