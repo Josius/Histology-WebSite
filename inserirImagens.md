@@ -2,7 +2,7 @@
 INSERT INTO imgs (nome, imgs_pff, imgs_min, numero_da_lamina, tecido, coloracao
                   ,tamanho_da_imagem, tamanho_pixel, resolucao,
                   magnificacao, cap)
-VALUES ('Pele Grossa', 'L01PeleGrossaCoximDeGatoL2HE40X', 
+VALUES ('Pele Grossa', 'L01PeleGrossaCoximdeGatoL2HE40X', 
         'imgsMini/L01PeleGrossaBHE.jpg',
        'L01','Pele Grossa Coxim(gato)',
        'hematoxilina e eosina',
