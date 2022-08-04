@@ -48,22 +48,22 @@
 
 
 
-        <div class="row">
+        <div class="row text-center text-lg-start">
             {% for img in imgs %}
             {% if id in list and
             img.nome[0].lower() == id.lower() %}
-            <div class=" text-center text-lg-start">
+
+            <div class="col-lg-3 col-md-4 col-6">
                 <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
 
                     {{ nome_arq.csrf_token }}
                     {{ nome_arq.arq_nome(value=img.imgs_pff) }}
 
-                    <button type="submit" class="miniatura-btn container-fluid">
-                        <div class="col-lg-3 col-md-4 col-6 card " style="text-align:left">
+                    <button type="submit" class="miniatura-btn container">
+                        <div class="card " style="text-align:left">
                             <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{img.nome}}</h5>
-                                <!-- <p class="card-text">{{img.tecido}}</p> -->
                                 <p class="card-text"><small
                                         class="text-muted">{{img.numero_da_lamina}}<br>{{img.tecido}}</small></p>
                             </div>
@@ -76,18 +76,17 @@
 
             {% if id not in list %}
 
-            <div class=" text-center text-lg-start">
+            <div class="col-lg-3 col-md-4 col-6">
                 <form action="{{ url_for('viewport', img_id = img.id ) }}" method="POST">
 
                     {{ nome_arq.csrf_token }}
                     {{ nome_arq.arq_nome(value=img.imgs_pff) }}
 
-                    <button type="submit" class="miniatura-btn container-fluid">
-                        <div class="col-lg-3 col-md-4 col-6 card " style="text-align:left">
+                    <button type="submit" class="miniatura-btn container">
+                        <div class="card " style="text-align:left">
                             <img src="{{url_for('static', filename=img.imgs_min)}}" alt="" class="card-img-top">
                             <div class="card-body">
                                 <h5 class="card-title">{{img.nome}}</h5>
-                                <!-- <p class="card-text">{{img.tecido}}</p> -->
                                 <p class="card-text"><small
                                         class="text-muted">{{img.numero_da_lamina}}<br>{{img.tecido}}</small></p>
                             </div>
@@ -96,10 +95,13 @@
                     <br>
                 </form>
             </div>
+
+            {% endif %}
+            {% endfor %}
+
         </div>
 
-        {% endif %}
-        {% endfor %}
+
     </div>
 </div>
 
